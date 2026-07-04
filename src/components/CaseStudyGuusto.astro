@@ -1,0 +1,346 @@
+---
+// Content verbatim (condensed for web layout) from
+// projects/portfolio-website/content/case-study-guusto.md — approved copy.
+// Screenshots: guusto_screenshot_appstore_01..07, optimized to webp under
+// public/images/guusto/. guusto_productimg_web_02 (web dashboard) is
+// intentionally excluded per the scope guardrail in plan.md.
+
+const screenshots = Array.from({ length: 7 }, (_, i) => {
+  const num = String(i + 1).padStart(2, "0");
+  return {
+    src: `/images/guusto/screenshot-${num}.webp`,
+    alt: screenshotAlt(i + 1),
+  };
+});
+
+function screenshotAlt(n: number) {
+  const alts: Record<number, string> = {
+    1: "Guusto app home screen with Send Gift and Redeem tiles and a recent activity feed",
+    2: "Guusto app nomination box showing peer recognition messages",
+    3: "Guusto app merchant selection screen with 60,000+ redemption locations",
+    4: "Guusto app redeem gifts screen showing a Guusto gift card",
+    5: "Guusto app order confirmation screen with a charity donation tie-in",
+    6: "Guusto app nomination box with nominations and leaderboard tabs",
+    7: "Guusto app gift reports screen with a claimed/unclaimed spend breakdown",
+  };
+  return alts[n] ?? "Guusto mobile app screenshot";
+}
+
+const whatIDid = [
+  "Designed the app architecture and built it from scratch in React Native + TypeScript, working from Figma designs, and shipped it to both stores.",
+  "Integrated the app with Guusto's existing AWS-based backend services.",
+  "Built and maintained the push notification infrastructure end-to-end.",
+  "Owned six years of continuous delivery: feature development, bug fixes, performance work, and release management for every version on both stores.",
+  "Shipped features across the app's life: notification center, Google Sign-In, wallet integration, activity feed with department/location filters, multi-recipient recognition, AI-assisted message suggestions, physical Mastercard/Visa card support, and the v4.13 home experience redesign (June 2026).",
+  "Worked cross-functionally with web, backend, design, and product from requirements through release; Bitbucket + Jira workflow.",
+  "Adopted AI-assisted development (Claude Code, Codex) for speed and code review.",
+  "Final 3 months: ran the full technical handover — documentation, training, and onboarding for the incoming replacement team as engineering consolidated to HQ hours.",
+];
+
+const stats = [
+  "6+ years sole ownership",
+  "2 platforms from one codebase",
+  "4.0★ App Store",
+  "v4.13.0 current (June 2026)",
+  "releases every 4–6 months or as features complete",
+];
+---
+
+<section id="work" class="case-study">
+  <div class="container">
+    <h2 class="section-heading">Featured work</h2>
+
+    <article class="case-study__card">
+      <header class="case-study__header">
+        <img
+          class="case-study__icon"
+          src="/images/guusto/app-icon.webp"
+          width="64"
+          height="64"
+          alt="Guusto app icon"
+          loading="lazy"
+        />
+        <div>
+          <p class="eyebrow">Guusto — Recognition &amp; Rewards · iOS + Android · React Native</p>
+          <h3>Sole frontend developer, March 2020 – July 2026</h3>
+        </div>
+      </header>
+
+      <p class="case-study__oneliner">
+        Built Guusto's mobile app from scratch as the only frontend developer
+        on it — from first commit to the App Store and Google Play — then
+        owned every release for six years.
+      </p>
+
+      <p class="case-study__context">
+        Guusto is an employee recognition platform used by HR teams to reach
+        frontline workers — nurses, retail staff, drivers — who miss
+        email-based recognition. The mobile app is how those workers receive
+        and redeem rewards.
+        <em>(App context only; web platform built by a separate team.)</em>
+      </p>
+
+      <h4>What I did</h4>
+      <ul class="case-study__list">
+        {whatIDid.map((line) => <li>{line}</li>)}
+      </ul>
+
+      <ul class="case-study__stats">
+        {stats.map((s) => <li>{s}</li>)}
+      </ul>
+
+      <h4>Screenshots</h4>
+      <div class="carousel" id="guusto-carousel">
+        <div class="carousel__track" role="list">
+          {
+            screenshots.map((shot, i) => (
+              <button
+                type="button"
+                class="carousel__item"
+                role="listitem"
+                data-index={i}
+                aria-label={`Open screenshot ${i + 1} of ${screenshots.length}: ${shot.alt}`}
+              >
+                <img
+                  src={shot.src}
+                  alt={shot.alt}
+                  loading="lazy"
+                  width="450"
+                  height="800"
+                />
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close screenshot viewer">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Previous screenshot">‹</button>
+    <img class="lightbox__image" id="lightbox-image" src="" alt="" />
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Next screenshot">›</button>
+  </div>
+</section>
+
+<style>
+  .case-study__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+  }
+
+  .case-study__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .case-study__icon {
+    border-radius: 1rem;
+    flex-shrink: 0;
+  }
+
+  .case-study__header h3 {
+    margin: 0.15rem 0 0;
+    font-size: 1.3rem;
+  }
+
+  .case-study__oneliner {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .case-study__context {
+    color: var(--color-text-muted);
+    max-width: 68ch;
+  }
+
+  .case-study__context em {
+    font-style: italic;
+    opacity: 0.85;
+  }
+
+  .case-study h4 {
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-2);
+    font-size: 1rem;
+    color: var(--color-accent-strong);
+  }
+
+  .case-study__list {
+    color: var(--color-text-muted);
+    max-width: 72ch;
+    padding-left: 1.2rem;
+  }
+
+  .case-study__list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .case-study__stats {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: var(--space-3) 0;
+  }
+
+  .case-study__stats li {
+    background: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+  }
+
+  .carousel__track {
+    display: flex;
+    gap: var(--space-2);
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+    scroll-snap-type: x mandatory;
+  }
+
+  .carousel__item {
+    flex: 0 0 auto;
+    width: 140px;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    scroll-snap-align: start;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: transform 0.15s, border-color 0.15s;
+  }
+
+  .carousel__item:hover,
+  .carousel__item:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+  }
+
+  .carousel__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 15, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+  }
+
+  .lightbox[hidden] {
+    display: none;
+  }
+
+  .lightbox__image {
+    max-height: 88vh;
+    max-width: 90vw;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .lightbox__close,
+  .lightbox__nav {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox__close {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .lightbox__nav--prev {
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox__nav--next {
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox__close:hover,
+  .lightbox__nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+</style>
+
+<script>
+  const items = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("#guusto-carousel .carousel__item")
+  );
+  const lightbox = document.getElementById("lightbox") as HTMLDivElement | null;
+  const lightboxImage = document.getElementById("lightbox-image") as HTMLImageElement | null;
+  const closeBtn = document.getElementById("lightbox-close");
+  const prevBtn = document.getElementById("lightbox-prev");
+  const nextBtn = document.getElementById("lightbox-next");
+
+  let currentIndex = 0;
+
+  function openAt(index: number) {
+    if (!lightbox || !lightboxImage) return;
+    currentIndex = (index + items.length) % items.length;
+    const img = items[currentIndex].querySelector("img");
+    if (img) {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+    }
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function close() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener("click", () => openAt(i));
+  });
+
+  closeBtn?.addEventListener("click", close);
+  prevBtn?.addEventListener("click", () => openAt(currentIndex - 1));
+  nextBtn?.addEventListener("click", () => openAt(currentIndex + 1));
+
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (lightbox?.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") openAt(currentIndex - 1);
+    if (e.key === "ArrowRight") openAt(currentIndex + 1);
+  });
+</script>

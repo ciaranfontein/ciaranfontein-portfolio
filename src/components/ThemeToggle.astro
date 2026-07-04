@@ -1,0 +1,78 @@
+---
+// Theme toggle: persists explicit user choice in localStorage; falls back to
+// system preference (prefers-color-scheme) when no explicit choice is stored.
+// The blocking inline script in <head> (see BaseLayout) sets data-theme before
+// first paint to avoid a flash of the wrong theme.
+---
+
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Toggle dark mode"
+  title="Toggle dark mode"
+>
+  <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--color-accent);
+  }
+
+  :root[data-theme="dark"] .theme-toggle__icon::before {
+    content: "☀️";
+  }
+
+  :root[data-theme="light"] .theme-toggle__icon::before,
+  :root:not([data-theme]) .theme-toggle__icon::before {
+    content: "🌙";
+  }
+
+  .theme-toggle__icon {
+    font-size: 0;
+  }
+
+  .theme-toggle__icon::before {
+    font-size: 1.1rem;
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = "theme-preference";
+  const button = document.getElementById("theme-toggle");
+
+  function currentTheme(): "light" | "dark" {
+    const root = document.documentElement;
+    if (root.dataset.theme === "dark") return "dark";
+    if (root.dataset.theme === "light") return "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  button?.addEventListener("click", () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      // localStorage unavailable (private mode etc) — theme just won't persist
+    }
+  });
+</script>

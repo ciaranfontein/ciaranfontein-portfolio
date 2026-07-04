@@ -1,0 +1,86 @@
+---
+// Verbatim from site-copy.md (Skills section).
+const groups = [
+  {
+    label: "Core",
+    items: ["React Native", "TypeScript", "JavaScript", "React"],
+  },
+  {
+    label: "Mobile",
+    items: [
+      "iOS + Android release management",
+      "push notifications",
+      "deep links",
+      "app store submission/review",
+      "Figma design handoff",
+    ],
+  },
+  {
+    label: "Platform",
+    items: ["AWS service integration", "REST APIs", "Git/Bitbucket", "Jira"],
+  },
+  {
+    label: "Ways of working",
+    items: [
+      "AI-assisted development (Claude Code, Codex)",
+      "cross-functional + cross-timezone collaboration",
+      "technical handover & onboarding",
+    ],
+  },
+];
+---
+
+<section id="skills" class="skills">
+  <div class="container">
+    <h2 class="section-heading">Skills</h2>
+    <div class="skills__grid">
+      {
+        groups.map((group) => (
+          <div class="skills__group">
+            <h3>{group.label}</h3>
+            <ul>
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills__grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .skills__group {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+  }
+
+  .skills__group h3 {
+    margin: 0 0 var(--space-1);
+    font-size: 1rem;
+    color: var(--color-accent-strong);
+  }
+
+  .skills__group ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .skills__group li {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+</style>

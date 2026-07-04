@@ -1,0 +1,100 @@
+---
+// Verbatim from site-copy.md (Experience timeline section).
+const items = [
+  {
+    period: "2020–2026",
+    org: "Guusto Gifts Inc.",
+    role: "Frontend Engineer (Contract, remote)",
+    detail:
+      "Sole RN dev; see case study. Ended with full technical handover to successor team.",
+  },
+  {
+    period: "2019",
+    org: "BCIT",
+    role: "Web Development bootcamp",
+    detail: "React, React Native.",
+  },
+  {
+    period: "2011–2015",
+    org: "Computer Information Technology",
+    role: "Associate's + Game Development specialization",
+    detail: "",
+  },
+];
+---
+
+<section id="experience" class="experience">
+  <div class="container">
+    <h2 class="section-heading">Experience</h2>
+    <ol class="timeline">
+      {
+        items.map((item) => (
+          <li class="timeline__item">
+            <span class="timeline__period">{item.period}</span>
+            <div class="timeline__content">
+              <h3>{item.org}</h3>
+              <p class="timeline__role">{item.role}</p>
+              {item.detail && <p class="timeline__detail">{item.detail}</p>}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--color-border);
+    max-width: 60ch;
+  }
+
+  .timeline__item {
+    position: relative;
+    padding-left: var(--space-3);
+    padding-bottom: var(--space-4);
+  }
+
+  .timeline__item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline__item::before {
+    content: "";
+    position: absolute;
+    left: -0.4rem;
+    top: 0.35rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 999px;
+    background: var(--color-accent-strong);
+  }
+
+  .timeline__period {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent-strong);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline__content h3 {
+    margin: 0 0 0.15rem;
+    font-size: 1.1rem;
+  }
+
+  .timeline__role {
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .timeline__detail {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+</style>

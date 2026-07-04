@@ -1,0 +1,89 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="#top" class="site-header__brand">Ciaran Fontein</a>
+    <nav class="site-header__nav" aria-label="Primary">
+      <ul>
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <ThemeToggle />
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-block: 0.9rem;
+  }
+
+  .site-header__brand {
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  .site-header__nav {
+    flex: 1;
+    overflow-x: auto;
+  }
+
+  .site-header__nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .site-header__nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .site-header__nav a:hover {
+    color: var(--color-accent-strong);
+  }
+
+  @media (max-width: 640px) {
+    .site-header__nav ul {
+      gap: var(--space-2);
+      justify-content: flex-start;
+    }
+  }
+</style>
