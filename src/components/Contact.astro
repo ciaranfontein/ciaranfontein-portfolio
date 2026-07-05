@@ -5,9 +5,14 @@ import { RESUME_FILES, SITE } from "../site.config";
 <section id="contact" class="contact">
   <div class="container">
     <h2 class="section-heading">Contact</h2>
+    <p class="contact__cta">
+      Interviewing for senior React Native roles from August 2026 — email me.
+    </p>
     <ul class="contact__links">
       <li>
-        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        <a href={`mailto:${SITE.email}?subject=${encodeURIComponent("React Native role")}`}>
+          {SITE.email}
+        </a>
       </li>
       <li>
         <a href={SITE.github} target="_blank" rel="noopener noreferrer">
@@ -22,6 +27,9 @@ import { RESUME_FILES, SITE } from "../site.config";
     </ul>
 
     <h3 class="contact__resume-heading">Resume downloads</h3>
+    <p class="contact__jp-intro" lang="ja">
+      奈良在住のシニアReact Nativeエンジニア。ビザスポンサー不要、2026年8月より就業可能。日本語の履歴書・職務経歴書は下記よりダウンロードいただけます。
+    </p>
     <div class="contact__resumes">
       {
         RESUME_FILES.map((file) => (
@@ -43,6 +51,13 @@ import { RESUME_FILES, SITE } from "../site.config";
 </section>
 
 <style>
+  .contact__cta {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-3);
+  }
+
   .contact__links {
     list-style: none;
     margin: 0 0 var(--space-4);
@@ -57,6 +72,13 @@ import { RESUME_FILES, SITE } from "../site.config";
     font-size: 1rem;
     color: var(--color-text-muted);
     margin-bottom: var(--space-2);
+  }
+
+  .contact__jp-intro {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin: 0 0 var(--space-3);
   }
 
   .contact__resumes {

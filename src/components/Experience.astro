@@ -1,23 +1,54 @@
 ---
-// Verbatim from site-copy.md (Experience timeline section).
-const items = [
+// Verbatim from projects/portfolio-website/content/site-copy.md
+// (Experience & Education timeline section), corrected 2026-07-05: bootcamp
+// was RED Academy, not BCIT. Work entries first (reverse-chronological),
+// education entries after, visually distinguished with an "Education" label.
+const workItems = [
   {
     period: "2020–2026",
     org: "Guusto Gifts Inc.",
     role: "Frontend Engineer (Contract, remote)",
     detail:
-      "Sole RN dev; see case study. Ended with full technical handover to successor team.",
+      "Sole React Native developer; see case study. Ended with full technical handover to successor team.",
   },
   {
     period: "2019",
-    org: "BCIT",
-    role: "Web Development bootcamp",
-    detail: "React, React Native.",
+    org: "AdBusters Media Foundation (contract)",
+    role: "React Native Developer",
+    detail: "Built the World Revolution app to client + UX team requirements.",
   },
   {
-    period: "2011–2015",
-    org: "Computer Information Technology",
-    role: "Associate's + Game Development specialization",
+    period: "2019",
+    org: "Fraser Region Aboriginal Friendship Center Association (contract)",
+    role: "Web Developer",
+    detail: "Custom WordPress theme (PHP, JS animations, SCSS).",
+  },
+  {
+    period: "2012–2019",
+    org: "Independent game developer",
+    role: "Unity 3D / C#",
+    detail:
+      "Turn-based strategy, FPS, RPG, simulation, puzzle; shipped intuitive controls/menus for iOS, Android, Windows, Web.",
+  },
+];
+
+const educationItems = [
+  {
+    period: "2019",
+    org: "RED Academy",
+    role: "Full Stack Development bootcamp",
+    detail: "",
+  },
+  {
+    period: "2013–2015",
+    org: "BCIT",
+    role: "Game Development",
+    detail: "",
+  },
+  {
+    period: "2011–2013",
+    org: "BCIT",
+    role: "Computer Information Technology",
     detail: "",
   },
 ];
@@ -25,10 +56,26 @@ const items = [
 
 <section id="experience" class="experience">
   <div class="container">
-    <h2 class="section-heading">Experience</h2>
+    <h2 class="section-heading">Experience &amp; Education</h2>
     <ol class="timeline">
       {
-        items.map((item) => (
+        workItems.map((item) => (
+          <li class="timeline__item">
+            <span class="timeline__period">{item.period}</span>
+            <div class="timeline__content">
+              <h3>{item.org}</h3>
+              <p class="timeline__role">{item.role}</p>
+              {item.detail && <p class="timeline__detail">{item.detail}</p>}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="timeline__education-label">Education</p>
+    <ol class="timeline timeline--education">
+      {
+        educationItems.map((item) => (
           <li class="timeline__item">
             <span class="timeline__period">{item.period}</span>
             <div class="timeline__content">
@@ -96,5 +143,38 @@ const items = [
   .timeline__detail {
     margin: 0;
     color: var(--color-text-muted);
+  }
+
+  .timeline__education-label {
+    margin: var(--space-4) 0 var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .timeline--education {
+    opacity: 0.85;
+  }
+
+  .timeline--education .timeline__item::before {
+    background: var(--color-text-muted);
+    width: 0.5rem;
+    height: 0.5rem;
+    left: -0.35rem;
+  }
+
+  .timeline--education .timeline__period {
+    color: var(--color-text-muted);
+  }
+
+  .timeline--education .timeline__content h3 {
+    font-size: 1rem;
+  }
+
+  .timeline--education .timeline__role {
+    font-weight: 500;
+    font-size: 0.95rem;
   }
 </style>

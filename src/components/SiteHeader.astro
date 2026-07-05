@@ -42,7 +42,8 @@ const navLinks = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-2);
+    flex-wrap: wrap;
+    gap: 0.4rem var(--space-2);
     padding-block: 0.9rem;
   }
 
@@ -62,6 +63,7 @@ const navLinks = [
   .site-header__nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-3);
     margin: 0;
     padding: 0;
@@ -80,10 +82,34 @@ const navLinks = [
     color: var(--color-accent-strong);
   }
 
+  /* Narrow screens: nav can't fit on one line next to the name + toggle
+     (measured scrollWidth ~294px vs. ~150px available at 375px). Rather than
+     shrink text to unreadable sizes, let the whole header wrap: brand +
+     toggle stay on row one, nav drops to its own full-width row two and
+     wraps its links naturally. No hamburger, no JS. */
   @media (max-width: 640px) {
+    .site-header__inner {
+      justify-content: space-between;
+    }
+
+    .site-header__brand {
+      order: 1;
+    }
+
+    .site-header__nav {
+      order: 3;
+      flex: 1 0 100%;
+      overflow-x: visible;
+    }
+
+    :global(.theme-toggle) {
+      order: 2;
+    }
+
     .site-header__nav ul {
-      gap: var(--space-2);
+      gap: 0.5rem var(--space-2);
       justify-content: flex-start;
+      font-size: 0.85rem;
     }
   }
 </style>

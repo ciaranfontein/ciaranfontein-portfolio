@@ -73,10 +73,11 @@ const stats = [
       </p>
 
       <p class="case-study__context">
-        Guusto is an employee recognition platform used by HR teams to reach
-        frontline workers — nurses, retail staff, drivers — who miss
-        email-based recognition. The mobile app is how those workers receive
-        and redeem rewards.
+        Guusto is an employee recognition platform — rated 4.9 on G2 and
+        Capterra, used by employers like Marriott, Unilever, and the Toronto
+        Raptors — that reaches frontline workers (nurses, retail staff,
+        drivers) who miss email-based recognition. The mobile app is how
+        those workers receive and redeem rewards.
         <em>(App context only; web platform built by a separate team.)</em>
       </p>
 
@@ -99,6 +100,7 @@ const stats = [
                 class="carousel__item"
                 role="listitem"
                 data-index={i}
+                data-overflow={i >= 4}
                 aria-label={`Open screenshot ${i + 1} of ${screenshots.length}: ${shot.alt}`}
               >
                 <img
@@ -112,7 +114,34 @@ const stats = [
             ))
           }
         </div>
+        <button
+          type="button"
+          class="carousel__show-all"
+          id="guusto-show-all"
+        >
+          Show all {screenshots.length}
+        </button>
       </div>
+    </article>
+
+    <article class="case-study__card case-study__card--compact">
+      <header class="case-study__header">
+        <div>
+          <p class="eyebrow">Side project · Astro · TypeScript</p>
+          <h3>This website</h3>
+        </div>
+      </header>
+
+      <p class="case-study__context">
+        Designed and built from scratch with Astro and TypeScript — fully
+        static output, no client framework runtime shipped. The entire
+        client-side JS budget is a theme toggle and this screenshot
+        lightbox; everything else renders at build time. Built with an
+        AI-assisted development workflow (Claude Code).
+      </p>
+
+      <!-- ponytail: repo isn't public yet (GitHub Pages deploy is Phase 4).
+           Add the repo link here once ciaranfontein/portfolio is public. -->
     </article>
   </div>
 
@@ -131,6 +160,20 @@ const stats = [
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: var(--space-4);
+  }
+
+  .case-study__card--compact {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+  }
+
+  .case-study__card--compact h3 {
+    margin: 0.15rem 0 0;
+    font-size: 1.15rem;
+  }
+
+  .case-study__card--compact .case-study__context {
+    margin-bottom: 0;
   }
 
   .case-study__header {
@@ -230,6 +273,44 @@ const stats = [
     display: block;
   }
 
+  .carousel__show-all {
+    display: none;
+    margin-top: var(--space-2);
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .carousel__show-all:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-strong);
+  }
+
+  /* Mobile: cap the tall 7-screenshot grid at 4 tiles, reveal the rest via
+     the "Show all" button. Desktop (>=700px) always shows all 7 in the grid. */
+  @media (max-width: 699px) {
+    .carousel__item[data-overflow="true"] {
+      display: none;
+    }
+
+    .carousel.is-expanded .carousel__item[data-overflow="true"] {
+      display: block;
+    }
+
+    .carousel__show-all {
+      display: inline-block;
+    }
+
+    .carousel.is-expanded .carousel__show-all {
+      display: none;
+    }
+  }
+
   .lightbox {
     position: fixed;
     inset: 0;
@@ -295,6 +376,12 @@ const stats = [
   const items = Array.from(
     document.querySelectorAll<HTMLButtonElement>("#guusto-carousel .carousel__item")
   );
+  const carousel = document.getElementById("guusto-carousel");
+  const showAllBtn = document.getElementById("guusto-show-all");
+  showAllBtn?.addEventListener("click", () => {
+    carousel?.classList.add("is-expanded");
+  });
+
   const lightbox = document.getElementById("lightbox") as HTMLDivElement | null;
   const lightboxImage = document.getElementById("lightbox-image") as HTMLImageElement | null;
   const closeBtn = document.getElementById("lightbox-close");

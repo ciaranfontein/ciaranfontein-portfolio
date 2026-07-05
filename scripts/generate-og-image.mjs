@@ -22,7 +22,7 @@ const svg = `
   <circle cx="1080" cy="80" r="220" fill="#38bdf8" opacity="0.08" />
   <circle cx="120" cy="560" r="180" fill="#38bdf8" opacity="0.06" />
   <text x="80" y="230" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="72" font-weight="700" fill="#f8fafc">Ciaran Fontein</text>
-  <text x="80" y="300" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="40" font-weight="500" fill="#38bdf8">React Native Engineer</text>
+  <text x="80" y="300" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="36" font-weight="500" fill="#38bdf8">Senior React Native Engineer</text>
   <text x="80" y="380" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#cbd5e1">I build mobile apps from Figma to the App Store.</text>
   <text x="80" y="425" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#cbd5e1">6 years shipping Guusto's iOS + Android app.</text>
   <text x="80" y="520" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#94a3b8">Nara, Japan · Remote or Osaka</text>
