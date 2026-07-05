@@ -26,9 +26,6 @@ export const SITE = {
 } as const;
 
 // Each document offers every format that exists in public/resume/.
-// NOTE: rirekisho has no PDF yet — no office suite available to convert
-// with layout fidelity. Add /resume/rirekisho.pdf and a formats entry
-// here once exported (Word Online / Google Docs → PDF).
 export const RESUME_FILES = [
   {
     label: "CV",
@@ -43,7 +40,10 @@ export const RESUME_FILES = [
     label: "履歴書",
     sublabel: "Rirekisho",
     lang: "ja",
-    formats: [{ ext: "DOCX", href: "/resume/rirekisho.docx" }],
+    formats: [
+      { ext: "PDF", href: "/resume/rirekisho.pdf" },
+      { ext: "DOCX", href: "/resume/rirekisho.docx" },
+    ],
   },
   {
     label: "職務経歴書",
