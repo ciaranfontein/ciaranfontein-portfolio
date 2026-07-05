@@ -1,5 +1,4 @@
 ---
-import EyeTrackingHeadshot from "./EyeTrackingHeadshot.astro";
 import { AVAILABILITY_BADGE, SITE } from "../site.config";
 ---
 
@@ -25,7 +24,14 @@ import { AVAILABILITY_BADGE, SITE } from "../site.config";
       </div>
     </div>
     <div class="hero__portrait">
-      <EyeTrackingHeadshot />
+      <img
+        class="hero__photo"
+        src="/images/headshot.webp"
+        width="900"
+        height="1350"
+        alt="Ciaran Fontein"
+        fetchpriority="high"
+      />
     </div>
   </div>
 </section>
@@ -99,7 +105,7 @@ import { AVAILABILITY_BADGE, SITE } from "../site.config";
 
   .button--primary {
     background: var(--color-accent-strong);
-    color: #fff;
+    color: var(--color-on-accent);
   }
 
   .button--primary:hover {
@@ -121,5 +127,13 @@ import { AVAILABILITY_BADGE, SITE } from "../site.config";
   .hero__portrait {
     display: flex;
     justify-content: center;
+  }
+
+  .hero__photo {
+    width: min(320px, 70vw);
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
   }
 </style>

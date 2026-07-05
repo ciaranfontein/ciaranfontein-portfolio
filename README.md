@@ -11,22 +11,17 @@ global remote job search (see the vault plan at
 - Plain CSS with custom properties for theming — no CSS framework, no client
   framework runtime shipped
 - The only client-side JavaScript shipped to the browser is:
-  1. The eye-tracking easter egg island (`src/components/EyeTrackingHeadshot.astro`
-     + `src/scripts/eye-tracking.ts`)
-  2. The dark/light theme toggle (`src/components/ThemeToggle.astro`)
-  3. The screenshot carousel/lightbox on the case study (inline script in
+  1. The dark/light theme toggle (`src/components/ThemeToggle.astro`)
+  2. The screenshot lightbox on the case study (inline script in
      `src/components/CaseStudyGuusto.astro`)
 
 ## Project structure
 
 ```
 src/
-  assets/            eye-tracking source PNGs (CiaranNoEyes, EyeWhites, LeftEye, RightEye)
-  components/        one Astro component per section + the eye-tracking island
+  components/        one Astro component per section
   layouts/
     BaseLayout.astro SEO/OG/JSON-LD head, theme-init script, global CSS import
-  scripts/
-    eye-tracking.ts  vanilla TS port of the cursor-follow logic (see below)
   pages/
     index.astro      single page, sections assembled here
   site.config.ts     site-wide constants — availability badge, contact info, resume list
@@ -51,31 +46,15 @@ from "Available August 2026" to "🟢 Open to work". This is a single constant:
 
 Change that one string (and nothing else) to flip the badge site-wide.
 
-## Eye-tracking easter egg
+## Eye-tracking easter egg (REMOVED 2026-07-05)
 
-Ported from the original CRA site (`master` branch of the old
-`github.com/ciaranfontein/portfolio` repo — see the vault's adoption-report.md).
-Original mechanism: a base "no eyes" photo with a sclera image and two pupil
-images layered on top; pupils move toward the cursor along a small ellipse
-computed via `Math.atan2` on the vector from each eye's socket center to the
-pointer.
-
-This port drops the two original dependencies (`styled-components`,
-`@react-hook/mouse-position`) and reimplements the same math with a plain
-`mousemove` listener in `src/scripts/eye-tracking.ts`, driven by
-`requestAnimationFrame`. Differences from the original:
-
-- Pixel offsets were converted to percentages of the 1333×2000 source frame
-  (the headshot and `CiaranNoEyes.png` share those exact dimensions) so the
-  layout stays responsive instead of relying on a fixed-pixel canvas.
-- Touch devices: pupils follow the active touch point while touching, then
-  return to a slow idle-wander drift ~1.5s after touch ends (there's no
-  persistent hover position to read on touch).
-- `prefers-reduced-motion: reduce` disables the animation entirely; pupils sit
-  at their CSS rest position with no JS listeners attached.
-
-If the headshot photo is ever replaced, the percentage offsets in
-`EyeTrackingHeadshot.astro` must be recalculated against the new crop.
+The pupil-tracking port from the original CRA site was removed at Ciaran's
+request — the pupils didn't render on the composited photo, leaving empty eye
+sockets. The hero now uses the plain headshot (`public/images/headshot.webp`).
+The original implementation survives in the old repo
+(`github.com/ciaranfontein/portfolio`, `master` branch) and in this repo's git
+history (`src/components/EyeTrackingHeadshot.astro`, `src/scripts/eye-tracking.ts`,
+`src/assets/*.png`) if it's ever revived.
 
 ## Scope guardrail (Guusto case study)
 

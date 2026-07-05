@@ -200,22 +200,18 @@ const stats = [
     border-radius: 999px;
   }
 
+  /* Wrapping grid — all screenshots visible, no horizontal scroll.
+     One row of 7 on desktop, wraps to 2+ rows on narrow screens. */
   .carousel__track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
     gap: var(--space-2);
-    overflow-x: auto;
-    padding-bottom: var(--space-2);
-    scroll-snap-type: x mandatory;
   }
 
   .carousel__item {
-    flex: 0 0 auto;
-    width: 140px;
-    border: none;
     background: none;
     padding: 0;
     cursor: pointer;
-    scroll-snap-align: start;
     border-radius: 0.6rem;
     overflow: hidden;
     border: 1px solid var(--color-border);

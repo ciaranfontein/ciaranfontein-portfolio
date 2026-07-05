@@ -25,23 +25,33 @@ export const SITE = {
   visaNote: "No visa sponsorship required",
 } as const;
 
+// Each document offers every format that exists in public/resume/.
+// NOTE: rirekisho has no PDF yet — no office suite available to convert
+// with layout fidelity. Add /resume/rirekisho.pdf and a formats entry
+// here once exported (Word Online / Google Docs → PDF).
 export const RESUME_FILES = [
   {
-    href: "/resume/ciaran_fontein_cv.pdf",
-    label: "Download CV",
-    sublabel: "English, PDF",
+    label: "CV",
+    sublabel: "English",
     lang: "en",
+    formats: [
+      { ext: "PDF", href: "/resume/ciaran_fontein_cv.pdf" },
+      { ext: "DOCX", href: "/resume/ciaran_fontein_cv.docx" },
+    ],
   },
   {
-    href: "/resume/rirekisho.docx",
     label: "履歴書",
-    sublabel: "Rirekisho, DOCX",
+    sublabel: "Rirekisho",
     lang: "ja",
+    formats: [{ ext: "DOCX", href: "/resume/rirekisho.docx" }],
   },
   {
-    href: "/resume/shokumu_keirekisho.pdf",
     label: "職務経歴書",
-    sublabel: "Shokumu keirekisho, PDF",
+    sublabel: "Shokumu keirekisho",
     lang: "ja",
+    formats: [
+      { ext: "PDF", href: "/resume/shokumu_keirekisho.pdf" },
+      { ext: "DOCX", href: "/resume/shokumu_keirekisho.docx" },
+    ],
   },
 ] as const;
