@@ -25,10 +25,8 @@ jobs:
         uses: withastro/action@v3
         # Uses the official Astro GitHub Action: installs deps with npm,
         # runs `astro build`, and uploads the dist/ output as a Pages artifact.
-        # with:
-        #   path: .            # repo root (default)
-        #   node-version: 20   # default
-        #   package-manager: npm@latest
+        with:
+          node-version: 22 # Astro 7 requires Node >=22.12; action default (20) fails
 
   deploy:
     needs: build
