@@ -1,0 +1,51 @@
+name: Flip availability badge (Aug 1, 2026)
+
+# One-shot scheduled job: on Aug 1, 2026 (06:00 JST = Jul 31 21:00 UTC) flip
+# the hero badge from "Available August 2026" to "🟢 Open to work" and
+# redeploy. Safe to re-run: it exits cleanly if the badge was already flipped.
+# Can also be run manually from the Actions tab (workflow_dispatch).
+on:
+  schedule:
+    - cron: "0 21 31 7 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  flip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Flip badge constant
+        id: flip
+        run: |
+          FILE=src/site.config.ts
+          OLD='Available August 2026'
+          NEW='🟢 Open to work'
+          if grep -q "$OLD" "$FILE"; then
+            sed -i "s/$OLD/$NEW/" "$FILE"
+            echo "flipped=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Badge already flipped — nothing to do."
+            echo "flipped=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.flip.outputs.flipped == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Flip availability badge: open to work (scheduled, Aug 1 2026)"
+          git push
+
+      - name: Trigger deploy
+        # Pushes made with GITHUB_TOKEN do not fire `on: push` workflows,
+        # so dispatch the deploy workflow explicitly.
+        if: steps.flip.outputs.flipped == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --repo ${{ github.repository }} --ref main
