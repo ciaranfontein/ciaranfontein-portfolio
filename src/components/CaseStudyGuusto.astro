@@ -66,6 +66,35 @@ const stats = [
         </div>
       </header>
 
+      <ul class="case-study__proof-links">
+        <li>
+          <a
+            href="https://apps.apple.com/us/app/guusto-recognition-rewards/id779932614"
+            target="_blank"
+            rel="noopener noreferrer">App Store</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.guusto.guusto"
+            target="_blank"
+            rel="noopener noreferrer">Google Play</a
+          >
+        </li>
+        <li>
+          <a href="https://guusto.com" target="_blank" rel="noopener noreferrer"
+            >guusto.com</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.g2.com/products/guusto/reviews"
+            target="_blank"
+            rel="noopener noreferrer">G2 reviews</a
+          >
+        </li>
+      </ul>
+
       <p class="case-study__oneliner">
         I was the only frontend developer on Guusto's mobile app. I built it
         from scratch, shipped it to both stores, and handled every release
@@ -223,6 +252,37 @@ const stats = [
   .case-study__oneliner {
     font-size: 1.1rem;
     font-weight: 500;
+  }
+
+  .case-study__proof-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0 0 var(--space-3);
+  }
+
+  .case-study__proof-links li {
+    display: contents;
+  }
+
+  .case-study__proof-links a {
+    display: inline-block;
+    background: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .case-study__proof-links a:hover,
+  .case-study__proof-links a:focus-visible {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
   }
 
   .case-study__context {

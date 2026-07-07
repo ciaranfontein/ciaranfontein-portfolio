@@ -1,0 +1,71 @@
+---
+// Verbatim quotes from Ciaran's public LinkedIn recommendations. Owner
+// approved use of these two ("use them freely"). Do not extend, paraphrase,
+// or invent — trimming for length is allowed but remaining words must stay
+// verbatim. Job titles pending from the owner; see TODO below.
+
+const quotes = [
+  {
+    text: "I've had the pleasure of working with Ciaran over the last 6 years, and he's been an incredibly thoughtful, collaborative, and kind teammate.",
+    name: "Sarah Tong",
+  },
+  {
+    text: "I'd be more than happy to recommend Ciaran to anyone looking for an exceptional mobile developer. I had the opportunity to work closely with Ciaran over the past few months, and he has been an absolute pleasure to collaborate with.",
+    name: "Sreeja Guttula",
+  },
+];
+---
+
+<section id="references" class="references">
+  <div class="container">
+    <h2 class="section-heading">What colleagues say</h2>
+    <div class="references__grid">
+      {
+        quotes.map((q) => (
+          <blockquote class="references__quote">
+            <p>&ldquo;{q.text}&rdquo;</p>
+            <footer>
+              {/* TODO: add job title once supplied by owner */}
+              {q.name}, LinkedIn recommendation
+            </footer>
+          </blockquote>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .references {
+    padding-block: var(--space-4);
+  }
+
+  .references__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 700px) {
+    .references__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .references__quote {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    margin: 0;
+  }
+
+  .references__quote p {
+    color: var(--color-text);
+    margin: 0 0 var(--space-2);
+  }
+
+  .references__quote footer {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+</style>
