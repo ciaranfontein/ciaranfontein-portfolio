@@ -1,17 +1,18 @@
 ---
-// Verbatim quotes from Ciaran's public LinkedIn recommendations. Owner
-// approved use of these two ("use them freely"). Do not extend, paraphrase,
-// or invent — trimming for length is allowed but remaining words must stay
-// verbatim. Job titles pending from the owner; see TODO below.
+// Verbatim excerpts from Ciaran's LinkedIn recommendations. Owner approved
+// use ("use them freely") and supplied the full texts + job titles
+// 2026-07-07. Trimming for length is allowed; remaining words stay verbatim.
 
 const quotes = [
   {
-    text: "I've had the pleasure of working with Ciaran over the last 6 years, and he's been an incredibly thoughtful, collaborative, and kind teammate.",
+    text: "I've had the pleasure of working with Ciaran over the last 6 years, and he's been an incredibly thoughtful, collaborative, and kind teammate. He played a foundational role in building the mobile app from the ground up, and his contributions have shaped the product in a lasting way.",
     name: "Sarah Tong",
+    title: "Senior Product Designer & Web Developer at Guusto",
   },
   {
-    text: "I'd be more than happy to recommend Ciaran to anyone looking for an exceptional mobile developer. I had the opportunity to work closely with Ciaran over the past few months, and he has been an absolute pleasure to collaborate with.",
+    text: "I'd be more than happy to recommend Ciaran to anyone looking for an exceptional mobile developer. He's not only a talented mobile engineer but also someone who's incredibly communicative, thoughtful, and easy to work with.",
     name: "Sreeja Guttula",
+    title: "Junior Product Manager at Guusto",
   },
 ];
 ---
@@ -25,8 +26,7 @@ const quotes = [
           <blockquote class="references__quote">
             <p>&ldquo;{q.text}&rdquo;</p>
             <footer>
-              {/* TODO: add job title once supplied by owner */}
-              {q.name}, LinkedIn recommendation
+              {q.name}, {q.title}
             </footer>
           </blockquote>
         ))
