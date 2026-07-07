@@ -13,7 +13,7 @@ export const SITE = {
   name: "Ciaran Fontein",
   title: "Ciaran Fontein — Senior React Native Engineer",
   description:
-    "Senior React Native Engineer — I build mobile apps from Figma to the App Store. 6 years shipping Guusto's iOS + Android app as its sole frontend developer.",
+    "Senior React Native Engineer. I build mobile apps from Figma to the App Store. 6 years shipping Guusto's iOS + Android app as its sole frontend developer.",
   url: "https://ciaranfontein.com",
   locale: "en",
   email: "ciaranfontein@gmail.com",
