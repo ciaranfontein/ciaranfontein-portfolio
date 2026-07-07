@@ -62,7 +62,7 @@ const personJsonLd = {
     <!-- JSON-LD: Person schema -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify(personJsonLd)} />
 
-    <!-- Inline, blocking theme init — prevents flash of wrong theme.
+    <!-- Inline, blocking theme init: prevents flash of wrong theme.
          Reads stored preference; if none, defers to prefers-color-scheme via CSS. -->
     <script is:inline>
       (function () {
@@ -72,7 +72,7 @@ const personJsonLd = {
             document.documentElement.dataset.theme = stored;
           }
         } catch (e) {
-          /* localStorage unavailable — CSS prefers-color-scheme fallback applies */
+          /* localStorage unavailable; CSS prefers-color-scheme fallback applies */
         }
       })();
     </script>
