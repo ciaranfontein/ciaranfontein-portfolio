@@ -77,7 +77,8 @@ const stats = [
         G2 and Capterra, and its customers include Marriott and the Toronto
         Raptors. It's built for frontline workers such as nurses and
         drivers, who don't usually check work email. The mobile app is how
-        those workers receive and redeem their rewards.
+        those workers receive and redeem their rewards. An employee gets a
+        gift on their phone and redeems it at a store.
         <em>(App context only; web platform built by a separate team.)</em>
       </p>
 
@@ -88,15 +89,22 @@ const stats = [
 
       <h4>The closest call</h4>
       <p class="case-study__context">
+        <em>A backend change broke gift sending days before Guusto's busiest
+        week, in the middle of a code freeze. The fix was one line.</em>
+      </p>
+      <p class="case-study__context">
         A few days before December 18, which is our busiest week of the
-        year, we found out that users couldn't send gifts at all. A backend
-        change earlier that week had broken the request format, and we were
-        already in code freeze. QA's position was that nothing ships during
-        a freeze. The director of engineering said the decision was mine.
-        The core function of the app was down, so leaving it broken was the
+        year, we found out that users couldn't send gifts at all. If it had
+        stayed broken, no one could have sent a gift during the
+        highest-volume week of Guusto's year. A backend change earlier that
+        week had broken the request format, and we were already in code
+        freeze. QA's position was that nothing ships during a freeze. The
+        core function of the app was down, so leaving it broken was the
         bigger risk. The fix turned out to be one line: the properties in
         the API request payload needed to be reordered. I tested it,
         released it, and gift sending kept working through the holidays.
+        The director of engineering had left the decision to me, because I
+        was the one who'd shipped every release before it.
       </p>
 
       <ul class="case-study__stats">
@@ -104,6 +112,9 @@ const stats = [
       </ul>
 
       <h4>Screenshots</h4>
+      <p class="case-study__context">
+        Screens from the Guusto app, which I built and shipped.
+      </p>
       <div class="carousel" id="guusto-carousel">
         <div class="carousel__track" role="list">
           {
