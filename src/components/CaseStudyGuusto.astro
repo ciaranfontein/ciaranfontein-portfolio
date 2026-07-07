@@ -86,6 +86,19 @@ const stats = [
         {whatIDid.map((line) => <li>{line}</li>)}
       </ul>
 
+      <h4>The closest call</h4>
+      <p class="case-study__context">
+        A few days before December 18, our busiest week of the year, we found
+        out users couldn't send gifts at all. A backend change earlier that
+        week had quietly broken the request format, and we were already in
+        code freeze. QA's position was that nothing ships during a freeze;
+        the director of engineering said it was my call. The main function of
+        the app was down, so the riskier move was doing nothing. The fix was
+        one line (reordering the properties in the API request payload). I
+        tested it, released it, and gift sending held up through the
+        holidays.
+      </p>
+
       <ul class="case-study__stats">
         {stats.map((s) => <li>{s}</li>)}
       </ul>
