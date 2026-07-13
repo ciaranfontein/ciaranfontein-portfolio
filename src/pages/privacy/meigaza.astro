@@ -1,0 +1,169 @@
+---
+import PrivacyLayout from "../../layouts/PrivacyLayout.astro";
+
+const effectiveDate = "2026-07-13";
+---
+
+<PrivacyLayout
+  title="Privacy Policy — Meigaza"
+  description="Privacy policy for Meigaza, the movie-night group picker app: accounts, teams, movie search, and data deletion."
+  appName="Meigaza"
+  effectiveDate={effectiveDate}
+>
+  <div data-lang="ja">
+    <h2>要点</h2>
+    <p>
+      Meigaza はアカウント登録が必要なアプリで、実際にデータを収集します。以下で収集する情報、送信先、削除方法をすべて説明します。
+    </p>
+
+    <h2>サインインとアカウント情報</h2>
+    <p>
+      サインインはメールアドレスによるワンタイムコード（OTP）方式で、パスワードは使用しません。保存される情報は、メールアドレス・任意の表示名・ユーザーID（内部識別子）です。
+    </p>
+
+    <h2>チーム（グループ）機能</h2>
+    <p>
+      映画をチームで選ぶための機能です。同じチームのメンバーには、あなたの<strong>メールアドレスと表示名</strong>が表示されます。チーム外のユーザーには公開されません。チームへの招待はメールアドレス宛に送信されます。
+    </p>
+
+    <h2>映画リストと「見たい度」スコア</h2>
+    <p>
+      チームに追加した映画（タイトル・年・あらすじ・ジャンルなど）と、あなたが付けた0〜10の「見たい度」スコアは、同じチームのメンバー全員に表示されます。
+    </p>
+
+    <h2>映画検索 — 外部サービスへの送信について</h2>
+    <p>
+      映画を検索すると、入力した検索語（およびアプリの通信に伴う端末のIPアドレス）が、以下の外部サービスへ<strong>お使いの端末から直接</strong>送信されます。
+    </p>
+    <ul>
+      <li><strong>TMDB</strong>（The Movie Database）— 検索結果と作品情報・ポスター画像の取得に使用。</li>
+      <li><strong>Apple iTunes Search</strong> — 検索結果の取得に使用。</li>
+    </ul>
+    <p>
+      This product uses the TMDB API but is not endorsed or certified by TMDB.（本製品はTMDB
+      APIを使用していますが、TMDBによる推奨または認定を受けたものではありません。）
+    </p>
+
+    <h2>チーム招待メールの送信</h2>
+    <p>
+      チームへの招待メールは Resend というサービスを通じて、サーバー側からのみ送信されます（アプリからResendへ直接通信することはありません）。招待メールには招待先のメールアドレス・チーム名・招待者の氏名とメールアドレスが含まれます。
+    </p>
+
+    <h2>収集していない情報</h2>
+    <p>
+      解析（アナリティクス）・広告・トラッキングSDKは組み込まれていません。プッシュ通知の仕組みもありません。写真・画像のアップロード機能もなく、チャット機能もありません。
+    </p>
+
+    <h2>通信の暗号化</h2>
+    <p>すべての通信はHTTPS（暗号化通信）で行われます。</p>
+
+    <h2>データの保持と削除</h2>
+    <p>
+      設定画面からアプリ内で「アカウントを削除」を行うことができます。削除すると以下が発生します。
+    </p>
+    <ul>
+      <li>あなたのプロフィール（メールアドレス・表示名）、チームの参加履歴、あなたが付けたスコアは<strong>削除</strong>されます。</li>
+      <li>
+        あなたが唯一のオーナーであるチームは、その中の映画・スコア・招待も含めて<strong>削除</strong>されます。
+      </li>
+      <li>
+        あなたが他のメンバーと共有していたチームは、オーナー権限が別のメンバーに引き継がれ、<strong>チーム自体は存続</strong>します。
+      </li>
+      <li>
+        <strong>重要な補足：</strong>
+        あなたがそのチームに追加した映画や、映画に付けた独自のタグ・ジャンル等のテキストは、<strong>チーム内に残ります</strong>。ただし「誰が追加したか」という紐付け情報のみが削除され、匿名化されます（あなたの名前は削除されますが、追加した内容自体はチームの記録として残ります）。
+      </li>
+    </ul>
+
+    <h2>お問い合わせ</h2>
+    <p>
+      開発者: Ciaran Fontein<br />
+      連絡先: <a href="mailto:ciaranfontein@gmail.com">ciaranfontein@gmail.com</a>
+    </p>
+
+    <h2>本ポリシーの変更</h2>
+    <p>機能追加やデータ取り扱いの変更があった場合、本ポリシーを改定し、施行日を更新します。</p>
+
+    <p><em>施行日: {effectiveDate}</em></p>
+  </div>
+
+  <div data-lang="en" hidden>
+    <h2>Summary</h2>
+    <p>
+      Meigaza requires an account and does collect data. Below is a plain-language account of what's
+      collected, where it goes, and how to delete it.
+    </p>
+
+    <h2>Sign-in and account data</h2>
+    <p>
+      Sign-in uses an emailed one-time code (OTP) — no passwords. Stored data: your email address, an
+      optional display name, and an internal user ID.
+    </p>
+
+    <h2>Teams</h2>
+    <p>
+      Meigaza lets a group pick movies together as a "team." Your teammates can see your
+      <strong>email address and display name</strong> — this is not visible outside your team. Team
+      invitations are sent to the invitee's email address.
+    </p>
+
+    <h2>Movie lists and "desire" scores</h2>
+    <p>
+      Movies you add to a team (title, year, synopsis, genres, etc.) and the 0–10 "how much I want to
+      watch this" score you give each movie are visible to everyone on that team.
+    </p>
+
+    <h2>Movie search — data sent to external services</h2>
+    <p>
+      When you search for a movie, the text you type (and your device's IP address, as part of any
+      network request) is sent <strong>directly from your device</strong> to these third-party
+      services:
+    </p>
+    <ul>
+      <li><strong>TMDB</strong> (The Movie Database) — for search results, film info, and poster images.</li>
+      <li><strong>Apple iTunes Search</strong> — for search results.</li>
+    </ul>
+    <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+
+    <h2>Team-invite emails</h2>
+    <p>
+      Invitation emails are sent server-side only, via Resend — the app never contacts Resend
+      directly. An invite email includes the invitee's email address, the team name, and the
+      inviter's name and email address.
+    </p>
+
+    <h2>What we don't collect</h2>
+    <p>
+      No analytics, advertising, or tracking SDK is included. There are no push notifications, no
+      photo/image uploads, and no chat feature.
+    </p>
+
+    <h2>Encryption</h2>
+    <p>All network traffic uses HTTPS.</p>
+
+    <h2>Retention and deletion</h2>
+    <p>You can delete your account in-app from Settings. Deleting your account:</p>
+    <ul>
+      <li><strong>Deletes</strong> your profile (email, display name), your team memberships, and your own scores.</li>
+      <li><strong>Deletes</strong> any team you solely own, including its movies, scores, and invites.</li>
+      <li><strong>Keeps</strong> teams you shared with other members — ownership transfers to another member and the team continues to exist.</li>
+      <li>
+        <strong>Important nuance:</strong> movies you added to a team, and any custom titles or tags
+        you typed, <strong>remain in that team</strong> after your account is deleted. Only the link
+        showing "who added this" is removed — your name is de-identified, but the content itself
+        stays as part of the team's shared record.
+      </li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>
+      Developer: Ciaran Fontein<br />
+      Contact: <a href="mailto:ciaranfontein@gmail.com">ciaranfontein@gmail.com</a>
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>This policy will be revised, with an updated effective date, if features or data handling change.</p>
+
+    <p><em>Effective date: {effectiveDate}</em></p>
+  </div>
+</PrivacyLayout>

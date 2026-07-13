@@ -1,0 +1,143 @@
+---
+import PrivacyLayout from "../../layouts/PrivacyLayout.astro";
+
+const effectiveDate = "2026-07-13";
+---
+
+<PrivacyLayout
+  title="プライバシーポリシー — KiraKiran"
+  description="KiraKiran（技術者向けCRM）のプライバシーポリシー。ネイル技術者が入力する顧客情報の取り扱いについて説明します。"
+  appName="KiraKiran"
+  effectiveDate={effectiveDate}
+>
+  <div data-lang="ja">
+    <h2>このアプリについて</h2>
+    <p>
+      KiraKiran はネイル技術者（サロンオーナー）ご本人が使う顧客管理（CRM）アプリです。アプリに登録するユーザーはご本人（技術者）のみで、メールアドレスによるワンタイムコード（OTP）でサインインします。パスワードは使用しません。
+    </p>
+    <p>
+      技術者がアプリ内に入力する情報の多くは、技術者自身のものではなく<strong>お客様（第三者）</strong>に関する情報です。この点をご理解のうえ、必要な範囲でお客様の同意を得たうえでご利用ください。
+    </p>
+
+    <h2>収集・保存する情報</h2>
+    <ul>
+      <li><strong>技術者ご本人の情報</strong>：サインインに使うメールアドレスと、認証用のセッション情報。</li>
+      <li><strong>顧客情報</strong>：氏名・ふりがな・電話番号・誕生日・メモ（自由記述）。</li>
+      <li>
+        <strong>健康・アレルギーに関する情報</strong>（要配慮個人情報）：アレルギーや体質に関するフラグとメモを、専用の項目として保存します。これは日本の個人情報保護法（APPI）上「要配慮個人情報」に該当し、記録には事前にお客様ご本人の同意が必要です。同意の取得は技術者の責任で行ってください。
+      </li>
+      <li><strong>SNS掲載の同意フラグ</strong>：初期値はオフで、お客様ごとに個別に設定します。</li>
+      <li><strong>施術記録</strong>：予約日時、メニュー内容、料金、ステータス、メモ。</li>
+      <li>
+        <strong>写真</strong>：参考デザイン写真と仕上がり写真。非公開のストレージに保存され、アプリ内でのみ、期限付きの署名付きURLを通じて表示されます。
+      </li>
+    </ul>
+    <p>
+      アプリの利用状況を計測する解析（アナリティクス）・広告・トラッキングSDKは一切組み込まれていません。
+    </p>
+
+    <h2>データの保存場所と通信</h2>
+    <p>
+      データは Supabase（東京リージョン）にHTTPS通信でのみ保存・送信されます。サインイン用のワンタイムコードは Resend
+      経由でメール送信されますが、これはサーバー側の設定のみで行われ、アプリから直接 Resend
+      と通信することはありません。SupabaseおよびResendは、データの委託処理者であり、データを第三者に販売・提供することはありません。
+    </p>
+
+    <h2>デバイスの権限</h2>
+    <p>
+      カメラおよび写真ライブラリへのアクセスは、参考デザイン写真・仕上がり写真を撮影・選択する目的でのみ使用します。
+    </p>
+
+    <h2>データの保持と削除</h2>
+    <ul>
+      <li>
+        <strong>個々の顧客データ</strong>：アプリ内から個別の顧客を完全に削除する機能は現在ありません（アーカイブ扱いとなり、データは保持されます）。
+      </li>
+      <li>
+        <strong>アカウントの削除</strong>：設定画面から「アカウントを削除」を行うと、確認手順のうえで、あなたのアカウントに紐づく<strong>すべてのデータ</strong>（顧客情報、施術記録、写真、写真ストレージ、アカウント本体）がサーバー側で完全に削除されます。この操作は取り消せません。
+      </li>
+    </ul>
+
+    <h2>お問い合わせ</h2>
+    <p>
+      開発者: Ciaran Fontein<br />
+      連絡先: <a href="mailto:ciaranfontein@gmail.com">ciaranfontein@gmail.com</a>
+    </p>
+
+    <h2>本ポリシーの変更</h2>
+    <p>
+      新しい機能の追加やデータ取り扱いの変更があった場合、本ポリシーを改定し、施行日を更新します。
+    </p>
+
+    <p><em>施行日: {effectiveDate}</em></p>
+  </div>
+
+  <div data-lang="en" hidden>
+    <h2>About this app</h2>
+    <p>
+      KiraKiran is a client-management (CRM) app used by an independent nail technician (salon
+      owner). The only registered user is the technician herself, who signs in with an emailed
+      one-time code (OTP) — there are no passwords.
+    </p>
+    <p>
+      Most of the information the technician enters in the app is not about her — it's about
+      <strong>her clients (a third party)</strong>. She is responsible for obtaining any consent
+      required from her clients before recording it.
+    </p>
+
+    <h2>What's collected and stored</h2>
+    <ul>
+      <li><strong>The technician's own data:</strong> her sign-in email address and session tokens.</li>
+      <li><strong>Client data:</strong> name, name reading (furigana), phone number, birthday, and free-text notes.</li>
+      <li>
+        <strong>Health / allergy information:</strong> a dedicated allergy/health flag and note field
+        — this qualifies under Japan's Act on the Protection of Personal Information (APPI) as
+        "special-care-required personal information," which requires the client's prior consent to
+        record. Obtaining that consent is the technician's responsibility.
+      </li>
+      <li><strong>SNS-publication consent:</strong> off by default, set per client.</li>
+      <li><strong>Appointment records:</strong> date/time, menu, price, status, notes.</li>
+      <li>
+        <strong>Photos:</strong> design-reference and result photos, stored in a private bucket and
+        shown in-app only via short-lived signed URLs.
+      </li>
+    </ul>
+    <p>No analytics, advertising, or tracking SDK is included in the app.</p>
+
+    <h2>Where data lives and how it travels</h2>
+    <p>
+      Data is stored with Supabase (Tokyo region) and transmitted over HTTPS only. Sign-in codes are
+      delivered by email via Resend, configured server-side — the app itself never talks to Resend
+      directly. Supabase and Resend act only as processors; neither sells nor shares data with third
+      parties.
+    </p>
+
+    <h2>Device permissions</h2>
+    <p>Camera and photo-library access are used only to capture or pick design-reference and result photos.</p>
+
+    <h2>Retention and deletion</h2>
+    <ul>
+      <li>
+        <strong>Individual client records:</strong> the app does not currently offer a way to fully
+        delete a single client — they can be archived, and the underlying data is retained.
+      </li>
+      <li>
+        <strong>Account deletion:</strong> from Settings, "Delete account" (after a confirmation step)
+        permanently deletes <strong>all data</strong> tied to the technician's account on the
+        server — clients, appointments, photos, photo storage, and the account itself. This cannot
+        be undone.
+      </li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>
+      Developer: Ciaran Fontein<br />
+      Contact: <a href="mailto:ciaranfontein@gmail.com">ciaranfontein@gmail.com</a>
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>This policy will be revised, with an updated effective date, if new features or data handling change.</p>
+
+    <p><em>Effective date: {effectiveDate}</em></p>
+  </div>
+</PrivacyLayout>

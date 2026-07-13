@@ -1,0 +1,205 @@
+---
+// Shared layout for privacy-policy pages (/privacy/*).
+// Plain document styling matching the site's design tokens — no cards, no
+// accent bars. JA/EN content lives side by side in the page markup as two
+// panels; this layout provides the toggle button and the show/hide behavior.
+import BaseLayout from "./BaseLayout.astro";
+import { SITE } from "../site.config";
+
+interface Props {
+  title: string;
+  description: string;
+  appName: string;
+  effectiveDate: string;
+}
+
+const { title, description, appName, effectiveDate } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <main id="main-content" class="privacy-page">
+    <div class="container privacy-page__inner">
+      <div class="privacy-page__topbar">
+        <a href="/" class="privacy-page__back">&larr; {SITE.name}</a>
+        <div class="lang-toggle" role="group" aria-label="Language / 言語">
+          <button type="button" class="lang-toggle__btn" data-lang-btn="ja" aria-pressed="true">
+            日本語
+          </button>
+          <button type="button" class="lang-toggle__btn" data-lang-btn="en" aria-pressed="false">
+            English
+          </button>
+        </div>
+      </div>
+
+      <header class="privacy-page__header">
+        <p class="eyebrow" data-lang="ja">プライバシーポリシー</p>
+        <p class="eyebrow" data-lang="en" hidden>Privacy Policy</p>
+        <h1>{appName}</h1>
+        <p class="privacy-page__meta">
+          <span data-lang="ja">施行日: {effectiveDate}</span>
+          <span data-lang="en" hidden>Effective date: {effectiveDate}</span>
+          {" · "}
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        </p>
+      </header>
+
+      <div class="privacy-page__content">
+        <slot />
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .privacy-page {
+    padding-block: var(--space-4) var(--space-6);
+  }
+
+  .privacy-page__inner {
+    max-width: 42rem;
+  }
+
+  .privacy-page__topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+  }
+
+  .privacy-page__back {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .privacy-page__back:hover {
+    color: var(--color-accent-strong);
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .lang-toggle__btn {
+    font: inherit;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.85rem;
+    border: none;
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    cursor: pointer;
+  }
+
+  .lang-toggle__btn + .lang-toggle__btn {
+    border-left: 1px solid var(--color-border);
+  }
+
+  .lang-toggle__btn[aria-pressed="true"] {
+    background: var(--color-accent-strong);
+    color: var(--color-on-accent);
+  }
+
+  .privacy-page__header {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .privacy-page__header h1 {
+    font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2rem);
+    margin: 0.25rem 0 0.5rem;
+  }
+
+  .privacy-page__meta {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .privacy-page__content :global(h2) {
+    font-size: 1.15rem;
+    margin: var(--space-4) 0 var(--space-1);
+  }
+
+  .privacy-page__content :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .privacy-page__content :global(p),
+  .privacy-page__content :global(li) {
+    color: var(--color-text);
+  }
+
+  .privacy-page__content :global(ul) {
+    padding-left: 1.25rem;
+  }
+
+  .privacy-page__content :global(li) {
+    margin-bottom: 0.35rem;
+  }
+
+  .privacy-page__content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-block: var(--space-2);
+  }
+
+  .privacy-page__content :global(th),
+  .privacy-page__content :global(td) {
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 0.6rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .privacy-page__content :global(th) {
+    background: var(--color-bg-alt);
+  }
+
+  .privacy-page__content :global([data-lang="en"]) {
+    font-size: 0.98rem;
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = "privacy-lang-preference";
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-lang-btn]");
+  const panels = document.querySelectorAll<HTMLElement>("[data-lang]");
+
+  function apply(lang: "ja" | "en") {
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.lang !== lang;
+    });
+    buttons.forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.langBtn === lang));
+    });
+  }
+
+  let stored: string | null = null;
+  try {
+    stored = localStorage.getItem(STORAGE_KEY);
+  } catch {
+    // localStorage unavailable; default to ja
+  }
+  if (stored === "en" || stored === "ja") {
+    apply(stored);
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lang = btn.dataset.langBtn === "en" ? "en" : "ja";
+      apply(lang);
+      try {
+        localStorage.setItem(STORAGE_KEY, lang);
+      } catch {
+        // ignore
+      }
+    });
+  });
+</script>

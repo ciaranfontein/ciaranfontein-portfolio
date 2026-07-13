@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const apps = [
+  { name: "Fate", href: "/privacy/fate", desc: "Party-picker app · collects no data" },
+  { name: "KiraKiran", href: "/privacy/kirakiran", desc: "Nail-salon CRM for technicians" },
+  { name: "Meigaza", href: "/privacy/meigaza", desc: "Movie-night group picker" },
+];
+---
+
+<BaseLayout title="Privacy Policies" description="Privacy policies for Ciaran Fontein's apps.">
+  <main id="main-content" class="privacy-index">
+    <div class="container privacy-index__inner">
+      <a href="/" class="privacy-index__back">&larr; Ciaran Fontein</a>
+      <h1>Privacy Policies</h1>
+      <p>Pick an app to read its privacy policy.</p>
+      <ul>
+        {
+          apps.map((app) => (
+            <li>
+              <a href={app.href}>{app.name}</a>
+              <span class="privacy-index__desc"> — {app.desc}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .privacy-index {
+    padding-block: var(--space-4) var(--space-6);
+  }
+
+  .privacy-index__inner {
+    max-width: 42rem;
+  }
+
+  .privacy-index__back {
+    display: inline-block;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .privacy-index__back:hover {
+    color: var(--color-accent-strong);
+  }
+
+  .privacy-index ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-3) 0 0;
+  }
+
+  .privacy-index li {
+    padding-block: 0.6rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .privacy-index li a {
+    font-weight: 600;
+  }
+
+  .privacy-index__desc {
+    color: var(--color-text-muted);
+  }
+</style>

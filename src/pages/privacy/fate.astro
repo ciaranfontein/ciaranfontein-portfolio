@@ -1,0 +1,111 @@
+---
+import PrivacyLayout from "../../layouts/PrivacyLayout.astro";
+
+const effectiveDate = "2026-07-13";
+---
+
+<PrivacyLayout
+  title="Privacy Policy — Fate"
+  description="Privacy policy for the Fate app: no data is collected, no accounts, no network, fully offline."
+  appName="Fate"
+  effectiveDate={effectiveDate}
+>
+  <div data-lang="ja">
+    <h2>要点</h2>
+    <p>
+      Fate はデータを収集しません。アカウント登録は不要で、通信を行う機能もなく、完全にオフラインで動作します。
+    </p>
+
+    <h2>収集する情報</h2>
+    <p>
+      なし。氏名・メールアドレス・写真・位置情報・利用状況など、いかなる個人情報も収集・送信しません。アプリ内に入力欄（名前欄など）自体が存在せず、サーバーとの通信を行うコードもありません。広告・アナリティクス・トラッキングSDKも組み込まれていません。
+    </p>
+
+    <h2>端末内に保存される情報</h2>
+    <p>
+      以下の2つのファイルが、お使いの端末上にのみ保存されます。外部に送信されることは一切ありません。
+    </p>
+    <ul>
+      <li><strong>初回起動フラグ</strong>（<code>fate-intro-seen.flag</code>）— 導入画面を表示済みかどうかを示す1バイトの記録。</li>
+      <li><strong>設定情報</strong>（<code>fate-settings.json</code>）— 外観（システム / ライト / ダーク）、触覚フィードバックの有無、結果をすぐ表示するかどうか、画面スリープ防止（キープアウェイク）の有無、の4項目のみ。氏名や識別子は含まれません。</li>
+    </ul>
+
+    <h2>画面スリープ防止機能について</h2>
+    <p>
+      設定でオンにすると、画面が自動的にロックされないようにするだけの機能です。データの収集や送信は一切行いません。初期設定はオフです。
+    </p>
+
+    <h2>第三者提供</h2>
+    <p>データを収集していないため、第三者に提供・共有するデータもありません。</p>
+
+    <h2>お問い合わせ</h2>
+    <p>
+      本ポリシーやアプリに関するご質問は、下記メールアドレスまでご連絡ください。<br />
+      開発者: Ciaran Fontein<br />
+      連絡先: <a href="mailto:ciaranfontein@gmail.com">ciaranfontein@gmail.com</a>
+    </p>
+
+    <h2>本ポリシーの変更</h2>
+    <p>
+      アプリにデータ収集を伴う機能（通信、アカウント、分析など）が追加された場合、本ポリシーを改定し、施行日を更新します。
+    </p>
+
+    <p><em>施行日: {effectiveDate}</em></p>
+  </div>
+
+  <div data-lang="en" hidden>
+    <h2>Summary</h2>
+    <p>
+      Fate collects no data. There is no account, no network connectivity, and the app works fully
+      offline.
+    </p>
+
+    <h2>What we collect</h2>
+    <p>
+      Nothing. Fate does not collect or transmit any personal information — no name, email, photos,
+      location, or usage data. There is no text-input field anywhere in the app (no name/account
+      field), and there is no code path that makes a network call. No advertising, analytics, or
+      tracking SDK is included.
+    </p>
+
+    <h2>What's stored on your device</h2>
+    <p>
+      Two small files live only on your device and are never transmitted anywhere:
+    </p>
+    <ul>
+      <li>
+        <strong>First-run flag</strong> (<code>fate-intro-seen.flag</code>) — a 1-byte record of
+        whether you've seen the intro screen.
+      </li>
+      <li>
+        <strong>Settings</strong> (<code>fate-settings.json</code>) — exactly four preferences:
+        appearance (system/light/dark), haptics on/off, quick-reveal on/off, and keep-awake on/off.
+        No name or identifier is stored.
+      </li>
+    </ul>
+
+    <h2>Keep-awake</h2>
+    <p>
+      When enabled in Settings, this only prevents your screen from auto-locking while the app is
+      open. It collects and sends no data. It is off by default.
+    </p>
+
+    <h2>Third parties</h2>
+    <p>Since no data is collected, none is shared with or sold to any third party.</p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy or the app can be sent to the address below.<br />
+      Developer: Ciaran Fontein<br />
+      Contact: <a href="mailto:ciaranfontein@gmail.com">ciaranfontein@gmail.com</a>
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If a future update adds a data-collecting feature (network access, accounts, analytics), this
+      policy will be revised and the effective date updated.
+    </p>
+
+    <p><em>Effective date: {effectiveDate}</em></p>
+  </div>
+</PrivacyLayout>
