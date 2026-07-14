@@ -21,6 +21,13 @@ const effectiveDate = "2026-07-13";
       サインインはメールアドレスによるワンタイムコード（OTP）方式で、パスワードは使用しません。保存される情報は、メールアドレス・任意の表示名・ユーザーID（内部識別子）です。
     </p>
 
+    <h2>データの保管先（バックエンド）</h2>
+    <p>
+      アカウント情報（メールアドレス・表示名）、認証、チーム、映画リスト、「見たい度」スコアは、バックエンドサービスの
+      <strong>Supabase</strong> 上に保管・処理されます。上記のデータはすべて Supabase
+      のデータベースおよび認証基盤でホストされています。
+    </p>
+
     <h2>チーム（グループ）機能</h2>
     <p>
       映画をチームで選ぶための機能です。同じチームのメンバーには、あなたの<strong>メールアドレスと表示名</strong>が表示されます。チーム外のユーザーには公開されません。チームへの招待はメールアドレス宛に送信されます。
@@ -98,6 +105,13 @@ const effectiveDate = "2026-07-13";
     <p>
       Sign-in uses an emailed one-time code (OTP) — no passwords. Stored data: your email address, an
       optional display name, and an internal user ID.
+    </p>
+
+    <h2>Where your data is stored (backend)</h2>
+    <p>
+      Account data (email address, display name), authentication, teams, movie lists, and "desire"
+      scores are stored and processed on <strong>Supabase</strong>, the app's backend service — all of
+      the data above is hosted in Supabase's database and auth infrastructure.
     </p>
 
     <h2>Teams</h2>
