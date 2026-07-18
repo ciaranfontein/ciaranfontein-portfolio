@@ -77,10 +77,10 @@ const effectiveDate = "2026-07-13";
     <p>
       KiraKiran is a client-management (CRM) app used by an independent nail technician (salon
       owner). The only registered user is the technician herself, who signs in with an emailed
-      one-time code (OTP) — there are no passwords.
+      one-time code (OTP). There are no passwords.
     </p>
     <p>
-      Most of the information the technician enters in the app is not about her — it's about
+      Most of the information the technician enters in the app is not about her. It's about
       <strong>her clients (a third party)</strong>. She is responsible for obtaining any consent
       required from her clients before recording it.
     </p>
@@ -90,8 +90,8 @@ const effectiveDate = "2026-07-13";
       <li><strong>The technician's own data:</strong> her sign-in email address and session tokens.</li>
       <li><strong>Client data:</strong> name, name reading (furigana), phone number, birthday, and free-text notes.</li>
       <li>
-        <strong>Health / allergy information:</strong> a dedicated allergy/health flag and note field
-        — this qualifies under Japan's Act on the Protection of Personal Information (APPI) as
+        <strong>Health / allergy information:</strong> a dedicated allergy/health flag and note
+        field. This qualifies under Japan's Act on the Protection of Personal Information (APPI) as
         "special-care-required personal information," which requires the client's prior consent to
         record. Obtaining that consent is the technician's responsibility.
       </li>
@@ -107,7 +107,7 @@ const effectiveDate = "2026-07-13";
     <h2>Where data lives and how it travels</h2>
     <p>
       Data is stored with Supabase (Tokyo region) and transmitted over HTTPS only. Sign-in codes are
-      delivered by email via Resend, configured server-side — the app itself never talks to Resend
+      delivered by email via Resend, configured server-side. The app itself never talks to Resend
       directly. Supabase and Resend act only as processors; neither sells nor shares data with third
       parties.
     </p>
@@ -119,12 +119,12 @@ const effectiveDate = "2026-07-13";
     <ul>
       <li>
         <strong>Individual client records:</strong> the app does not currently offer a way to fully
-        delete a single client — they can be archived, and the underlying data is retained.
+        delete a single client. They can be archived, and the underlying data is retained.
       </li>
       <li>
         <strong>Account deletion:</strong> from Settings, "Delete account" (after a confirmation step)
         permanently deletes <strong>all data</strong> tied to the technician's account on the
-        server — clients, appointments, photos, photo storage, and the account itself. This cannot
+        server: clients, appointments, photos, photo storage, and the account itself. This cannot
         be undone.
       </li>
     </ul>

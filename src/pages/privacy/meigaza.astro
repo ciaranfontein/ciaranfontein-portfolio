@@ -103,21 +103,21 @@ const effectiveDate = "2026-07-13";
 
     <h2>Sign-in and account data</h2>
     <p>
-      Sign-in uses an emailed one-time code (OTP) — no passwords. Stored data: your email address, an
+      Sign-in uses an emailed one-time code (OTP). No passwords. Stored data: your email address, an
       optional display name, and an internal user ID.
     </p>
 
     <h2>Where your data is stored (backend)</h2>
     <p>
       Account data (email address, display name), authentication, teams, movie lists, and "desire"
-      scores are stored and processed on <strong>Supabase</strong>, the app's backend service — all of
+      scores are stored and processed on <strong>Supabase</strong>, the app's backend service. All of
       the data above is hosted in Supabase's database and auth infrastructure.
     </p>
 
     <h2>Teams</h2>
     <p>
       Meigaza lets a group pick movies together as a "team." Your teammates can see your
-      <strong>email address and display name</strong> — this is not visible outside your team. Team
+      <strong>email address and display name</strong>. This is not visible outside your team. Team
       invitations are sent to the invitee's email address.
     </p>
 
@@ -127,21 +127,21 @@ const effectiveDate = "2026-07-13";
       watch this" score you give each movie are visible to everyone on that team.
     </p>
 
-    <h2>Movie search — data sent to external services</h2>
+    <h2>Movie search: data sent to external services</h2>
     <p>
       When you search for a movie, the text you type (and your device's IP address, as part of any
       network request) is sent <strong>directly from your device</strong> to these third-party
       services:
     </p>
     <ul>
-      <li><strong>TMDB</strong> (The Movie Database) — for search results, film info, and poster images.</li>
-      <li><strong>Apple iTunes Search</strong> — for search results.</li>
+      <li><strong>TMDB</strong> (The Movie Database): for search results, film info, and poster images.</li>
+      <li><strong>Apple iTunes Search</strong>: for search results.</li>
     </ul>
     <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
 
     <h2>Team-invite emails</h2>
     <p>
-      Invitation emails are sent server-side only, via Resend — the app never contacts Resend
+      Invitation emails are sent server-side only, via Resend. The app never contacts Resend
       directly. An invite email includes the invitee's email address, the team name, and the
       inviter's name and email address.
     </p>
@@ -160,11 +160,11 @@ const effectiveDate = "2026-07-13";
     <ul>
       <li><strong>Deletes</strong> your profile (email, display name), your team memberships, and your own scores.</li>
       <li><strong>Deletes</strong> any team you solely own, including its movies, scores, and invites.</li>
-      <li><strong>Keeps</strong> teams you shared with other members — ownership transfers to another member and the team continues to exist.</li>
+      <li><strong>Keeps</strong> teams you shared with other members. Ownership transfers to another member, and the team continues to exist.</li>
       <li>
         <strong>Important nuance:</strong> movies you added to a team, and any custom titles or tags
         you typed, <strong>remain in that team</strong> after your account is deleted. Only the link
-        showing "who added this" is removed — your name is de-identified, but the content itself
+        showing "who added this" is removed. Your name is de-identified, but the content itself
         stays as part of the team's shared record.
       </li>
     </ul>
