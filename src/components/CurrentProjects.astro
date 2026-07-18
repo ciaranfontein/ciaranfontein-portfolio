@@ -1,0 +1,200 @@
+---
+// Current projects — apps I'm building and shipping on my own time.
+// KiraKiran facts verified against the live App Store listing (id6788704136,
+// released July 2026) and the project repo. Add future projects as new cards.
+
+const APP_STORE_URL = "https://apps.apple.com/jp/app/id6788704136";
+
+const stack = ["React Native", "Expo", "TypeScript", "Supabase"];
+
+const stats = [
+  "Live on the App Store · July 2026",
+  "Solo: design → build → ship",
+  "Japanese-first, English toggle",
+  "Free for solo nail techs",
+];
+---
+
+<section id="projects" class="projects">
+  <div class="container">
+    <p class="eyebrow">What I'm building now</p>
+    <h2 class="section-heading">Current projects</h2>
+
+    <article class="projects__card">
+      <header class="projects__header">
+        <img
+          class="projects__icon"
+          src="/images/kirakiran/app-icon.webp"
+          width="64"
+          height="64"
+          alt="KiraKiran app icon"
+          loading="lazy"
+        />
+        <div>
+          <p class="eyebrow">Own product · iOS · React Native + Supabase</p>
+          <h3>KiraKiran ネイル顧客管理 — client management for solo nail techs</h3>
+        </div>
+      </header>
+
+      <ul class="projects__proof-links">
+        <li>
+          <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer"
+            >App Store</a
+          >
+        </li>
+        <li>
+          <a href="/privacy/kirakiran/">Privacy policy</a>
+        </li>
+      </ul>
+
+      <p class="projects__oneliner">
+        My wife is a nail tech. I built her the tool her work actually needed,
+        then shipped it for every solo nail artist in Japan.
+      </p>
+
+      <p class="projects__context">
+        When we moved from Osaka to Nara, she had to rebuild her client base
+        from zero — and she was running the whole business through LINE chats,
+        Instagram DMs, and memory. I watched her scroll back through months of
+        messages to find one client's details before an appointment. That's a
+        software problem, so I built the software.
+      </p>
+
+      <p class="projects__context">
+        KiraKiran keeps clients, bookings, and photos in one place: a kana-aware
+        client list (hiragana or katakana, same result), a day/week booking
+        calendar with appointment statuses, and per-appointment photo pairs —
+        the design reference a client sends next to the finished result. It's
+        Japanese-first with an English toggle, because its users are Japanese
+        nail techs, not me.
+      </p>
+
+      <p class="projects__context">
+        My wife was the first user, and her real-world complaints set the
+        roadmap — the first releases were fixes to things she hit in her actual
+        workday, not features I imagined. Version 1.0 is now live on the App
+        Store. I designed, built, and shipped it solo: React Native + Expo +
+        TypeScript on the front, Supabase (Postgres with row-level security)
+        behind it.
+      </p>
+
+      <ul class="projects__stack" aria-label="Tech stack">
+        {stack.map((s) => <li>{s}</li>)}
+      </ul>
+
+      <ul class="projects__stats">
+        {stats.map((s) => <li>{s}</li>)}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<style>
+  .projects {
+    background: var(--color-bg-alt);
+  }
+
+  .projects__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-card);
+  }
+
+  .projects__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .projects__icon {
+    border-radius: 1rem;
+    flex-shrink: 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .projects__header h3 {
+    margin: 0.15rem 0 0;
+    font-size: 1.3rem;
+  }
+
+  .projects__proof-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0 0 var(--space-3);
+  }
+
+  .projects__proof-links li {
+    display: contents;
+  }
+
+  .projects__proof-links a {
+    display: inline-block;
+    background: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .projects__proof-links a:hover,
+  .projects__proof-links a:focus-visible {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  .projects__oneliner {
+    font-size: 1.1rem;
+    font-weight: 500;
+    max-width: 60ch;
+  }
+
+  .projects__context {
+    color: var(--color-text-muted);
+    max-width: 68ch;
+  }
+
+  .projects__stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: var(--space-3) 0 0;
+  }
+
+  .projects__stack li {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+  }
+
+  .projects__stats {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: var(--space-2) 0 0;
+  }
+
+  .projects__stats li {
+    background: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+  }
+</style>
