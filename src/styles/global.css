@@ -18,51 +18,58 @@
 
   --radius: 0.75rem;
 
-  /* Light theme (default) */
-  --color-bg: #ffffff;
-  --color-bg-alt: #f4f6f9;
-  --color-surface: #ffffff;
-  --color-border: #e2e8f0;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-accent: #0284c7;
-  --color-accent-strong: #0369a1;
+  /* Emerald CTA pop — same in both themes */
+  --color-cta: #1ed760;
+
+  /* Light theme (default) — forest green on warm beige */
+  --color-bg: #f2efe9;
+  --color-bg-alt: #eae5da;
+  --color-surface: #faf8f3;
+  --color-border: #dcd5c6;
+  --color-text: #1f382b;
+  --color-text-muted: #4c6852;
+  --color-accent: #5a7a63;
+  --color-accent-strong: #0b3019;
+  /* Hover color for links and primary buttons */
+  --color-accent-hover: #5a7a63;
   /* Text color for content sitting ON an accent-strong background */
-  --color-on-accent: #ffffff;
-  --color-badge-bg: #e0f2fe;
-  --color-badge-text: #0369a1;
-  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.06);
+  --color-on-accent: #f2efe9;
+  --color-badge-bg: #e1d9c9;
+  --color-badge-text: #0b3019;
+  --shadow-card: 0 1px 3px rgba(31, 56, 43, 0.1), 0 1px 2px rgba(31, 56, 43, 0.06);
 }
 
 :root[data-theme="dark"] {
-  --color-bg: #0b1220;
-  --color-bg-alt: #0f172a;
-  --color-surface: #131e33;
-  --color-border: #1f2b42;
-  --color-text: #e8edf5;
-  --color-text-muted: #9aa8bd;
-  --color-accent: #38bdf8;
-  --color-accent-strong: #7dd3fc;
-  --color-on-accent: #082338;
-  --color-badge-bg: #0c3a52;
-  --color-badge-text: #7dd3fc;
+  --color-bg: #0f2418;
+  --color-bg-alt: #143020;
+  --color-surface: #1f382b;
+  --color-border: #34523f;
+  --color-text: #e1d9c9;
+  --color-text-muted: #aec0ab;
+  --color-accent: #5a7a63;
+  --color-accent-strong: #1ed760;
+  --color-accent-hover: #62e695;
+  --color-on-accent: #0b3019;
+  --color-badge-bg: #2a4636;
+  --color-badge-text: #cfe0c4;
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Respect system preference when no explicit toggle choice has been stored */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #0b1220;
-    --color-bg-alt: #0f172a;
-    --color-surface: #131e33;
-    --color-border: #1f2b42;
-    --color-text: #e8edf5;
-    --color-text-muted: #9aa8bd;
-    --color-accent: #38bdf8;
-    --color-accent-strong: #7dd3fc;
-    --color-on-accent: #082338;
-    --color-badge-bg: #0c3a52;
-    --color-badge-text: #7dd3fc;
+    --color-bg: #0f2418;
+    --color-bg-alt: #143020;
+    --color-surface: #1f382b;
+    --color-border: #34523f;
+    --color-text: #e1d9c9;
+    --color-text-muted: #aec0ab;
+    --color-accent: #5a7a63;
+    --color-accent-strong: #1ed760;
+    --color-accent-hover: #62e695;
+    --color-on-accent: #0b3019;
+    --color-badge-bg: #2a4636;
+    --color-badge-text: #cfe0c4;
     --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 }
@@ -106,6 +113,10 @@ img {
 
 a {
   color: var(--color-accent-strong);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
 }
 
 h1,
