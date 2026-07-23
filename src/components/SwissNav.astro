@@ -1,0 +1,117 @@
+---
+// Swiss fixed nav — the reference's top-left stacked text links with the
+// active section underlined. Fixed column on wide screens (it lives in the
+// page margin), static inline row on narrow ones. Works fully without JS;
+// the IntersectionObserver underline is an enhancement.
+import ThemeToggle from "./ThemeToggle.astro";
+
+const links = [
+  { href: "#about", id: "about", label: "About" },
+  { href: "#work", id: "work", label: "Work" },
+  { href: "#projects", id: "projects", label: "Projects" },
+  { href: "#experience", id: "experience", label: "Experience" },
+  { href: "#skills", id: "skills", label: "Skills" },
+  { href: "#contact", id: "contact", label: "Contact" },
+];
+---
+
+<div class="swiss-top">
+  <nav class="swiss-nav" aria-label="Primary" id="swiss-nav">
+    <ul>
+      {
+        links.map((l) => (
+          <li>
+            <a href={l.href} data-section={l.id}>
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="swiss-toggle">
+    <ThemeToggle />
+  </div>
+</div>
+
+<style>
+  .swiss-nav {
+    padding: var(--space-2) var(--space-2) 0;
+  }
+
+  .swiss-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.1rem;
+  }
+
+  .swiss-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .swiss-nav a:hover,
+  .swiss-nav a[aria-current="true"] {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .swiss-toggle {
+    position: fixed;
+    top: 0.9rem;
+    right: 0.9rem;
+    z-index: 60;
+  }
+
+  @media (min-width: 1100px) {
+    .swiss-nav {
+      position: fixed;
+      top: 1.4rem;
+      left: 1.4rem;
+      z-index: 60;
+      padding: 0;
+    }
+
+    .swiss-nav ul {
+      display: block;
+    }
+  }
+
+  @media print {
+    .swiss-nav,
+    .swiss-toggle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Underline the section currently in view (enhancement only).
+  const nav = document.getElementById("swiss-nav");
+  if (nav) {
+    const links = [...nav.querySelectorAll("a[data-section]")] as HTMLAnchorElement[];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          for (const link of links) {
+            const active = link.dataset.section === entry.target.id;
+            if (active) link.setAttribute("aria-current", "true");
+            else link.removeAttribute("aria-current");
+          }
+        }
+      },
+      { rootMargin: "-35% 0px -55% 0px" },
+    );
+    for (const link of links) {
+      const el = document.getElementById(link.dataset.section || "");
+      if (el) observer.observe(el);
+    }
+  }
+</script>

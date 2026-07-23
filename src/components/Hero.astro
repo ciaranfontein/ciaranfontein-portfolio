@@ -1,232 +1,155 @@
 ---
+// Swiss typographic hero — massive grotesque caps name, micro-label,
+// plain large body text, underlined text links instead of buttons,
+// B/W rectangular portrait. Reference: Aristide Benoist 2018 (owner-picked).
 import { AVAILABILITY_BADGE, SITE } from "../site.config";
+
+const meta = [
+  "6+ years",
+  "sole developer",
+  "iOS + Android",
+  SITE.location,
+  SITE.visaNote,
+  AVAILABILITY_BADGE,
+];
 ---
 
 <section id="top" class="hero">
   <div class="container hero__inner">
     <div class="hero__copy">
       <a class="hero__announce" href="#projects">
-        <span class="hero__announce-dot" aria-hidden="true"></span>
-        New: three of my own apps are live on the App Store
-        <span aria-hidden="true">→</span>
+        New: three of my own apps are live on the App Store&nbsp;<span
+          aria-hidden="true">→</span>
       </a>
-      <p class="eyebrow">Senior React Native Engineer</p>
-      <h1 class="hero__name">
-        Ciaran<br /><span class="hero__name-outline">Fontein</span>
-      </h1>
+      <p class="eyebrow">Profile<br />Senior React Native Engineer</p>
+      <h1 class="hero__name">Ciaran<br />Fontein</h1>
       <p class="hero__lede">
-        I build mobile apps from Figma to the App&nbsp;Store. Six years as
-        the sole frontend developer on Guusto's iOS&nbsp;+&nbsp;Android app,
-        and now shipping my own.
+        I build mobile apps from Figma to the App Store. Six years as the
+        sole frontend developer on Guusto's iOS + Android app, and now
+        shipping my own.
       </p>
-      <ul class="hero__meta">
-        <li>6+ years</li>
-        <li>sole developer</li>
-        <li>iOS + Android</li>
-        <li>📍 {SITE.location}</li>
-        <li>{SITE.visaNote}</li>
-        <li class="hero__badge">{AVAILABILITY_BADGE}</li>
-      </ul>
+      <p class="hero__meta">
+        {meta.join("  ·  ")}
+      </p>
       <div class="hero__cta">
-        <a class="button button--primary" href="#work">View my work ↓</a>
-        <a class="button button--secondary" href="/resume/ciaran_fontein_cv.pdf" download>
+        <a class="hero__link" href="#work">View my work</a>
+        <a class="hero__link" href="/resume/ciaran_fontein_cv.pdf" download>
           Download CV
         </a>
       </div>
     </div>
     <div class="hero__portrait">
-      <div class="hero__portrait-composition">
-        <span class="frame-accent hero__frame" aria-hidden="true"></span>
-        <img
-          class="hero__photo"
-          src="/images/headshot.webp"
-          width="900"
-          height="1350"
-          alt="Ciaran Fontein"
-          fetchpriority="high"
-        />
-      </div>
+      <img
+        class="hero__photo"
+        src="/images/headshot.webp"
+        width="900"
+        height="1350"
+        alt="Ciaran Fontein"
+        fetchpriority="high"
+      />
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    padding-block: var(--space-5) var(--space-6);
-    background: linear-gradient(to bottom, var(--color-bg-alt), var(--color-bg));
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  /* Byline-style announce: letterspaced label with a thin rule, per the
-     reference's underlined credit lines — no pill, no chrome. */
-  .hero__announce {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--color-text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 0.35rem;
-    margin-bottom: var(--space-3);
-    transition: border-color 0.15s, color 0.15s;
-  }
-
-  .hero__announce:hover {
-    color: var(--color-accent-strong);
-    border-color: var(--color-accent-strong);
-  }
-
-  .hero__announce-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999px;
-    background: var(--color-cta);
-    flex-shrink: 0;
+    padding-block: var(--space-6) var(--space-6);
   }
 
   .hero__inner {
     display: grid;
     gap: var(--space-4);
-    align-items: center;
+    align-items: end;
   }
 
   @media (min-width: 900px) {
     .hero__inner {
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.4fr 0.6fr;
       gap: var(--space-6);
     }
   }
 
-  .hero__name {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(3rem, 2rem + 5.5vw, 5.75rem);
-    line-height: 0.98;
-    letter-spacing: 0.01em;
-    margin: var(--space-2) 0;
+  .hero__announce {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-4);
   }
 
-  /* Hollow outline surname — the reference logotype move. Browsers without
-     text-stroke keep the solid fallback. */
-  @supports (-webkit-text-stroke: 2px black) {
-    .hero__name-outline {
-      color: transparent;
-      -webkit-text-stroke: 2px var(--color-text);
-    }
+  .hero__announce:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+  }
+
+  .hero__name {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(3.4rem, 1rem + 11vw, 9rem);
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    margin: var(--space-2) 0 var(--space-4);
   }
 
   .hero__lede {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    line-height: 1.5;
-    color: var(--color-text-muted);
-    max-width: 40ch;
+    font-size: clamp(1.15rem, 1rem + 0.7vw, 1.45rem);
+    line-height: 1.45;
+    max-width: 46ch;
+    margin: 0 0 var(--space-3);
   }
 
   .hero__meta {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--color-badge-text);
-    margin-block: var(--space-2) var(--space-3);
-    padding: 0;
-  }
-
-  .hero__meta li {
-    display: inline-block;
-    background: var(--color-badge-bg);
-    font-weight: 600;
-    padding: 0.25rem 0.7rem;
-    border-radius: 999px;
-  }
-
-  .hero__badge {
-    background: var(--color-accent-strong);
-    color: var(--color-on-accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin: 0 0 var(--space-3);
   }
 
   .hero__cta {
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space-3);
     flex-wrap: wrap;
   }
 
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.7rem 1.4rem;
-    border-radius: var(--radius);
-    font-weight: 600;
-    text-decoration: none;
+  .hero__link {
     font-size: 0.95rem;
-    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-  }
-
-  .button--primary {
-    background: var(--color-accent-strong);
-    color: var(--color-on-accent);
-  }
-
-  .button--primary:hover {
-    background: var(--color-accent-hover);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-card);
-  }
-
-  .button--secondary {
-    background: transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
     color: var(--color-text);
-    border: 1px solid var(--color-border);
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+    text-decoration-thickness: 2px;
   }
 
-  .button--secondary:hover {
-    border-color: var(--color-accent);
+  .hero__link:hover {
     color: var(--color-accent-strong);
   }
 
   .hero__portrait {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
-  /* Magazine composition: solid accent block offset behind the photo, a
-     hollow square accent breaking its lower edge — flat, rectilinear. */
-  .hero__portrait-composition {
-    position: relative;
-    padding: 0;
-  }
-
-  .hero__portrait-composition::before {
-    content: "";
-    position: absolute;
-    top: -1.1rem;
-    right: -1.1rem;
-    width: 62%;
-    height: 58%;
-    background: var(--color-accent-strong);
-    z-index: 0;
-  }
-
-  .hero__frame {
-    left: -0.8rem;
-    bottom: 2.2rem;
-    z-index: 2;
-  }
-
+  /* B/W rectangular image, no chrome — color returns on hover */
   .hero__photo {
-    position: relative;
-    z-index: 1;
-    width: min(320px, 70vw);
+    width: min(300px, 62vw);
     height: auto;
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-card);
+    filter: grayscale(1);
+    transition: filter 0.25s ease;
+  }
+
+  .hero__photo:hover {
+    filter: grayscale(0);
+  }
+
+  @media (max-width: 899px) {
+    .hero__portrait {
+      justify-content: flex-start;
+    }
   }
 </style>
