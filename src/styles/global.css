@@ -8,6 +8,12 @@
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
+  /* Editorial display serif — system stack, zero webfonts (same rule as ever).
+     Pattern source: the Eskapismus / 110% Magazine reference (owner-picked):
+     serif display headlines, letterspaced underlined bylines, rectilinear
+     edges, hollow outline accents. */
+  --font-display: Georgia, "Iowan Old Style", "Times New Roman", serif;
+
   --max-width: 72rem;
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -16,7 +22,8 @@
   --space-5: 4rem;
   --space-6: 6rem;
 
-  --radius: 0.75rem;
+  /* Rectilinear, magazine-style edges (was 0.75rem rounded) */
+  --radius: 4px;
 
   /* Emerald CTA pop — same in both themes */
   --color-cta: #1ed760;
@@ -171,15 +178,63 @@ section {
   top: 0.5rem;
 }
 
+/* Byline-style label: tiny, letterspaced, thin underline (reference idiom) */
 .eyebrow {
+  display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--color-accent-strong);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.3rem;
 }
 
 .section-heading {
-  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.25rem);
-  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 3.4rem);
+  letter-spacing: 0.01em;
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+/* Giant hollow section index numbers, magazine-folio style. Decorative:
+   the alt-text form (`/ ""`) keeps them out of the accessibility tree in
+   supporting browsers; others simply skip the unsupported declaration and
+   show nothing — graceful either way. */
+main {
+  counter-reset: section-idx;
+}
+
+main > section {
+  position: relative;
+  counter-increment: section-idx;
+}
+
+@media (min-width: 900px) {
+  main > section:not(.hero)::before {
+    content: "0" counter(section-idx);
+    content: "0" counter(section-idx) / "";
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-3);
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 700;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px
+      color-mix(in srgb, var(--color-accent) 55%, transparent);
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/* Hollow outlined square — the reference's floating frame accent */
+.frame-accent {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--color-accent-strong);
+  pointer-events: none;
 }
