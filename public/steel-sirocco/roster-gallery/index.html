@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Pins the 33 relative <script src="*-sprite.js"> paths to this directory so they
+     resolve whether or not the URL carries a trailing slash. Only added line. -->
+<base href="/steel-sirocco/roster-gallery/">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mech Roster — All 33 Frames</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#26231d;font-family:'JetBrains Mono',monospace;color:#E9E2CF}
+.top{position:sticky;top:0;z-index:10;background:#26231dF2;border-bottom:1px solid rgba(233,226,207,.14);
+  padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+h1{font-size:13px;letter-spacing:.22em;margin:0;font-weight:700}
+.count{font-size:11px;letter-spacing:.14em;color:rgba(233,226,207,.45)}
+.spacer{flex:1}
+button{font-family:inherit;font-size:11px;letter-spacing:.14em;font-weight:700;cursor:pointer;
+  padding:7px 16px;border:1px solid rgba(233,226,207,.28);background:transparent;color:#E9E2CF}
+button.on{background:#E9E2CF;color:#26231d;border-color:#E9E2CF}
+main{padding:8px 24px 60px}
+section{margin-top:34px}
+.fh{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.chip{width:13px;height:13px;flex:none}
+.fname{font-size:12px;letter-spacing:.2em;font-weight:700}
+.pal{display:flex;gap:3px;margin-left:6px}
+.pal i{width:16px;height:9px;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px}
+.cell{border:1px solid rgba(233,226,207,.13);background:#2e2b23;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;padding:12px 6px 0;min-height:196px}
+.cell .h{flex:1;display:flex;align-items:center;justify-content:center;width:100%}
+.cell .n{font-size:9px;letter-spacing:.16em;padding:7px 0;color:rgba(233,226,207,.5)}
+.cell .d{font-size:8px;letter-spacing:.1em;color:rgba(233,226,207,.28);padding-bottom:7px}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>STEEL SIROCCO · MECH ROSTER</h1>
+  <span class="count">33 FRAMES · 10 FACTIONS</span>
+  <span class="spacer"></span>
+  <button id="mode" class="on">IDLE</button>
+  <button id="grnd">GROUND OFF</button>
+</div>
+<main id="main"></main>
+<script>
+const FACTIONS=[
+ {n:'1 · ROT',        p:['#7CB342','#33691E','#052E16'], m:[['snake','110×300'],['skunk','130×250'],['spider','160×210']]},
+ {n:'2 · EMBER',      p:['#E76F51','#D62828','#2E2A28'], m:[['salamander','150×280'],['toad','150×210'],['dragon','170×320']]},
+ {n:'3 · GLACIER',    p:['#CAF0F8','#0077B6','#03045E'], m:[['stoat','110×300'],['owl','170×134'],['fox','112×200'],['polarbear','164×206']]},
+ {n:'4 · SWARM',      p:['#FFD60A','#240046','#FFC300'], m:[['firefly','170×100'],['wasp','170×110'],['hawk','170×134'],['cougar','150×240']]},
+ {n:'5 · CRIMSON',    p:['#641220','#E01E37','#EFE6DD'], m:[['mosquito','170×150'],['leech','120×260'],['bat','190×140'],['wolf','140×200']]},
+ {n:'6 · TIDE',       p:['#00B4D8','#03045E','#90E0EF'], m:[['wombat','150×190'],['turtle','180×190'],['triceratops','180×200']]},
+ {n:'7 · CINDER',     p:['#FF5400','#FF006E','#262626'], m:[['pigeon','170×140'],['boar','150×220'],['beetle','160×210']]},
+ {n:'8 · WARREN',     p:['#5D4037','#A1887F','#F4A261'], m:[['rat','120×250'],['raccoon','150×210'],['ant','150×200']]},
+ {n:'9 · VEIL',       p:['#B497BD','#10002B','#9D4EDD'], m:[['moth','200×150'],['baboon','150×200'],['octopus','190×200']]},
+ {n:'10 · VAST',      p:['#D4B996','#003049','#EDE6DD'], m:[['capybara','150×190'],['elephant','150×220'],['whaleshark','150×310']]},
+];
+const main=document.getElementById('main');
+for(const f of FACTIONS){
+  const s=document.createElement('section');
+  s.innerHTML='<div class="fh"><span class="chip" style="background:'+f.p[0]+'"></span>'+
+    '<span class="fname">'+f.n+'</span><span class="pal">'+f.p.map(c=>'<i style="background:'+c+'"></i>').join('')+'</span></div>'+
+    '<div class="grid">'+f.m.map(([k,dim])=>
+      '<div class="cell"><div class="h"><'+k+'-sprite mode="idle" style="height:150px"></'+k+'-sprite></div>'+
+      '<div class="n">'+k.toUpperCase()+'</div><div class="d">'+dim+'</div></div>').join('')+'</div>';
+  main.appendChild(s);
+}
+const all=()=>Array.from(document.querySelectorAll('main .h > *'));
+let walking=false,ground=false;
+const mb=document.getElementById('mode'),gb=document.getElementById('grnd');
+mb.onclick=()=>{walking=!walking;mb.textContent=walking?'WALK':'IDLE';mb.classList.toggle('on',!walking);
+  for(const e of all())e.setAttribute('mode',walking?'walk':'idle');};
+gb.onclick=()=>{ground=!ground;gb.textContent=ground?'GROUND ON':'GROUND OFF';gb.classList.toggle('on',ground);
+  for(const e of all()){if(ground)e.setAttribute('ground','');else e.removeAttribute('ground');}};
+</script>
+<script src="snake-sprite.js"></script>
+<script src="skunk-sprite.js"></script>
+<script src="spider-sprite.js"></script>
+<script src="salamander-sprite.js"></script>
+<script src="toad-sprite.js"></script>
+<script src="dragon-sprite.js"></script>
+<script src="stoat-sprite.js"></script>
+<script src="owl-sprite.js"></script>
+<script src="fox-sprite.js"></script>
+<script src="polarbear-sprite.js"></script>
+<script src="firefly-sprite.js"></script>
+<script src="wasp-sprite.js"></script>
+<script src="hawk-sprite.js"></script>
+<script src="cougar-sprite.js"></script>
+<script src="mosquito-sprite.js"></script>
+<script src="leech-sprite.js"></script>
+<script src="bat-sprite.js"></script>
+<script src="wolf-sprite.js"></script>
+<script src="wombat-sprite.js"></script>
+<script src="turtle-sprite.js"></script>
+<script src="triceratops-sprite.js"></script>
+<script src="pigeon-sprite.js"></script>
+<script src="boar-sprite.js"></script>
+<script src="beetle-sprite.js"></script>
+<script src="rat-sprite.js"></script>
+<script src="raccoon-sprite.js"></script>
+<script src="ant-sprite.js"></script>
+<script src="moth-sprite.js"></script>
+<script src="baboon-sprite.js"></script>
+<script src="octopus-sprite.js"></script>
+<script src="capybara-sprite.js"></script>
+<script src="elephant-sprite.js"></script>
+<script src="whaleshark-sprite.js"></script>
+</body>
+</html>
