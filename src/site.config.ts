@@ -7,7 +7,7 @@
  * FLIP THIS ON AUG 1, 2026: change to "🟢 Open to work" (see plan.md Phase 4).
  * This is the ONLY place this string lives — every component imports it from here.
  */
-export const AVAILABILITY_BADGE = "Available August 2026";
+export const AVAILABILITY_BADGE = "🟢 Open to work";
 
 export const SITE = {
   name: "Ciaran Fontein",
