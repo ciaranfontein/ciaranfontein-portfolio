@@ -32,6 +32,16 @@ const fateStats = [
   "2–32 players",
   "Designed, built, and shipped solo",
 ];
+
+const MARUNAIL_URL = "https://marunail.jp";
+
+const marunailStack = ["HTML", "CSS", "JSON-LD", "GitHub Pages"];
+const marunailStats = [
+  "Live at marunail.jp · July 2026",
+  "Zero external requests · ~24 KB",
+  "Japanese-first, mobile-first",
+  "No street address published (home salon)",
+];
 ---
 
 <section id="projects" class="projects">
@@ -214,6 +224,68 @@ const fateStats = [
 
       <ul class="projects__stats">
         {fateStats.map((s) => <li>{s}</li>)}
+      </ul>
+    </article>
+
+    <article class="projects__card">
+      <header class="projects__header">
+        <img
+          class="projects__icon"
+          src="/images/marunail/app-icon.webp"
+          width="64"
+          height="64"
+          alt="maRuNail site icon"
+          loading="lazy"
+        />
+        <div>
+          <p class="eyebrow">Client work · Web · Hand-written HTML + CSS</p>
+          <h3>maRuNail: a one-page site for a home nail salon in Nara</h3>
+        </div>
+      </header>
+
+      <ul class="projects__proof-links">
+        <li>
+          <a href={MARUNAIL_URL} target="_blank" rel="noopener noreferrer"
+            >Live site</a
+          >
+        </li>
+      </ul>
+
+      <p class="projects__oneliner">
+        My wife's salon ran entirely on Instagram and LINE, with nowhere to
+        send someone who just wanted the hours, the prices, and a look at the
+        work. Now there's a page for that.
+      </p>
+
+      <p class="projects__context">
+        One page, in Japanese, laid out for phones first, because that's how
+        people look for a nail salon in Nara. Hours, menu, payment methods,
+        FAQs, and a gallery of six of her own photos, each with real alt text
+        and fixed dimensions so nothing jumps while it loads. It's a home
+        salon, so the street address isn't published on the page or in the
+        structured data, only the city and the areas she covers. A customer
+        gets the address once a booking is confirmed.
+      </p>
+
+      <p class="projects__context">
+        Hand-written HTML and CSS, no framework and no build step. The page
+        makes zero external requests: every asset comes from its own origin,
+        the favicon is an inline SVG data URI, and no font, script, or tracker
+        is loaded from anyone else. About 24 KB in total. JSON-LD NailSalon
+        and FAQPage schema gives Google and AI assistants the salon's details,
+        hours, and FAQs straight off the page. I did the rest of the chain
+        myself: DNS at the registrar, GitHub Pages on the custom domain with
+        HTTPS enforced, robots.txt and sitemap.xml, and a 1200×630 share card
+        so the link previews properly when she sends it on LINE, which is
+        where her bookings actually happen.
+      </p>
+
+      <ul class="projects__stack" aria-label="Tech stack">
+        {marunailStack.map((s) => <li>{s}</li>)}
+      </ul>
+
+      <ul class="projects__stats">
+        {marunailStats.map((s) => <li>{s}</li>)}
       </ul>
     </article>
   </div>
