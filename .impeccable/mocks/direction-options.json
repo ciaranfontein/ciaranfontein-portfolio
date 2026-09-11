@@ -1,0 +1,64 @@
+{
+  "title": "Choose the quieter portfolio direction",
+  "question": "These options remove the craft-menu styling. They use calm space, precise structure, and real product work to present you as a serious mobile engineer.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Product First",
+      "kicker": "QUIETEST PROOF",
+      "thesis": "Let shipped mobile work carry the page, with your name and role acting as a quiet frame around it.",
+      "lineage": "Calm Japanese corporate design, with Panasonic-like space and Keyence-like product clarity.",
+      "palette": ["#F7F8F8", "#17212B", "#1F5A78", "#DCE5E8"],
+      "materials": "Real app screens, generous white space, precise dividers, plain language, and one muted accent.",
+      "viewport": "A large Guusto product screen occupies the left side. A compact right column contains your name, React Native focus, six years of ownership, Felipe's recommendation, and simple Work and Resume links.",
+      "strength": "Feels calm, credible, and immediately grounded in a real production app.",
+      "risk": "It depends on choosing a strong, legible crop from the product imagery.",
+      "comp": ".impeccable/mocks/decision/product-first.png"
+    },
+    {
+      "id": "model-pick",
+      "label": "Quiet Professional Profile",
+      "kicker": "HUMAN FIRST",
+      "thesis": "Establish trust through a modest portrait and concise introduction, then let the products prove the details.",
+      "lineage": "Osaka corporate design pages that pair a real person with a careful, direct statement.",
+      "palette": ["#FFFFFF", "#1B2024", "#315E52", "#E8ECE9"],
+      "materials": "Natural portrait photography, measured typography, real product imagery, and open space.",
+      "viewport": "Your portrait sits beside a restrained role headline and three factual points. A quiet strip below previews Guusto and KiraKiran without card decoration.",
+      "strength": "Warm and trustworthy without sounding self-promotional.",
+      "risk": "It is more familiar and can lean toward a conventional corporate biography.",
+      "comp": ".impeccable/mocks/decision/quiet-profile.png"
+    },
+    {
+      "id": "challenger-evidence-index",
+      "label": "Engineering Evidence Index",
+      "kicker": "MOST TECHNICAL",
+      "thesis": "Use a clean index of products, ownership, platforms, and proof instead of a promotional hero section.",
+      "lineage": "The precision of Japanese technical product catalogues and well-structured corporate information architecture.",
+      "palette": ["#F5F6F6", "#111519", "#A9262A", "#D9DEE1"],
+      "materials": "Product rows, clear headings, thin dividers, short factual descriptions, and full-colour screenshots.",
+      "viewport": "A compact name and role header leads directly into four indexed project rows, with Guusto expanded to show production ownership and mobile QA evidence.",
+      "strength": "Efficient, precise, and easy for engineering leaders to scan.",
+      "risk": "It can feel less personal than the other two directions.",
+      "comp": ".impeccable/mocks/decision/evidence-index.png"
+    }
+  ],
+  "canon": {
+    "id": "canon",
+    "label": "Conventional international portfolio",
+    "thesis": "A polished hero followed by project cards, skills, recommendations, and contact information.",
+    "palette": ["#FFFFFF", "#18212B", "#2468A2", "#EDF1F4"],
+    "strength": "Clear and familiar to international recruiters.",
+    "risk": "It can resemble many other strong developer portfolios.",
+    "comp": ".impeccable/mocks/decision/canon-safer.png"
+  },
+  "buildPath": {
+    "comp": true,
+    "code": true
+  },
+  "reroll": {
+    "safer": true,
+    "bolder": true
+  },
+  "allowCanon": true,
+  "allowSteer": true
+}

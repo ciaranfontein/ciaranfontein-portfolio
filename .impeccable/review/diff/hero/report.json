@@ -1,0 +1,777 @@
+{
+  "tool": "comp-diff",
+  "version": 1,
+  "createdAt": "2026-09-11T14:36:33.591Z",
+  "label": "hero",
+  "comp": ".impeccable\\mocks\\product-first-c.png",
+  "build": ".impeccable\\review\\hero-repro.png",
+  "spec": ".impeccable\\build\\spec.json",
+  "compSize": "1506x1045",
+  "buildSize": "1506x1045",
+  "align": "top",
+  "overall": 0.6931,
+  "verdict": "drift",
+  "scores": {
+    "overall": 0.6931,
+    "structure": 0.5762,
+    "color": 0.8961,
+    "colorIntersection": 0.8226,
+    "paletteMatch": 0.9357,
+    "detail": 0.6262,
+    "detailRaw": 0.647,
+    "detailAdded": 0.0417,
+    "bands": 0.7386
+  },
+  "palette": {
+    "comp": [
+      {
+        "hex": "#f7f7f7",
+        "coverage": 0.8071
+      },
+      {
+        "hex": "#284d70",
+        "coverage": 0.1075
+      },
+      {
+        "hex": "#0b1114",
+        "coverage": 0.0285
+      },
+      {
+        "hex": "#1f2545",
+        "coverage": 0.0277
+      },
+      {
+        "hex": "#58c8c8",
+        "coverage": 0.0149
+      },
+      {
+        "hex": "#858e9b",
+        "coverage": 0.0143
+      }
+    ],
+    "build": [
+      {
+        "hex": "#f7f8f8",
+        "coverage": 0.8581
+      },
+      {
+        "hex": "#205382",
+        "coverage": 0.089
+      },
+      {
+        "hex": "#223251",
+        "coverage": 0.0176
+      },
+      {
+        "hex": "#57c8c8",
+        "coverage": 0.0163
+      },
+      {
+        "hex": "#0a0b0d",
+        "coverage": 0.0106
+      },
+      {
+        "hex": "#dab2a2",
+        "coverage": 0.0084
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "header-name",
+      "x": 0.0558,
+      "y": 0.0115,
+      "w": 0.0956,
+      "h": 0.0287,
+      "kind": "text",
+      "score": {
+        "overall": 0.7791,
+        "structure": 0.7826,
+        "color": 0.9441,
+        "colorIntersection": 0.8953,
+        "paletteMatch": 0.9705,
+        "detail": 0.4876,
+        "detailRaw": 0.5397,
+        "detailAdded": 0.1042,
+        "bands": 0.7864
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 16,
+          "w": 127,
+          "h": 14
+        },
+        "build": {
+          "x": 9,
+          "y": 19,
+          "w": 109,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "header-nav",
+      "x": 0.6999,
+      "y": 0.0574,
+      "w": 0.0837,
+      "h": 0.0431,
+      "kind": "control",
+      "score": {
+        "overall": 0.5573,
+        "structure": 0.332,
+        "color": 0.86,
+        "colorIntersection": 0.7361,
+        "paletteMatch": 0.9267,
+        "detail": 0.5344,
+        "detailRaw": 0.6751,
+        "detailAdded": 0.2813,
+        "bands": 0
+      },
+      "verdict": "contradicted",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 48
+        },
+        "build": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 48
+        }
+      }
+    },
+    {
+      "id": "hero-headline",
+      "x": 0.0677,
+      "y": 0.1005,
+      "w": 0.3506,
+      "h": 0.1005,
+      "kind": "text",
+      "score": {
+        "overall": 0.5392,
+        "structure": 0.4319,
+        "color": 0.8551,
+        "colorIntersection": 0.7564,
+        "paletteMatch": 0.9083,
+        "detail": 0.283,
+        "detailRaw": 0.4028,
+        "detailAdded": 0.2396,
+        "bands": 0.6699
+      },
+      "verdict": "contradicted",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 0,
+          "w": 509,
+          "h": 105
+        },
+        "build": {
+          "x": 0,
+          "y": 0,
+          "w": 467,
+          "h": 102
+        }
+      }
+    },
+    {
+      "id": "hero-summary",
+      "x": 0.0677,
+      "y": 0.2,
+      "w": 0.3546,
+      "h": 0.0632,
+      "kind": "text",
+      "score": {
+        "overall": 0.6508,
+        "structure": 0.6363,
+        "color": 0.8541,
+        "colorIntersection": 0.8082,
+        "paletteMatch": 0.8789,
+        "detail": 0.3534,
+        "detailRaw": 0.4315,
+        "detailAdded": 0.1563,
+        "bands": 0.6607
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 0,
+          "w": 514,
+          "h": 58
+        },
+        "build": {
+          "x": 0,
+          "y": 12,
+          "w": 466,
+          "h": 46
+        }
+      }
+    },
+    {
+      "id": "headshot",
+      "x": 0.6,
+      "y": 0,
+      "w": 0.3,
+      "h": 0.3,
+      "kind": "image",
+      "score": {
+        "overall": 0.7237,
+        "structure": 0.7255,
+        "color": 0.9177,
+        "colorIntersection": 0.8725,
+        "paletteMatch": 0.9421,
+        "detail": 0.6417,
+        "detailRaw": 0.6989,
+        "detailAdded": 0.1146,
+        "bands": 0.76
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 20,
+          "w": 451,
+          "h": 294
+        },
+        "build": {
+          "x": 0,
+          "y": 23,
+          "w": 451,
+          "h": 291
+        }
+      }
+    },
+    {
+      "id": "guusto-intro",
+      "x": 0.0677,
+      "y": 0.3005,
+      "w": 0.2151,
+      "h": 0.1378,
+      "kind": "text",
+      "score": {
+        "overall": 0.717,
+        "structure": 0.6638,
+        "color": 0.8969,
+        "colorIntersection": 0.8624,
+        "paletteMatch": 0.9154,
+        "detail": 0.4838,
+        "detailRaw": 0.5099,
+        "detailAdded": 0.0521,
+        "bands": 0.8833
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 9,
+          "w": 306,
+          "h": 124
+        },
+        "build": {
+          "x": 0,
+          "y": 10,
+          "w": 223,
+          "h": 131
+        }
+      }
+    },
+    {
+      "id": "guusto-evidence",
+      "x": 0.0598,
+      "y": 0.6392,
+      "w": 0.1726,
+      "h": 0.0612,
+      "kind": "text",
+      "score": {
+        "overall": 0.4765,
+        "structure": 0.5097,
+        "color": 0.8362,
+        "colorIntersection": 0.8082,
+        "paletteMatch": 0.8512,
+        "detail": 0,
+        "detailRaw": 0.025,
+        "detailAdded": 0.2813,
+        "bands": 0.1267
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 6,
+          "w": 247,
+          "h": 58
+        },
+        "build": {
+          "x": 3,
+          "y": 0,
+          "w": 197,
+          "h": 64
+        }
+      }
+    },
+    {
+      "id": "guusto-product",
+      "x": 0.3,
+      "y": 0.3,
+      "w": 0.7,
+      "h": 0.4,
+      "kind": "image",
+      "score": {
+        "overall": 0.4949,
+        "structure": 0.6344,
+        "color": 0.7514,
+        "colorIntersection": 0.5859,
+        "paletteMatch": 0.8405,
+        "detail": 0.3434,
+        "detailRaw": 0.432,
+        "detailAdded": 0.1771,
+        "bands": 0.2857
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 1054,
+          "h": 418
+        },
+        "build": {
+          "x": 40,
+          "y": 0,
+          "w": 921,
+          "h": 418
+        }
+      }
+    },
+    {
+      "id": "independent-intro",
+      "x": 0.0598,
+      "y": 0.6344,
+      "w": 0.1753,
+      "h": 0.0861,
+      "kind": "text",
+      "score": {
+        "overall": 0.4319,
+        "structure": 0.3557,
+        "color": 0.8471,
+        "colorIntersection": 0.8157,
+        "paletteMatch": 0.864,
+        "detail": 0.041,
+        "detailRaw": 0.1504,
+        "detailAdded": 0.2188,
+        "bands": 0.3618
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 11,
+          "w": 248,
+          "h": 69
+        },
+        "build": {
+          "x": 3,
+          "y": 0,
+          "w": 197,
+          "h": 79
+        }
+      }
+    },
+    {
+      "id": "kirakiran-product",
+      "x": 0.2,
+      "y": 0.6,
+      "w": 0.2,
+      "h": 0.2,
+      "kind": "image",
+      "score": {
+        "overall": 0.4095,
+        "structure": 0.5984,
+        "color": 0.8754,
+        "colorIntersection": 0.8429,
+        "paletteMatch": 0.8929,
+        "detail": 0.1422,
+        "detailRaw": 0.1786,
+        "detailAdded": 0.0729,
+        "bands": 0.275
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 301,
+          "h": 195
+        },
+        "build": {
+          "x": 127,
+          "y": 73,
+          "w": 174,
+          "h": 119
+        }
+      }
+    },
+    {
+      "id": "kirakiran-copy",
+      "x": 0.3001,
+      "y": 0.6287,
+      "w": 0.1999,
+      "h": 0.1665,
+      "kind": "text",
+      "score": {
+        "overall": 0.5643,
+        "structure": 0.5309,
+        "color": 0.8298,
+        "colorIntersection": 0.8047,
+        "paletteMatch": 0.8433,
+        "detail": 0.2214,
+        "detailRaw": 0.3151,
+        "detailAdded": 0.1875,
+        "bands": 0.5822
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 10,
+          "w": 301,
+          "h": 156
+        },
+        "build": {
+          "x": 1,
+          "y": 43,
+          "w": 300,
+          "h": 121
+        }
+      }
+    },
+    {
+      "id": "meigaza-product",
+      "x": 0.4,
+      "y": 0.6,
+      "w": 0.2,
+      "h": 0.2,
+      "kind": "image",
+      "score": {
+        "overall": 0.3861,
+        "structure": 0.4448,
+        "color": 0.7389,
+        "colorIntersection": 0.5649,
+        "paletteMatch": 0.8325,
+        "detail": 0.2042,
+        "detailRaw": 0.2563,
+        "detailAdded": 0.1042,
+        "bands": 0.5
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 302,
+          "h": 196
+        },
+        "build": {
+          "x": 0,
+          "y": 91,
+          "w": 302,
+          "h": 103
+        }
+      }
+    },
+    {
+      "id": "meigaza-copy",
+      "x": 0.5,
+      "y": 0.6344,
+      "w": 0.0956,
+      "h": 0.1608,
+      "kind": "text",
+      "score": {
+        "overall": 0.3935,
+        "structure": 0.4003,
+        "color": 0.5527,
+        "colorIntersection": 0.1716,
+        "paletteMatch": 0.7579,
+        "detail": 0.1456,
+        "detailRaw": 0.1612,
+        "detailAdded": 0.0313,
+        "bands": 0.3333
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 168
+        },
+        "build": {
+          "x": 0,
+          "y": 55,
+          "w": 144,
+          "h": 101
+        }
+      }
+    },
+    {
+      "id": "fate-product",
+      "x": 0.6,
+      "y": 0.6,
+      "w": 0.2,
+      "h": 0.2,
+      "kind": "image",
+      "score": {
+        "overall": 0.3974,
+        "structure": 0.4367,
+        "color": 0.8356,
+        "colorIntersection": 0.6645,
+        "paletteMatch": 0.9278,
+        "detail": 0.1752,
+        "detailRaw": 0.2637,
+        "detailAdded": 0.1771,
+        "bands": 0.6699
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 301,
+          "h": 196
+        },
+        "build": {
+          "x": 0,
+          "y": 90,
+          "w": 233,
+          "h": 112
+        }
+      }
+    },
+    {
+      "id": "fate-copy",
+      "x": 0.7078,
+      "y": 0.6287,
+      "w": 0.2231,
+      "h": 0.1665,
+      "kind": "text",
+      "score": {
+        "overall": 0.4463,
+        "structure": 0.3312,
+        "color": 0.7887,
+        "colorIntersection": 0.545,
+        "paletteMatch": 0.9199,
+        "detail": 0.1165,
+        "detailRaw": 0.2363,
+        "detailAdded": 0.2396,
+        "bands": 0.66
+      },
+      "verdict": "contradicted",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 336,
+          "h": 174
+        },
+        "build": {
+          "x": 29,
+          "y": 61,
+          "w": 288,
+          "h": 111
+        }
+      }
+    },
+    {
+      "id": "qa-heading",
+      "x": 0.0598,
+      "y": 0.8,
+      "w": 0.1833,
+      "h": 0.0574,
+      "kind": "text",
+      "score": {
+        "overall": 0.4864,
+        "structure": 0.4787,
+        "color": 0.8013,
+        "colorIntersection": 0.7908,
+        "paletteMatch": 0.807,
+        "detail": 0.0049,
+        "detailRaw": 0.0257,
+        "detailAdded": 0.0417,
+        "bands": 0.46
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 10,
+          "w": 259,
+          "h": 42
+        },
+        "build": {
+          "x": 31,
+          "y": 59,
+          "w": 91,
+          "h": 1
+        }
+      }
+    },
+    {
+      "id": "qa-copy",
+      "x": 0.3479,
+      "y": 0.8057,
+      "w": 0.3147,
+      "h": 0.0517,
+      "kind": "text",
+      "score": {
+        "overall": 0.5424,
+        "structure": 0.5746,
+        "color": 0.8043,
+        "colorIntersection": 0.7612,
+        "paletteMatch": 0.8275,
+        "detail": 0.036,
+        "detailRaw": 0.0621,
+        "detailAdded": 0.0521,
+        "bands": 0.4857
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 10,
+          "w": 455,
+          "h": 33
+        },
+        "build": {
+          "x": 27,
+          "y": 0,
+          "w": 387,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "recommendation-heading",
+      "x": 0.0598,
+      "y": 0.9005,
+      "w": 0.1195,
+      "h": 0.0344,
+      "kind": "text",
+      "score": {
+        "overall": 0.5104,
+        "structure": 0.566,
+        "color": 0.7495,
+        "colorIntersection": 0.7486,
+        "paletteMatch": 0.75,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 0,
+          "w": 162,
+          "h": 35
+        },
+        "build": null
+      }
+    },
+    {
+      "id": "recommendation-quote",
+      "x": 0.332,
+      "y": 0.9005,
+      "w": 0.4143,
+      "h": 0.0344,
+      "kind": "text",
+      "score": {
+        "overall": 0.6475,
+        "structure": 0.8125,
+        "color": 0.8277,
+        "colorIntersection": 0.7911,
+        "paletteMatch": 0.8474,
+        "detail": 0.0081,
+        "detailRaw": 0.1747,
+        "detailAdded": 0.3333,
+        "bands": 0.3314
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 0,
+          "w": 606,
+          "h": 35
+        },
+        "build": {
+          "x": 25,
+          "y": 7,
+          "w": 515,
+          "h": 35
+        }
+      }
+    },
+    {
+      "id": "recommendation-attribution",
+      "x": 0.8161,
+      "y": 0.9005,
+      "w": 0.1235,
+      "h": 0.0115,
+      "kind": "text",
+      "score": {
+        "overall": 0.6459,
+        "structure": 0.7546,
+        "color": 0.9144,
+        "colorIntersection": 0.9001,
+        "paletteMatch": 0.922,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 0.4
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 13,
+          "w": 173,
+          "h": 12
+        },
+        "build": null
+      }
+    }
+  ],
+  "files": {
+    "sideBySide": ".impeccable\\review\\diff\\hero\\side-by-side.png",
+    "heatmap": ".impeccable\\review\\diff\\hero\\heatmap.png",
+    "regionFiles": [
+      ".impeccable\\review\\diff\\hero\\regions\\header-name.png",
+      ".impeccable\\review\\diff\\hero\\regions\\header-nav.png",
+      ".impeccable\\review\\diff\\hero\\regions\\hero-headline.png",
+      ".impeccable\\review\\diff\\hero\\regions\\hero-summary.png",
+      ".impeccable\\review\\diff\\hero\\regions\\headshot.png",
+      ".impeccable\\review\\diff\\hero\\regions\\guusto-intro.png",
+      ".impeccable\\review\\diff\\hero\\regions\\guusto-evidence.png",
+      ".impeccable\\review\\diff\\hero\\regions\\guusto-product.png",
+      ".impeccable\\review\\diff\\hero\\regions\\independent-intro.png",
+      ".impeccable\\review\\diff\\hero\\regions\\kirakiran-product.png",
+      ".impeccable\\review\\diff\\hero\\regions\\kirakiran-copy.png",
+      ".impeccable\\review\\diff\\hero\\regions\\meigaza-product.png",
+      ".impeccable\\review\\diff\\hero\\regions\\meigaza-copy.png",
+      ".impeccable\\review\\diff\\hero\\regions\\fate-product.png",
+      ".impeccable\\review\\diff\\hero\\regions\\fate-copy.png",
+      ".impeccable\\review\\diff\\hero\\regions\\qa-heading.png",
+      ".impeccable\\review\\diff\\hero\\regions\\qa-copy.png",
+      ".impeccable\\review\\diff\\hero\\regions\\recommendation-heading.png",
+      ".impeccable\\review\\diff\\hero\\regions\\recommendation-quote.png",
+      ".impeccable\\review\\diff\\hero\\regions\\recommendation-attribution.png"
+    ]
+  }
+}

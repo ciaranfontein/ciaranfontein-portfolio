@@ -1,0 +1,24 @@
+{
+  "regions": [
+    { "id": "header-name", "kind": "text", "grid": "A0:C0", "note": "name in compact header" },
+    { "id": "header-nav", "kind": "control", "grid": "H0:J0", "note": "work, about, and contact links" },
+    { "id": "hero-headline", "kind": "text", "grid": "A1:E1", "note": "two-line mobile products headline" },
+    { "id": "hero-summary", "kind": "text", "grid": "A2:E2", "note": "three-line role, ownership, and location summary" },
+    { "id": "headshot", "kind": "image", "grid": "G0:I2", "bleed": true, "note": "clean-shaven professional headshot intentionally cropped by the hero baseline" },
+    { "id": "guusto-intro", "kind": "text", "grid": "A3:C4", "note": "featured project label, Guusto title, and product description" },
+    { "id": "guusto-evidence", "kind": "text", "grid": "A4:C6", "note": "outcome, responsibility, platforms, and tenure evidence" },
+    { "id": "guusto-product", "kind": "image", "grid": "D3:J6", "bleed": true, "note": "real Guusto mobile product image intentionally cropped within the featured panel" },
+    { "id": "independent-intro", "kind": "text", "grid": "A6:C7", "note": "independent products heading and summary" },
+    { "id": "kirakiran-product", "kind": "image", "grid": "C6:D7", "bleed": true, "note": "real KiraKiran appointment-management screenshot intentionally cropped to the product strip" },
+    { "id": "kirakiran-copy", "kind": "text", "grid": "D6:E7", "note": "KiraKiran title, purpose, and platforms" },
+    { "id": "meigaza-product", "kind": "image", "grid": "E6:F7", "bleed": true, "note": "real Meigaza app icon intentionally cropped to the product strip" },
+    { "id": "meigaza-copy", "kind": "text", "grid": "F6:G7", "note": "Meigaza title, purpose, and platforms" },
+    { "id": "fate-product", "kind": "image", "grid": "G6:H7", "bleed": true, "note": "real Fate decision-flow screenshot intentionally cropped to the product strip" },
+    { "id": "fate-copy", "kind": "text", "grid": "H6:J7", "note": "Fate title, purpose, and platforms" },
+    { "id": "qa-heading", "kind": "text", "grid": "A8:C8", "note": "mobile QA with Maestro heading" },
+    { "id": "qa-copy", "kind": "text", "grid": "D8:G8", "note": "staging-locked Maestro and YAML evidence" },
+    { "id": "recommendation-heading", "kind": "text", "grid": "A9:C9", "note": "recommendation heading and Guusto context" },
+    { "id": "recommendation-quote", "kind": "text", "grid": "D9:H9", "note": "Felipe recommendation excerpt" },
+    { "id": "recommendation-attribution", "kind": "text", "grid": "I9:J9", "note": "Felipe name and title" }
+  ]
+}

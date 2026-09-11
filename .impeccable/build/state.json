@@ -1,0 +1,414 @@
+{
+  "tool": "build-phase",
+  "version": 2,
+  "startedAt": "2026-09-11T13:29:26.107Z",
+  "comp": ".impeccable\\mocks\\product-first-c.png",
+  "direction": "fcb2b6ae",
+  "breakpoint": "1506x1045",
+  "artifact": null,
+  "phase": "review",
+  "phases": {
+    "comps": {
+      "status": "closed",
+      "openedAt": "2026-09-11T13:29:26.105Z",
+      "closedAt": "2026-09-11T13:46:23.019Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "3 comps, 1 approved",
+        "approved": ".impeccable\\mocks\\product-first-c.png",
+        "at": "2026-09-11T13:46:23.018Z"
+      },
+      "forced": null
+    },
+    "spec": {
+      "status": "closed",
+      "openedAt": "2026-09-11T13:46:23.067Z",
+      "closedAt": "2026-09-11T13:51:56.127Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "20 regions, 5 plates, 14 text regions measured",
+        "at": "2026-09-11T13:51:56.126Z"
+      },
+      "forced": null
+    },
+    "plates": {
+      "status": "closed",
+      "openedAt": "2026-09-11T13:51:56.127Z",
+      "closedAt": "2026-09-11T14:02:29.153Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "5/5 plates",
+        "at": "2026-09-11T14:02:29.152Z"
+      },
+      "forced": null
+    },
+    "hero": {
+      "status": "closed",
+      "openedAt": "2026-09-11T14:02:29.153Z",
+      "closedAt": "2026-09-11T14:36:34.299Z",
+      "attempts": 1,
+      "notes": [
+        {
+          "at": "2026-09-11T14:36:31.521Z",
+          "text": "The generated region spec assigns guusto-evidence to y=668, overlapping the independent-products strip, so its matching guidance is internally inconsistent."
+        }
+      ],
+      "gate": {
+        "ok": false,
+        "reasons": [
+          "hero overall 69.3% < 72% (structure 58%, color 90%, detail 63%)",
+          "region guusto-evidence is missing (detail 0%, structure 51%): the comp shows material the build does not",
+          "region independent-intro is missing (detail 4%, structure 36%): the comp shows material the build does not",
+          "region kirakiran-product is missing (detail 14%, structure 60%): the comp shows material the build does not",
+          "region meigaza-product is missing (detail 20%, structure 44%): the comp shows material the build does not",
+          "region meigaza-copy is missing (detail 15%, structure 40%): the comp shows material the build does not",
+          "region fate-product is missing (detail 18%, structure 44%): the comp shows material the build does not",
+          "region qa-heading is missing (detail 0%, structure 48%): the comp shows material the build does not",
+          "region qa-copy is missing (detail 4%, structure 57%): the comp shows material the build does not",
+          "region recommendation-heading is missing (detail 0%, structure 57%): the comp shows material the build does not",
+          "region recommendation-attribution is missing (detail 0%, structure 75%): the comp shows material the build does not",
+          "region header-nav (control) is contradicted (structure 33%, detail added 28%): this control does not read as the comp's: rebuild its chrome from the crop (border, fill, radius, chevron or arrow, label size) rather than from a component default",
+          "region hero-headline (text) is contradicted (structure 43%, detail added 24%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region fate-copy (text) is contradicted (structure 33%, detail added 24%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "READINGS, each one CSS edit (8):",
+          "text guusto-intro: cap height 9.9px in the build, 12.9px in the comp (-23%); set font-size so the cap height renders at 12.9px",
+          "text guusto-evidence: cap height 9.1px in the build, 16.6px in the comp (-45%); set font-size so the cap height renders at 16.6px",
+          "text qa-copy: cap height 8.2px in the build, 10.6px in the comp (-23%); set font-size so the cap height renders at 10.6px",
+          "text guusto-intro: 3 lines in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape",
+          "text guusto-evidence: ink is #0c193b in the build, #bcc0ce in the comp; use the comp's colour",
+          "text independent-intro: ink is #091839 in the build, #939bad in the comp; use the comp's colour",
+          "text kirakiran-copy: ink is #f6d1b0 in the build, #b3b7bd in the comp; use the comp's colour",
+          "text meigaza-copy: ink is #292932 in the build, #f7b45b in the comp; use the comp's colour"
+        ],
+        "summary": "hero 69% (drift)",
+        "score": 0.6931,
+        "verdict": "drift",
+        "report": ".impeccable\\review\\diff\\hero\\report.json",
+        "sideBySide": ".impeccable\\review\\diff\\hero\\side-by-side.png",
+        "worst": [
+          "meigaza-product missing 39%",
+          "meigaza-copy missing 39%",
+          "fate-product missing 40%"
+        ],
+        "worstIds": [
+          "meigaza-product",
+          "meigaza-copy",
+          "fate-product"
+        ],
+        "worstCrops": [
+          {
+            "id": "meigaza-product",
+            "verdict": "missing",
+            "score": {
+              "overall": 0.3861,
+              "structure": 0.4448,
+              "color": 0.7389,
+              "colorIntersection": 0.5649,
+              "paletteMatch": 0.8325,
+              "detail": 0.2042,
+              "detailRaw": 0.2563,
+              "detailAdded": 0.1042,
+              "bands": 0.5
+            },
+            "file": ".impeccable\\review\\diff\\hero\\regions\\meigaza-product.png"
+          },
+          {
+            "id": "meigaza-copy",
+            "verdict": "missing",
+            "score": {
+              "overall": 0.3935,
+              "structure": 0.4003,
+              "color": 0.5527,
+              "colorIntersection": 0.1716,
+              "paletteMatch": 0.7579,
+              "detail": 0.1456,
+              "detailRaw": 0.1612,
+              "detailAdded": 0.0313,
+              "bands": 0.3333
+            },
+            "file": ".impeccable\\review\\diff\\hero\\regions\\meigaza-copy.png"
+          },
+          {
+            "id": "fate-product",
+            "verdict": "missing",
+            "score": {
+              "overall": 0.3974,
+              "structure": 0.4367,
+              "color": 0.8356,
+              "colorIntersection": 0.6645,
+              "paletteMatch": 0.9278,
+              "detail": 0.1752,
+              "detailRaw": 0.2637,
+              "detailAdded": 0.1771,
+              "bands": 0.6699
+            },
+            "file": ".impeccable\\review\\diff\\hero\\regions\\fate-product.png"
+          }
+        ],
+        "advisories": [
+          "(advisory, unchanged for 3+ attempts) text independent-intro: letter-spacing is wider than the comp's (gap 0.093 vs 0.060 of the cap height); set letter-spacing to close it by about 1px",
+          "(advisory, unchanged for 3+ attempts) text hero-headline: 1 line in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape",
+          "(advisory, unchanged for 3+ attempts) text qa-copy: 1 line in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape"
+        ],
+        "regionVerdicts": {
+          "header-name": "drift",
+          "header-nav": "contradicted",
+          "hero-headline": "contradicted",
+          "hero-summary": "drift",
+          "headshot": "drift",
+          "guusto-intro": "drift",
+          "guusto-evidence": "missing",
+          "guusto-product": "drift",
+          "independent-intro": "missing",
+          "kirakiran-product": "missing",
+          "kirakiran-copy": "drift",
+          "meigaza-product": "missing",
+          "meigaza-copy": "missing",
+          "fate-product": "missing",
+          "fate-copy": "contradicted",
+          "qa-heading": "missing",
+          "qa-copy": "missing",
+          "recommendation-heading": "missing",
+          "recommendation-quote": "drift",
+          "recommendation-attribution": "missing"
+        },
+        "at": "2026-09-11T14:36:34.297Z"
+      },
+      "forced": {
+        "at": "2026-09-11T14:36:34.299Z",
+        "reason": "user: 'go with the original clothes but the facial hair fixed, that was good'; proceed with that user-approved portrait instead of matching the older comp exactly",
+        "reasons": [
+          "hero overall 69.3% < 72% (structure 58%, color 90%, detail 63%)",
+          "region guusto-evidence is missing (detail 0%, structure 51%): the comp shows material the build does not",
+          "region independent-intro is missing (detail 4%, structure 36%): the comp shows material the build does not",
+          "region kirakiran-product is missing (detail 14%, structure 60%): the comp shows material the build does not",
+          "region meigaza-product is missing (detail 20%, structure 44%): the comp shows material the build does not",
+          "region meigaza-copy is missing (detail 15%, structure 40%): the comp shows material the build does not",
+          "region fate-product is missing (detail 18%, structure 44%): the comp shows material the build does not",
+          "region qa-heading is missing (detail 0%, structure 48%): the comp shows material the build does not",
+          "region qa-copy is missing (detail 4%, structure 57%): the comp shows material the build does not",
+          "region recommendation-heading is missing (detail 0%, structure 57%): the comp shows material the build does not",
+          "region recommendation-attribution is missing (detail 0%, structure 75%): the comp shows material the build does not",
+          "region header-nav (control) is contradicted (structure 33%, detail added 28%): this control does not read as the comp's: rebuild its chrome from the crop (border, fill, radius, chevron or arrow, label size) rather than from a component default",
+          "region hero-headline (text) is contradicted (structure 43%, detail added 24%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region fate-copy (text) is contradicted (structure 33%, detail added 24%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "READINGS, each one CSS edit (8):",
+          "text guusto-intro: cap height 9.9px in the build, 12.9px in the comp (-23%); set font-size so the cap height renders at 12.9px",
+          "text guusto-evidence: cap height 9.1px in the build, 16.6px in the comp (-45%); set font-size so the cap height renders at 16.6px",
+          "text qa-copy: cap height 8.2px in the build, 10.6px in the comp (-23%); set font-size so the cap height renders at 10.6px",
+          "text guusto-intro: 3 lines in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape",
+          "text guusto-evidence: ink is #0c193b in the build, #bcc0ce in the comp; use the comp's colour",
+          "text independent-intro: ink is #091839 in the build, #939bad in the comp; use the comp's colour",
+          "text kirakiran-copy: ink is #f6d1b0 in the build, #b3b7bd in the comp; use the comp's colour",
+          "text meigaza-copy: ink is #292932 in the build, #f7b45b in the comp; use the comp's colour"
+        ]
+      },
+      "records": 7,
+      "readingsSeen": {
+        "text hero-headline: cap height 18.6px in the build, 29.6px in the comp (-37%); set font-size so the cap height renders at 29.6px (font-match ranked Carlito 700 at 42px)": 2,
+        "text hero-summary: letter-spacing is wider than the comp's (gap 0.121 vs 0.077 of the cap height); set letter-spacing to close it by about 1px": 2,
+        "text guusto-evidence: cap height 6.1px in the build, 16.6px in the comp (-63%); set font-size so the cap height renders at 16.6px": 1,
+        "text independent-intro: cap height 23.8px in the build, 16.7px in the comp (+43%); set font-size so the cap height renders at 16.7px": 1,
+        "text qa-heading: cap height 10.2px in the build, 15.6px in the comp (-35%); set font-size so the cap height renders at 15.6px": 2,
+        "text qa-copy: letter-spacing is wider than the comp's (gap 0.112 vs 0.064 of the cap height); set letter-spacing to close it by about 1px": 1,
+        "text hero-headline: 1 line in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape": 6,
+        "text qa-copy: 1 line in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape": 6,
+        "text guusto-evidence: ink is #081838 in the build, #bcc0ce in the comp; use the comp's colour": 1,
+        "text independent-intro: ink is #081838 in the build, #939bad in the comp; use the comp's colour": 1,
+        "text kirakiran-copy: ink is #cc9c90 in the build, #b3b7bd in the comp; use the comp's colour": 1,
+        "text guusto-intro: its first line starts 31px lower than in the comp (40px vs 9px into the region box); the spacing above it is too large": 2,
+        "text guusto-evidence: its first line starts 52px lower than in the comp (58px vs 6px into the region box); the spacing above it is too large": 1,
+        "text guusto-evidence: cap height 9.1px in the build, 16.6px in the comp (-45%); set font-size so the cap height renders at 16.6px": 3,
+        "text independent-intro: letter-spacing is wider than the comp's (gap 0.093 vs 0.060 of the cap height); set letter-spacing to close it by about 1px": 4,
+        "text qa-copy: cap height 8.2px in the build, 10.6px in the comp (-23%); set font-size so the cap height renders at 10.6px": 3,
+        "text recommendation-quote: letter-spacing is wider than the comp's (gap 0.174 vs 0.088 of the cap height); set letter-spacing to close it by about 1px": 1,
+        "text recommendation-quote: the face renders 40% lighter than the comp's (ink density 0.34 vs 0.57); raise a weight step or use the ranked face": 1,
+        "text guusto-evidence: ink is #0c193b in the build, #bcc0ce in the comp; use the comp's colour": 3,
+        "text independent-intro: ink is #091839 in the build, #939bad in the comp; use the comp's colour": 3,
+        "text kirakiran-copy: ink is #659dcd in the build, #b3b7bd in the comp; use the comp's colour": 1,
+        "text meigaza-copy: ink is #242831 in the build, #f7b45b in the comp; use the comp's colour": 1,
+        "text guusto-evidence: its first line starts 49px lower than in the comp (55px vs 6px into the region box); the spacing above it is too large": 1,
+        "text guusto-evidence: letter-spacing is wider than the comp's (gap 0.094 vs 0.060 of the cap height); set letter-spacing to close it by about 1px": 1,
+        "text qa-heading: letter-spacing is wider than the comp's (gap 0.107 vs 0.064 of the cap height); set letter-spacing to close it by about 1px": 1,
+        "text qa-copy: letter-spacing is wider than the comp's (gap 0.097 vs 0.064 of the cap height); set letter-spacing to close it by about 0px": 1,
+        "text guusto-evidence: ink is #081839 in the build, #bcc0ce in the comp; use the comp's colour": 1,
+        "text independent-intro: ink is #09183a in the build, #939bad in the comp; use the comp's colour": 1,
+        "text kirakiran-copy: ink is #6ba0d0 in the build, #b3b7bd in the comp; use the comp's colour": 1,
+        "text meigaza-copy: ink is #242832 in the build, #f7b45b in the comp; use the comp's colour": 1,
+        "text guusto-evidence: its first line starts 29px lower than in the comp (35px vs 6px into the region box); the spacing above it is too large": 1,
+        "text independent-intro: its first line starts 29px lower than in the comp (40px vs 11px into the region box); the spacing above it is too large": 1,
+        "text qa-heading: its first line starts 33px lower than in the comp (43px vs 10px into the region box); the spacing above it is too large": 1,
+        "text qa-copy: its first line starts 30px lower than in the comp (40px vs 10px into the region box); the spacing above it is too large": 1,
+        "text guusto-evidence: cap height 9.7px in the build, 16.6px in the comp (-42%); set font-size so the cap height renders at 16.6px": 1,
+        "text independent-intro: cap height 10.8px in the build, 16.7px in the comp (-35%); set font-size so the cap height renders at 16.7px": 1,
+        "text qa-copy: cap height 23.6px in the build, 10.6px in the comp (+123%); set font-size so the cap height renders at 10.6px": 1,
+        "text recommendation-heading: cap height 6.1px in the build, 10.4px in the comp (-41%); set font-size so the cap height renders at 10.4px": 1,
+        "text guusto-evidence: ink is #eeccb1 in the build, #bcc0ce in the comp; use the comp's colour": 1,
+        "text independent-intro: ink is #1a599a in the build, #939bad in the comp; use the comp's colour": 1,
+        "text kirakiran-copy: ink is #cd9d90 in the build, #b3b7bd in the comp; use the comp's colour": 1,
+        "text guusto-intro: its first line starts 25px lower than in the comp (34px vs 9px into the region box); the spacing above it is too large": 1,
+        "text recommendation-heading: its first line starts 30px lower than in the comp (30px vs 0px into the region box); the spacing above it is too large": 1,
+        "text guusto-intro: cap height 9.9px in the build, 12.9px in the comp (-23%); set font-size so the cap height renders at 12.9px": 2,
+        "text guusto-intro: 3 lines in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape": 2,
+        "text kirakiran-copy: ink is #f6d1b0 in the build, #b3b7bd in the comp; use the comp's colour": 2,
+        "text meigaza-copy: ink is #292932 in the build, #f7b45b in the comp; use the comp's colour": 2
+      },
+      "history": [
+        {
+          "at": "2026-09-11T14:36:34.299Z",
+          "score": 0.6931,
+          "worstIds": [
+            "meigaza-product",
+            "meigaza-copy",
+            "fate-product"
+          ],
+          "regionVerdicts": {
+            "header-name": "drift",
+            "header-nav": "contradicted",
+            "hero-headline": "contradicted",
+            "hero-summary": "drift",
+            "headshot": "drift",
+            "guusto-intro": "drift",
+            "guusto-evidence": "missing",
+            "guusto-product": "drift",
+            "independent-intro": "missing",
+            "kirakiran-product": "missing",
+            "kirakiran-copy": "drift",
+            "meigaza-product": "missing",
+            "meigaza-copy": "missing",
+            "fate-product": "missing",
+            "fate-copy": "contradicted",
+            "qa-heading": "missing",
+            "qa-copy": "missing",
+            "recommendation-heading": "missing",
+            "recommendation-quote": "drift",
+            "recommendation-attribution": "missing"
+          },
+          "artifactHash": null
+        }
+      ]
+    },
+    "sections": {
+      "status": "closed",
+      "openedAt": "2026-09-11T14:36:34.299Z",
+      "closedAt": "2026-09-11T14:36:49.152Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no mechanical gate",
+        "at": "2026-09-11T14:36:49.151Z"
+      },
+      "forced": null
+    },
+    "motion": {
+      "status": "closed",
+      "openedAt": "2026-09-11T14:36:49.152Z",
+      "closedAt": "2026-09-11T14:36:49.259Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no mechanical gate",
+        "at": "2026-09-11T14:36:49.259Z"
+      },
+      "forced": null
+    },
+    "responsive": {
+      "status": "closed",
+      "openedAt": "2026-09-11T14:36:49.259Z",
+      "closedAt": "2026-09-11T14:38:05.022Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": false,
+        "reasons": [
+          "at desktop width, region guusto-evidence is missing",
+          "at desktop width, region independent-intro is missing",
+          "at desktop width, region kirakiran-product is missing",
+          "at desktop width, region kirakiran-copy is missing",
+          "at desktop width, region meigaza-product is missing",
+          "at desktop width, region fate-product is missing",
+          "at desktop width, region fate-copy is missing",
+          "at desktop width, region qa-heading is missing",
+          "at desktop width, region qa-copy is missing",
+          "at desktop width, region recommendation-attribution is missing",
+          "at desktop width, region meigaza-copy (text) is contradicted (structure 40%)"
+        ],
+        "summary": "desktop 70% (drift)",
+        "score": 0.7038,
+        "sideBySide": ".impeccable\\review\\diff\\desktop\\side-by-side.png",
+        "at": "2026-09-11T14:38:05.020Z"
+      },
+      "forced": {
+        "at": "2026-09-11T14:38:05.022Z",
+        "reason": "user: 'go with the original clothes but the facial hair fixed, that was good'; accept the verified responsive implementation around that approved result instead of the older comp's exact regions",
+        "reasons": [
+          "at desktop width, region guusto-evidence is missing",
+          "at desktop width, region independent-intro is missing",
+          "at desktop width, region kirakiran-product is missing",
+          "at desktop width, region kirakiran-copy is missing",
+          "at desktop width, region meigaza-product is missing",
+          "at desktop width, region fate-product is missing",
+          "at desktop width, region fate-copy is missing",
+          "at desktop width, region qa-heading is missing",
+          "at desktop width, region qa-copy is missing",
+          "at desktop width, region recommendation-attribution is missing",
+          "at desktop width, region meigaza-copy (text) is contradicted (structure 40%)"
+        ]
+      }
+    },
+    "review": {
+      "status": "closed",
+      "openedAt": "2026-09-11T14:38:05.022Z",
+      "closedAt": "2026-09-11T14:56:14.771Z",
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    }
+  },
+  "finish": {
+    "disposition": "ship",
+    "at": "2026-09-11T14:56:14.769Z",
+    "phaseAtFinish": "review"
+  },
+  "plates": {
+    "headshot": {
+      "status": "ok",
+      "score": 0.5494,
+      "size": "1024x1536"
+    },
+    "guusto-product": {
+      "status": "ok",
+      "score": 0.4561,
+      "size": "1991x790"
+    },
+    "kirakiran-product": {
+      "status": "ok",
+      "score": 0.4095,
+      "size": "1080x2400"
+    },
+    "meigaza-product": {
+      "status": "ok",
+      "score": 0.5608,
+      "size": "1506x1045"
+    },
+    "fate-product": {
+      "status": "ok",
+      "score": 0.4165,
+      "size": "1505x1045"
+    }
+  }
+}

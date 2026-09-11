@@ -1,0 +1,1366 @@
+{
+  "tool": "comp-spec",
+  "version": 1,
+  "createdAt": "2026-09-11T13:51:20.457Z",
+  "comp": ".impeccable\\mocks\\product-first-c.png",
+  "warnings": [
+    "region headshot: \"bleed\": true set in the regions file (the clipped-artwork refusal is overridden: the page crops it there)",
+    "region guusto-product: \"bleed\": true set in the regions file (the clipped-artwork refusal is overridden: the page crops it there)",
+    "region kirakiran-product: \"bleed\": true set in the regions file (the clipped-artwork refusal is overridden: the page crops it there)",
+    "region meigaza-product: \"bleed\": true set in the regions file (the clipped-artwork refusal is overridden: the page crops it there)",
+    "region fate-product: \"bleed\": true set in the regions file (the clipped-artwork refusal is overridden: the page crops it there)"
+  ],
+  "uncoveredInkCells": [],
+  "compSize": {
+    "width": 1506,
+    "height": 1045
+  },
+  "aspect": 1.4411,
+  "orientation": "landscape",
+  "palette": [
+    {
+      "hex": "#f7f7f7",
+      "coverage": 0.8188
+    },
+    {
+      "hex": "#284d70",
+      "coverage": 0.109
+    },
+    {
+      "hex": "#0b1114",
+      "coverage": 0.0289
+    },
+    {
+      "hex": "#1f2545",
+      "coverage": 0.0281
+    },
+    {
+      "hex": "#58c8c8",
+      "coverage": 0.0151
+    }
+  ],
+  "bands": [
+    {
+      "y": 0.1011,
+      "strength": 0.3352
+    },
+    {
+      "y": 0.1236,
+      "strength": 0.2667
+    },
+    {
+      "y": 0.1461,
+      "strength": 0.3989
+    },
+    {
+      "y": 0.1685,
+      "strength": 0.4519
+    },
+    {
+      "y": 0.3034,
+      "strength": 1
+    },
+    {
+      "y": 0.6067,
+      "strength": 1
+    },
+    {
+      "y": 0.6404,
+      "strength": 0.7829
+    },
+    {
+      "y": 0.7865,
+      "strength": 0.5781
+    },
+    {
+      "y": 0.809,
+      "strength": 0.2107
+    }
+  ],
+  "regions": [
+    {
+      "id": "header-name",
+      "kind": "text",
+      "note": "name in compact header",
+      "grid": "A0:C0",
+      "coverBox": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.0558,
+        "y": 0.0115,
+        "w": 0.0956,
+        "h": 0.0287
+      },
+      "px": {
+        "x": 84,
+        "y": 12,
+        "w": 144,
+        "h": 30
+      },
+      "aspect": 4.8,
+      "palette": [
+        {
+          "hex": "#f6f7f7",
+          "coverage": 0.8361
+        },
+        {
+          "hex": "#121f3f",
+          "coverage": 0.0588
+        },
+        {
+          "hex": "#5a6681",
+          "coverage": 0.0567
+        },
+        {
+          "hex": "#0e1141",
+          "coverage": 0.0315
+        },
+        {
+          "hex": "#bec4d0",
+          "coverage": 0.0168
+        }
+      ],
+      "detail": {
+        "energy": 39.4877
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 13,
+          "capHeightPx": 13.6,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6974,
+          "advTall": 0.5139,
+          "advX": 0.6974,
+          "gap": 0.1101,
+          "xRatio": 0.7268,
+          "stemW": 0.2102,
+          "contrast": 1.206,
+          "serif": 0.6347,
+          "densTall": 0.5639,
+          "densX": 0.6218,
+          "weight": 0.5639
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "header-nav",
+      "kind": "control",
+      "note": "work, about, and contact links",
+      "grid": "H0:J0",
+      "coverBox": {
+        "x": 0.7,
+        "y": 0,
+        "w": 0.3,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.6999,
+        "y": 0.0574,
+        "w": 0.0837,
+        "h": 0.0431
+      },
+      "px": {
+        "x": 1054,
+        "y": 60,
+        "w": 126,
+        "h": 45
+      },
+      "aspect": 2.8,
+      "palette": [
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.5245
+        },
+        {
+          "hex": "#6b5e52",
+          "coverage": 0.2075
+        },
+        {
+          "hex": "#3a3128",
+          "coverage": 0.1438
+        },
+        {
+          "hex": "#9a8e82",
+          "coverage": 0.085
+        },
+        {
+          "hex": "#c0bebb",
+          "coverage": 0.0392
+        }
+      ],
+      "detail": {
+        "energy": 19.0321
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "hero-headline",
+      "kind": "text",
+      "note": "two-line mobile products headline",
+      "grid": "A1:E1",
+      "coverBox": {
+        "x": 0,
+        "y": 0.1,
+        "w": 0.5,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.0677,
+        "y": 0.1005,
+        "w": 0.3506,
+        "h": 0.1005
+      },
+      "px": {
+        "x": 102,
+        "y": 105,
+        "w": 528,
+        "h": 105
+      },
+      "aspect": 5.0286,
+      "palette": [
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.7626
+        },
+        {
+          "hex": "#0b193e",
+          "coverage": 0.15
+        },
+        {
+          "hex": "#c1c6d1",
+          "coverage": 0.0404
+        },
+        {
+          "hex": "#7f8b9d",
+          "coverage": 0.0236
+        },
+        {
+          "hex": "#56617e",
+          "coverage": 0.0234
+        }
+      ],
+      "detail": {
+        "energy": 85.6912
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 43,
+          "capHeightPx": 29.6,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.63,
+          "advTall": 0.49,
+          "advX": 0.6522,
+          "gap": 0.105,
+          "xRatio": 0.7192,
+          "stemW": 0.1954,
+          "contrast": 1.1926,
+          "serif": 0.6182,
+          "densTall": 0.5656,
+          "densX": 0.5975,
+          "weight": 0.5656
+        },
+        "widthClass": "normal",
+        "weightClass": "bold",
+        "chosen": {
+          "family": "Carlito",
+          "weight": 700,
+          "fontSizePx": 42,
+          "source": "catalog",
+          "estimatedSize": true,
+          "stamp": "746c87423d48"
+        }
+      }
+    },
+    {
+      "id": "hero-summary",
+      "kind": "text",
+      "note": "three-line role, ownership, and location summary",
+      "grid": "A2:E2",
+      "coverBox": {
+        "x": 0,
+        "y": 0.2,
+        "w": 0.5,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.0677,
+        "y": 0.2,
+        "w": 0.3546,
+        "h": 0.0632
+      },
+      "px": {
+        "x": 102,
+        "y": 209,
+        "w": 534,
+        "h": 66
+      },
+      "aspect": 8.0909,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.8273
+        },
+        {
+          "hex": "#737c95",
+          "coverage": 0.0948
+        },
+        {
+          "hex": "#b3b8c6",
+          "coverage": 0.0713
+        },
+        {
+          "hex": "#4a5474",
+          "coverage": 0.0066
+        }
+      ],
+      "detail": {
+        "energy": 39.0349
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 88,
+          "capHeightPx": 13.1,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6124,
+          "advTall": 0.4213,
+          "advX": 0.6128,
+          "gap": 0.0766,
+          "xRatio": 0.7305,
+          "stemW": 0.1766,
+          "contrast": 1.0807,
+          "serif": null,
+          "densTall": 0.5323,
+          "densX": 0.5744,
+          "weight": 0.5323
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "headshot",
+      "kind": "image",
+      "note": "clean-shaven professional headshot intentionally cropped by the hero baseline",
+      "grid": "G0:I2",
+      "bleed": true,
+      "box": {
+        "x": 0.6,
+        "y": 0,
+        "w": 0.3,
+        "h": 0.3
+      },
+      "px": {
+        "x": 904,
+        "y": 0,
+        "w": 452,
+        "h": 314
+      },
+      "aspect": 1.4395,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.84
+        },
+        {
+          "hex": "#d5b7aa",
+          "coverage": 0.0721
+        },
+        {
+          "hex": "#888c92",
+          "coverage": 0.0528
+        },
+        {
+          "hex": "#aa8877",
+          "coverage": 0.0202
+        },
+        {
+          "hex": "#766556",
+          "coverage": 0.015
+        }
+      ],
+      "detail": {
+        "energy": 12.9022
+      },
+      "medium": "raster",
+      "plate": "assets\\plates\\headshot.png",
+      "text": null
+    },
+    {
+      "id": "guusto-intro",
+      "kind": "text",
+      "note": "featured project label, Guusto title, and product description",
+      "grid": "A3:C4",
+      "coverBox": {
+        "x": 0,
+        "y": 0.3,
+        "w": 0.3,
+        "h": 0.2
+      },
+      "box": {
+        "x": 0.0677,
+        "y": 0.3005,
+        "w": 0.2151,
+        "h": 0.1378
+      },
+      "px": {
+        "x": 102,
+        "y": 314,
+        "w": 324,
+        "h": 144
+      },
+      "aspect": 2.25,
+      "palette": [
+        {
+          "hex": "#f7f8f8",
+          "coverage": 0.8879
+        },
+        {
+          "hex": "#c6cbd7",
+          "coverage": 0.0413
+        },
+        {
+          "hex": "#939bad",
+          "coverage": 0.0288
+        },
+        {
+          "hex": "#6d728e",
+          "coverage": 0.0226
+        },
+        {
+          "hex": "#0c1a3e",
+          "coverage": 0.0195
+        }
+      ],
+      "detail": {
+        "energy": 31.5557
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 60,
+          "capHeightPx": 12.9,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.5926,
+          "advTall": 0.3556,
+          "advX": 0.6225,
+          "gap": 0.1185,
+          "xRatio": 0.7087,
+          "stemW": 0.1387,
+          "contrast": 1.0994,
+          "serif": 0.6807,
+          "densTall": 0.4627,
+          "densX": 0.4928,
+          "weight": 0.4627
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "guusto-evidence",
+      "kind": "text",
+      "note": "outcome, responsibility, platforms, and tenure evidence",
+      "grid": "A4:C6",
+      "coverBox": {
+        "x": 0,
+        "y": 0.4,
+        "w": 0.3,
+        "h": 0.3
+      },
+      "box": {
+        "x": 0.0598,
+        "y": 0.6392,
+        "w": 0.1726,
+        "h": 0.0612
+      },
+      "px": {
+        "x": 90,
+        "y": 668,
+        "w": 260,
+        "h": 64
+      },
+      "aspect": 4.0625,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.8224
+        },
+        {
+          "hex": "#bcc0ce",
+          "coverage": 0.0795
+        },
+        {
+          "hex": "#090c35",
+          "coverage": 0.0419
+        },
+        {
+          "hex": "#81889e",
+          "coverage": 0.0339
+        },
+        {
+          "hex": "#525e7d",
+          "coverage": 0.0223
+        }
+      ],
+      "detail": {
+        "energy": 50.8507
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 18,
+          "capHeightPx": 16.6,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6034,
+          "advTall": 0.5581,
+          "advX": 0.6034,
+          "gap": 0.0603,
+          "xRatio": 0.7089,
+          "stemW": 0.1953,
+          "contrast": 1.1579,
+          "serif": null,
+          "densTall": 0.5607,
+          "densX": 0.6582,
+          "weight": 0.5607
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "guusto-product",
+      "kind": "image",
+      "note": "real Guusto mobile product image intentionally cropped within the featured panel",
+      "grid": "D3:J6",
+      "bleed": true,
+      "box": {
+        "x": 0.3,
+        "y": 0.3,
+        "w": 0.7,
+        "h": 0.4
+      },
+      "px": {
+        "x": 452,
+        "y": 314,
+        "w": 1054,
+        "h": 418
+      },
+      "aspect": 2.5215,
+      "palette": [
+        {
+          "hex": "#f7f7f8",
+          "coverage": 0.4227
+        },
+        {
+          "hex": "#284e70",
+          "coverage": 0.3903
+        },
+        {
+          "hex": "#22274c",
+          "coverage": 0.0686
+        },
+        {
+          "hex": "#0a0e0f",
+          "coverage": 0.0604
+        },
+        {
+          "hex": "#58c8c8",
+          "coverage": 0.0579
+        }
+      ],
+      "detail": {
+        "energy": 30.2647
+      },
+      "medium": "raster",
+      "plate": "assets\\plates\\guusto-product.png",
+      "text": null
+    },
+    {
+      "id": "independent-intro",
+      "kind": "text",
+      "note": "independent products heading and summary",
+      "grid": "A6:C7",
+      "coverBox": {
+        "x": 0,
+        "y": 0.6,
+        "w": 0.3,
+        "h": 0.2
+      },
+      "box": {
+        "x": 0.0598,
+        "y": 0.6344,
+        "w": 0.1753,
+        "h": 0.0861
+      },
+      "px": {
+        "x": 90,
+        "y": 663,
+        "w": 264,
+        "h": 90
+      },
+      "aspect": 2.9333,
+      "palette": [
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.8569
+        },
+        {
+          "hex": "#c3c8d4",
+          "coverage": 0.055
+        },
+        {
+          "hex": "#939bad",
+          "coverage": 0.0507
+        },
+        {
+          "hex": "#767b99",
+          "coverage": 0.025
+        },
+        {
+          "hex": "#0b1242",
+          "coverage": 0.0125
+        }
+      ],
+      "detail": {
+        "energy": 44.6533
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 17,
+          "capHeightPx": 16.7,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.5977,
+          "advTall": 0.6575,
+          "advX": 0.5977,
+          "gap": 0.0598,
+          "xRatio": 0.7046,
+          "stemW": 0.2012,
+          "contrast": 1.1465,
+          "serif": null,
+          "densTall": 0.5796,
+          "densX": 0.6844,
+          "weight": 0.5796
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "kirakiran-product",
+      "kind": "image",
+      "note": "real KiraKiran appointment-management screenshot intentionally cropped to the product strip",
+      "grid": "C6:D7",
+      "bleed": true,
+      "box": {
+        "x": 0.2,
+        "y": 0.6,
+        "w": 0.2,
+        "h": 0.2
+      },
+      "px": {
+        "x": 301,
+        "y": 627,
+        "w": 301,
+        "h": 209
+      },
+      "aspect": 1.4402,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.8992
+        },
+        {
+          "hex": "#171717",
+          "coverage": 0.0328
+        },
+        {
+          "hex": "#4e4e4e",
+          "coverage": 0.0275
+        },
+        {
+          "hex": "#bdc0c6",
+          "coverage": 0.0236
+        },
+        {
+          "hex": "#233f5d",
+          "coverage": 0.017
+        }
+      ],
+      "detail": {
+        "energy": 23.213
+      },
+      "medium": "raster",
+      "plate": "assets\\plates\\kirakiran-product.png",
+      "text": null
+    },
+    {
+      "id": "kirakiran-copy",
+      "kind": "text",
+      "note": "KiraKiran title, purpose, and platforms",
+      "grid": "D6:E7",
+      "coverBox": {
+        "x": 0.3,
+        "y": 0.6,
+        "w": 0.2,
+        "h": 0.2
+      },
+      "box": {
+        "x": 0.3001,
+        "y": 0.6287,
+        "w": 0.1999,
+        "h": 0.1665
+      },
+      "px": {
+        "x": 452,
+        "y": 657,
+        "w": 301,
+        "h": 174
+      },
+      "aspect": 1.7299,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.8705
+        },
+        {
+          "hex": "#b3b7bd",
+          "coverage": 0.0453
+        },
+        {
+          "hex": "#424444",
+          "coverage": 0.0407
+        },
+        {
+          "hex": "#7b8399",
+          "coverage": 0.0222
+        },
+        {
+          "hex": "#0d0e0f",
+          "coverage": 0.0213
+        }
+      ],
+      "detail": {
+        "energy": 24.4239
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": null,
+        "measuredAt": "2026-09-11T13:51:40.177Z",
+        "note": "no separable lettering in the crop; size by the region box"
+      }
+    },
+    {
+      "id": "meigaza-product",
+      "kind": "image",
+      "note": "real Meigaza app icon intentionally cropped to the product strip",
+      "grid": "E6:F7",
+      "bleed": true,
+      "box": {
+        "x": 0.4,
+        "y": 0.6,
+        "w": 0.2,
+        "h": 0.2
+      },
+      "px": {
+        "x": 602,
+        "y": 627,
+        "w": 301,
+        "h": 209
+      },
+      "aspect": 1.4402,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.6269
+        },
+        {
+          "hex": "#262831",
+          "coverage": 0.1478
+        },
+        {
+          "hex": "#404444",
+          "coverage": 0.0949
+        },
+        {
+          "hex": "#f7b35a",
+          "coverage": 0.0849
+        },
+        {
+          "hex": "#234d6f",
+          "coverage": 0.0456
+        }
+      ],
+      "detail": {
+        "energy": 21.2771
+      },
+      "medium": "raster",
+      "plate": "assets\\plates\\meigaza-product.png",
+      "text": null
+    },
+    {
+      "id": "meigaza-copy",
+      "kind": "text",
+      "note": "Meigaza title, purpose, and platforms",
+      "grid": "F6:G7",
+      "coverBox": {
+        "x": 0.5,
+        "y": 0.6,
+        "w": 0.2,
+        "h": 0.2
+      },
+      "box": {
+        "x": 0.5,
+        "y": 0.6344,
+        "w": 0.0956,
+        "h": 0.1608
+      },
+      "px": {
+        "x": 753,
+        "y": 663,
+        "w": 144,
+        "h": 168
+      },
+      "aspect": 0.8571,
+      "palette": [
+        {
+          "hex": "#262831",
+          "coverage": 0.351
+        },
+        {
+          "hex": "#f7b45b",
+          "coverage": 0.2212
+        },
+        {
+          "hex": "#404445",
+          "coverage": 0.1923
+        },
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.1537
+        },
+        {
+          "hex": "#645744",
+          "coverage": 0.0819
+        }
+      ],
+      "detail": {
+        "energy": 11.9071
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": null,
+        "measuredAt": "2026-09-11T13:51:41.263Z",
+        "note": "no separable lettering in the crop; size by the region box"
+      }
+    },
+    {
+      "id": "fate-product",
+      "kind": "image",
+      "note": "real Fate decision-flow screenshot intentionally cropped to the product strip",
+      "grid": "G6:H7",
+      "bleed": true,
+      "box": {
+        "x": 0.6,
+        "y": 0.6,
+        "w": 0.2,
+        "h": 0.2
+      },
+      "px": {
+        "x": 904,
+        "y": 627,
+        "w": 301,
+        "h": 209
+      },
+      "aspect": 1.4402,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.6415
+        },
+        {
+          "hex": "#0a151a",
+          "coverage": 0.3008
+        },
+        {
+          "hex": "#949dac",
+          "coverage": 0.0252
+        },
+        {
+          "hex": "#233951",
+          "coverage": 0.0202
+        },
+        {
+          "hex": "#c1c8cf",
+          "coverage": 0.0124
+        }
+      ],
+      "detail": {
+        "energy": 20.2853
+      },
+      "medium": "raster",
+      "plate": "assets\\plates\\fate-product.png",
+      "text": null
+    },
+    {
+      "id": "fate-copy",
+      "kind": "text",
+      "note": "Fate title, purpose, and platforms",
+      "grid": "H6:J7",
+      "coverBox": {
+        "x": 0.7,
+        "y": 0.6,
+        "w": 0.3,
+        "h": 0.2
+      },
+      "box": {
+        "x": 0.7078,
+        "y": 0.6287,
+        "w": 0.2231,
+        "h": 0.1665
+      },
+      "px": {
+        "x": 1066,
+        "y": 657,
+        "w": 336,
+        "h": 174
+      },
+      "aspect": 1.931,
+      "palette": [
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.5131
+        },
+        {
+          "hex": "#0a1519",
+          "coverage": 0.4153
+        },
+        {
+          "hex": "#80899a",
+          "coverage": 0.0296
+        },
+        {
+          "hex": "#bec1cb",
+          "coverage": 0.0245
+        },
+        {
+          "hex": "#464646",
+          "coverage": 0.0175
+        }
+      ],
+      "detail": {
+        "energy": 23.3115
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": null,
+        "measuredAt": "2026-09-11T13:51:42.342Z",
+        "note": "no separable lettering in the crop; size by the region box"
+      }
+    },
+    {
+      "id": "qa-heading",
+      "kind": "text",
+      "note": "mobile QA with Maestro heading",
+      "grid": "A8:C8",
+      "coverBox": {
+        "x": 0,
+        "y": 0.8,
+        "w": 0.3,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.0598,
+        "y": 0.8,
+        "w": 0.1833,
+        "h": 0.0574
+      },
+      "px": {
+        "x": 90,
+        "y": 836,
+        "w": 276,
+        "h": 60
+      },
+      "aspect": 4.6,
+      "palette": [
+        {
+          "hex": "#f6f7f7",
+          "coverage": 0.8303
+        },
+        {
+          "hex": "#7f879d",
+          "coverage": 0.073
+        },
+        {
+          "hex": "#0c153c",
+          "coverage": 0.0492
+        },
+        {
+          "hex": "#b2bbca",
+          "coverage": 0.0337
+        },
+        {
+          "hex": "#344263",
+          "coverage": 0.0138
+        }
+      ],
+      "detail": {
+        "energy": 52.6035
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 16,
+          "capHeightPx": 15.6,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6739,
+          "advTall": 0.6418,
+          "advX": 0.6899,
+          "gap": 0.0642,
+          "xRatio": 0.7299,
+          "stemW": 0.2053,
+          "contrast": 1.1586,
+          "serif": 0.564,
+          "densTall": 0.6528,
+          "densX": 0.635,
+          "weight": 0.6528
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "qa-copy",
+      "kind": "text",
+      "note": "staging-locked Maestro and YAML evidence",
+      "grid": "D8:G8",
+      "coverBox": {
+        "x": 0.3,
+        "y": 0.8,
+        "w": 0.4,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.3479,
+        "y": 0.8057,
+        "w": 0.3147,
+        "h": 0.0517
+      },
+      "px": {
+        "x": 524,
+        "y": 842,
+        "w": 474,
+        "h": 54
+      },
+      "aspect": 8.7778,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.8578
+        },
+        {
+          "hex": "#80889c",
+          "coverage": 0.0883
+        },
+        {
+          "hex": "#b2b7c6",
+          "coverage": 0.0419
+        },
+        {
+          "hex": "#626c8b",
+          "coverage": 0.012
+        }
+      ],
+      "detail": {
+        "energy": 37.54
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 102,
+          "capHeightPx": 10.6,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.6187,
+          "advTall": 0.6714,
+          "advX": 0.6187,
+          "gap": 0.0639,
+          "xRatio": 0.7414,
+          "stemW": 0.1925,
+          "contrast": 1.1346,
+          "serif": 0.4454,
+          "densTall": 0.541,
+          "densX": 0.6279,
+          "weight": 0.541
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "recommendation-heading",
+      "kind": "text",
+      "note": "recommendation heading and Guusto context",
+      "grid": "A9:C9",
+      "coverBox": {
+        "x": 0,
+        "y": 0.9,
+        "w": 0.3,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.0598,
+        "y": 0.9005,
+        "w": 0.1195,
+        "h": 0.0344
+      },
+      "px": {
+        "x": 90,
+        "y": 941,
+        "w": 180,
+        "h": 36
+      },
+      "aspect": 5,
+      "palette": [
+        {
+          "hex": "#f6f6f7",
+          "coverage": 0.7939
+        },
+        {
+          "hex": "#acb3c1",
+          "coverage": 0.1156
+        },
+        {
+          "hex": "#7e889e",
+          "coverage": 0.0627
+        },
+        {
+          "hex": "#263353",
+          "coverage": 0.0139
+        },
+        {
+          "hex": "#080b33",
+          "coverage": 0.0139
+        }
+      ],
+      "detail": {
+        "energy": 31.033
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 22,
+          "capHeightPx": 10.4,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.607,
+          "advTall": 0.3514,
+          "advX": 0.607,
+          "gap": 0.0958,
+          "xRatio": 0.7571,
+          "stemW": 0.1507,
+          "contrast": 1.0872,
+          "serif": null,
+          "densTall": 0.5075,
+          "densX": 0.5098,
+          "weight": 0.5075
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "recommendation-quote",
+      "kind": "text",
+      "note": "Felipe recommendation excerpt",
+      "grid": "D9:H9",
+      "coverBox": {
+        "x": 0.3,
+        "y": 0.9,
+        "w": 0.5,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.332,
+        "y": 0.9005,
+        "w": 0.4143,
+        "h": 0.0344
+      },
+      "px": {
+        "x": 500,
+        "y": 941,
+        "w": 624,
+        "h": 36
+      },
+      "aspect": 17.3333,
+      "palette": [
+        {
+          "hex": "#f6f6f7",
+          "coverage": 0.7978
+        },
+        {
+          "hex": "#868fa4",
+          "coverage": 0.1164
+        },
+        {
+          "hex": "#b7bdc9",
+          "coverage": 0.0823
+        },
+        {
+          "hex": "#636888",
+          "coverage": 0.0036
+        }
+      ],
+      "detail": {
+        "energy": 34.7563
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 69,
+          "capHeightPx": 11.4,
+          "inkIsDark": true,
+          "allCaps": false,
+          "advance": 0.5864,
+          "advTall": 0.3811,
+          "advX": 0.5864,
+          "gap": 0.088,
+          "xRatio": 0.747,
+          "stemW": 0.1791,
+          "contrast": 1.0029,
+          "serif": 0.2892,
+          "densTall": 0.5657,
+          "densX": 0.5946,
+          "weight": 0.5657
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "recommendation-attribution",
+      "kind": "text",
+      "note": "Felipe name and title",
+      "grid": "I9:J9",
+      "coverBox": {
+        "x": 0.8,
+        "y": 0.9,
+        "w": 0.2,
+        "h": 0.1
+      },
+      "box": {
+        "x": 0.8161,
+        "y": 0.9005,
+        "w": 0.1235,
+        "h": 0.0115
+      },
+      "px": {
+        "x": 1229,
+        "y": 941,
+        "w": 186,
+        "h": 12
+      },
+      "aspect": 15.5,
+      "palette": [
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.7379
+        },
+        {
+          "hex": "#c1c3d0",
+          "coverage": 0.1452
+        },
+        {
+          "hex": "#7f869c",
+          "coverage": 0.1089
+        },
+        {
+          "hex": "#506088",
+          "coverage": 0.0081
+        }
+      ],
+      "detail": {
+        "energy": 30.4841
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 26,
+          "capHeightPx": 5.2,
+          "inkIsDark": true,
+          "allCaps": true,
+          "advance": 0.3822,
+          "advTall": 0.3822,
+          "advX": null,
+          "gap": 0.1911,
+          "xRatio": null,
+          "stemW": 0.3724,
+          "contrast": 1.5563,
+          "serif": 0.3121,
+          "densTall": 0.8347,
+          "densX": null,
+          "weight": 0.8347
+        },
+        "widthClass": "compressed",
+        "weightClass": "black"
+      }
+    }
+  ]
+}
