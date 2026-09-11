@@ -11,9 +11,9 @@ export const AVAILABILITY_BADGE = "🟢 Open to work";
 
 export const SITE = {
   name: "Ciaran Fontein",
-  title: "Ciaran Fontein · Senior React Native Engineer",
+  title: "Ciaran Fontein · React Native and Mobile Product Engineer",
   description:
-    "Senior React Native Engineer. I build mobile apps from Figma to the App Store. For six years I was the sole frontend developer on Guusto's iOS and Android app.",
+    "React Native and mobile product engineer based in Nara, Japan. Six years owning Guusto's production iOS and Android app, plus independently shipped Expo products.",
   url: "https://ciaranfontein.com",
   locale: "en",
   email: "ciaranfontein@gmail.com",
@@ -21,7 +21,7 @@ export const SITE = {
   githubHandle: "github.com/ciaranfontein",
   linkedin: "https://www.linkedin.com/in/ciaranfontein",
   linkedinHandle: "linkedin.com/in/ciaranfontein",
-  location: "Nara, Japan · Remote or Osaka",
+  location: "Nara, Japan · Open to Osaka or remote",
   visaNote: "No visa sponsorship required",
 } as const;
 
@@ -33,7 +33,6 @@ export const RESUME_FILES = [
     lang: "en",
     formats: [
       { ext: "PDF", href: "/resume/ciaran_fontein_cv.pdf" },
-      { ext: "DOCX", href: "/resume/ciaran_fontein_cv.docx" },
     ],
   },
   {

@@ -1,28 +1,947 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SwissNav from "../components/SwissNav.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import CaseStudyGuusto from "../components/CaseStudyGuusto.astro";
-import CurrentProjects from "../components/CurrentProjects.astro";
-import Experience from "../components/Experience.astro";
-import Skills from "../components/Skills.astro";
-import References from "../components/References.astro";
-import Contact from "../components/Contact.astro";
-import SiteFooter from "../components/SiteFooter.astro";
+
+const independentProducts = [
+  {
+    name: "KiraKiran",
+    description: "Customer and appointment management for independent nail salons.",
+    detail: "Japanese-first React Native and Expo app with calendars, client history, reference photos, Supabase row-level security, and a staging-locked Maestro QA harness.",
+    image: "/images/kirakiran/app-icon.png",
+    imageAlt: "KiraKiran app icon",
+    links: [{ href: "https://apps.apple.com/jp/app/id6788704136", label: "App Store" }],
+  },
+  {
+    name: "Meigaza",
+    description: "A shared movie queue that helps friend groups decide what to watch.",
+    detail: "One Expo codebase for iOS and web, with Japanese and English localization, team scoring, TMDB and iTunes search, and Supabase persistence.",
+    image: "/images/meigaza/app-icon.png",
+    imageAlt: "Meigaza application icon",
+    links: [
+      { href: "https://apps.apple.com/jp/app/meigaza/id6789951612", label: "App Store" },
+      { href: "https://meigaza.expo.app/", label: "Web app" },
+    ],
+  },
+  {
+    name: "Fate",
+    description: "A quick, fair way for groups to choose an order, teams, or a winner.",
+    detail: "React Native, Expo, TypeScript, and Reanimated. Supports 2 to 32 players, balanced teams, elimination rounds, undo, and reduced motion.",
+    image: "/images/fate/app-icon.png",
+    imageAlt: "Fate app icon",
+    links: [{ href: "https://apps.apple.com/jp/app/id6789725296", label: "App Store" }],
+  },
+];
+
+const experience = [
+  {
+    period: "2020–2026",
+    organization: "Guusto Gifts Inc.",
+    role: "Frontend Engineer, contract and remote",
+    detail: "Sole React Native developer for the production iOS and Android app. Owned architecture, feature delivery, releases, incident response, performance work, reviews, and final technical handover.",
+  },
+  {
+    period: "2012–2019",
+    organization: "Independent game development",
+    role: "Unity and C# developer",
+    detail: "Built strategy, simulation, puzzle, RPG, and action prototypes for mobile, web, and desktop.",
+  },
+];
+
+const education = [
+  ["RED Academy", "Full Stack Development bootcamp"],
+  ["British Columbia Institute of Technology", "Game Development coursework"],
+  ["British Columbia Institute of Technology", "Computer Information Technology"],
+];
+
+const skills = [
+  {
+    label: "Mobile product engineering",
+    items: ["React Native", "Expo", "TypeScript", "JavaScript", "React", "Responsive mobile UI", "Accessibility and testID selectors"],
+  },
+  {
+    label: "Production ownership",
+    items: ["iOS and Android releases", "App Store and Google Play review", "Native integrations", "Push notifications", "Deep links", "Performance and crash triage", "On-call incident response"],
+  },
+  {
+    label: "Quality and testing",
+    items: ["Maestro", "YAML", "Mobile end-to-end testing", "Black-box and adversarial testing", "Regression and smoke testing", "JUnit reporting", "Synthetic test data", "Release QA"],
+  },
+  {
+    label: "Platform and collaboration",
+    items: ["REST", "GraphQL", "Node.js tooling", "Supabase", "Git and Bitbucket", "Docker locally", "Jira", "Code and design reviews", "Cross-team debugging"],
+  },
+];
+
+const guustoScreens = [
+  [2, "Guusto search and recognition options on mobile"],
+  [3, "Guusto flexible reward redemption options"],
+  [4, "Guusto mobile wallet for received gifts"],
+  [5, "Guusto charity donation impact screen"],
+  [6, "Guusto non-monetary employee recognition"],
+  [7, "Guusto recognition reporting dashboard"],
+] as const;
+
+const year = new Date().getFullYear();
 ---
 
-<BaseLayout>
-  <SwissNav />
+<BaseLayout
+  title="Ciaran Fontein · React Native and Mobile Product Engineer"
+  description="React Native and mobile product engineer based in Nara, Japan. Six years owning Guusto's production iOS and Android app, plus independently shipped Expo products."
+>
+  <header class="site-header">
+    <div class="frame site-header__inner">
+      <a class="site-name" href="#top" aria-label="Ciaran Fontein, back to top">Ciaran Fontein</a>
+      <nav aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="/resume/ciaran_fontein_cv.pdf">Resume</a>
+      </nav>
+    </div>
+  </header>
+
   <main id="main-content">
-    <Hero />
-    <About />
-    <CaseStudyGuusto />
-    <CurrentProjects />
-    <References />
-    <Experience />
-    <Skills />
-    <Contact />
+    <section class="intro frame" id="top" aria-labelledby="intro-title">
+      <div class="intro__copy">
+        <h1 id="intro-title">Mobile products, built and supported in production.</h1>
+        <p>React Native engineer focused on practical, high-quality mobile apps.</p>
+        <p>Six years of end-to-end ownership from architecture to store release.</p>
+        <p>Based in Nara, working with teams in Osaka and worldwide.</p>
+      </div>
+      <figure class="intro__portrait">
+        <img
+          src="/images/plates/headshot.png"
+          width="1024"
+          height="1536"
+          alt="Ciaran Fontein"
+          fetchpriority="high"
+        />
+      </figure>
+    </section>
+
+    <section class="featured frame" id="work" aria-labelledby="guusto-title">
+      <div class="featured__summary">
+        <p class="eyebrow">Featured project</p>
+        <h2 id="guusto-title">Guusto</h2>
+        <p class="featured__lead">Employee recognition and rewards used by organizations with frontline teams.</p>
+        <dl class="evidence">
+          <div><dt>Outcome</dt><dd>Highest-rated recognition platform on G2</dd></div>
+          <div><dt>Responsibility</dt><dd>Sole React Native developer; architecture, delivery, releases, and support</dd></div>
+          <div><dt>Platforms</dt><dd>iOS and Android</dd></div>
+          <div><dt>Time</dt><dd>Six years</dd></div>
+        </dl>
+        <div class="text-links">
+          <a href="https://apps.apple.com/jp/app/guusto-recognition-rewards/id779932614?l=en-US">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.guusto.guusto&hl=en">Google Play</a>
+        </div>
+      </div>
+      <figure class="featured__image">
+        <img
+          src="/images/plates/guusto-product.png"
+          width="1500"
+          height="1000"
+          alt="Guusto mobile app home screen"
+          loading="eager"
+        />
+      </figure>
+    </section>
+
+    <section class="products frame" aria-labelledby="products-title">
+      <header class="products__intro">
+        <h2 id="products-title">Independent products</h2>
+        <p>Small products built around problems I know personally, then shipped and maintained.</p>
+      </header>
+      <div class="products__list">
+        {independentProducts.map((product) => (
+          <article class="product">
+            <a class="product__media" href={product.links[0].href} target="_blank" rel="noopener noreferrer">
+              <img src={product.image} alt={product.imageAlt} loading="lazy" />
+            </a>
+            <div class="product__copy">
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+              <span>iOS · React Native · Expo</span>
+              <div class="product__links">
+                {product.links.map((link) => (
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="qa frame" aria-labelledby="qa-title">
+      <div>
+        <h2 id="qa-title">Mobile QA with Maestro</h2>
+        <p>Reliable staging coverage for real iOS and Android flows.</p>
+      </div>
+      <p>
+        Built a staging-locked Maestro and YAML black-box harness covering smoke, adversarial, CRUD, restart, public-booking, and Stripe card PaymentSheet flows. Added stable selectors, safety guards, JUnit reports, screenshots, cleanup, and device targeting. Cross-role messaging was designed and instrumented as a coordinated two-device protocol.
+      </p>
+    </section>
+
+    <section class="recommendation frame" aria-labelledby="recommendation-title">
+      <div>
+        <h2 id="recommendation-title">Recommendation</h2>
+        <p>From Guusto engineering leadership</p>
+      </div>
+      <blockquote>
+        <p>“He demonstrated strong technical independence, handling feature development, releases, production issues, and the day-to-day challenges of maintaining a mobile application in production.”</p>
+        <footer>Felipe Santos da Rocha, Director of Software Engineering at Guusto</footer>
+      </blockquote>
+    </section>
+
+    <section class="detail frame" aria-labelledby="ownership-title">
+      <header class="section-intro">
+        <h2 id="ownership-title">Production ownership</h2>
+        <p>I joined Guusto when the company had seven employees. Before a product team was hired, I often decided what needed attention next. Later I worked from Figma designs and Jira tickets with product, design, backend, and web teams.</p>
+      </header>
+      <div class="ownership-grid">
+        <div>
+          <h3>Built and shipped</h3>
+          <ul>
+            <li>Designed the React Native and TypeScript app architecture and built the mobile app from scratch.</li>
+            <li>Integrated REST and GraphQL-backed data, native services, push notifications, authentication, wallets, and recognition flows.</li>
+            <li>Handled certificates, store submissions, review rejections, version upgrades, performance work, and production incidents.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Worked with people</h3>
+          <ul>
+            <li>Reviewed designs throughout six years at Guusto and reviewed teammates' code during the final six months.</li>
+            <li>Debugged mobile problems with React Native, backend, and web engineers across time zones.</li>
+            <li>Documented the app and trained the successor team during a three-month technical handover.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="screenshot-strip" aria-label="Guusto application screenshots">
+        {guustoScreens.map(([number, alt]) => (
+          <img
+            src={`/images/guusto/screenshot-${String(number).padStart(2, "0")}.webp`}
+            alt={alt}
+            loading="lazy"
+            width="450"
+            height="800"
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="product-details frame" aria-labelledby="product-details-title">
+      <header class="section-intro">
+        <h2 id="product-details-title">Selected products</h2>
+        <p>Each product began with a problem I wanted to solve.</p>
+      </header>
+      {independentProducts.map((product) => (
+        <article class="product-detail">
+          <div>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <p>{product.detail}</p>
+            <div class="product-detail__links">
+              {product.links.map((link) => (
+                <a href={link.href} target="_blank" rel="noopener noreferrer">Open {link.label.toLowerCase()}</a>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="experience frame" id="experience" aria-labelledby="experience-title">
+      <header class="section-intro">
+        <h2 id="experience-title">Experience</h2>
+        <p>Mobile product work is the centre of my experience, supported by earlier web and game development.</p>
+      </header>
+      <ol class="experience-list">
+        {experience.map((item) => (
+          <li>
+            <time>{item.period}</time>
+            <div>
+              <h3>{item.organization}</h3>
+              <p class="role">{item.role}</p>
+              <p>{item.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div class="education">
+        <h3>Education</h3>
+        <ul>
+          {education.map(([school, program]) => (
+            <li><strong>{school}</strong><span>{program}</span></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="skills frame" aria-labelledby="skills-title">
+      <header class="section-intro">
+        <h2 id="skills-title">Skills</h2>
+        <p>My strongest skills come from building, releasing, and supporting mobile apps.</p>
+      </header>
+      <div class="skills-grid">
+        {skills.map((group) => (
+          <div>
+            <h3>{group.label}</h3>
+            <ul>{group.items.map((item) => <li>{item}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="colleague-notes frame" aria-labelledby="colleague-title">
+      <header class="section-intro">
+        <h2 id="colleague-title">What colleagues say</h2>
+      </header>
+      <div>
+        <blockquote>
+          <p>“He played a foundational role in building the mobile app from the ground up, and his contributions have shaped the product in a lasting way.”</p>
+          <footer>Sarah Tong, Senior Product Designer and Web Developer at Guusto</footer>
+        </blockquote>
+        <blockquote>
+          <p>“He's not only a talented mobile engineer but also someone who's incredibly communicative, thoughtful, and easy to work with.”</p>
+          <footer>Sreeja Guttula, Product Manager at Guusto</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="contact frame" id="contact" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">Contact</h2>
+        <p>I am looking for React Native and mobile product roles in Osaka, elsewhere in Japan, or remote.</p>
+      </div>
+      <div class="contact__links">
+        <a href="mailto:ciaranfontein@gmail.com">ciaranfontein@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ciaranfontein">LinkedIn</a>
+        <a href="https://github.com/ciaranfontein">GitHub</a>
+        <a href="/resume/ciaran_fontein_cv.pdf">English CV · PDF</a>
+        <a href="/resume/rirekisho.pdf" lang="ja">履歴書 · PDF</a>
+        <a href="/resume/shokumu_keirekisho.pdf" lang="ja">職務経歴書 · PDF</a>
+      </div>
+    </section>
   </main>
-  <SiteFooter />
+
+  <footer class="footer frame">
+    <span>© {year} Ciaran Fontein</span>
+    <span>Nara, Japan · Open to Osaka</span>
+  </footer>
 </BaseLayout>
+
+<style>
+  :global(body) {
+    background: #ffffff;
+    color: #0b193e;
+  }
+
+  :global(::selection) {
+    background: #bfe7eb;
+    color: #07142f;
+  }
+
+  :global(:focus-visible) {
+    outline: 3px solid #0b4f70;
+    outline-offset: 4px;
+  }
+
+  .frame {
+    width: min(88%, 1320px);
+    margin-inline: auto;
+  }
+
+  #top,
+  #work,
+  #experience,
+  #contact {
+    scroll-margin-top: 4.5rem;
+  }
+
+  .site-header {
+    border-bottom: 1px solid #d7dee3;
+    background: rgba(255, 255, 255, 0.96);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .site-header__inner {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .site-name,
+  .site-header nav a {
+    color: #0b193e;
+    text-decoration: none;
+  }
+
+  .site-name {
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .site-header nav {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    font-size: 0.9rem;
+  }
+
+  .site-header a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+    align-items: end;
+    min-height: 240px;
+    border-bottom: 1px solid #d7dee3;
+    overflow: hidden;
+  }
+
+  .intro__copy {
+    align-self: center;
+    padding: 1.5rem 0;
+  }
+
+  .intro h1 {
+    max-width: 23ch;
+    margin: 0 0 1rem;
+    font-size: clamp(2.25rem, 3.4vw, 2.625rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .intro p {
+    margin: 0.18rem 0;
+    color: #5a6681;
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+    letter-spacing: -0.02em;
+  }
+
+  .intro__portrait {
+    width: 180px;
+    height: 190px;
+    margin: 0 0 1.25rem;
+    justify-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .intro__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    animation: portrait-arrive 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes portrait-arrive {
+    from { transform: translateY(12px); clip-path: inset(0 0 8% 0); }
+    to { transform: translateY(0); clip-path: inset(0 0 0 0); }
+  }
+
+  .featured {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.31fr) minmax(0, 0.69fr);
+    border-bottom: 1px solid #d7dee3;
+  }
+
+  .featured__summary {
+    padding: 1.25rem 2rem 1.25rem 0;
+    align-self: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.45rem;
+    color: #5a6681;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .featured h2,
+  .products h2,
+  .qa h2,
+  .recommendation h2,
+  .section-intro h2,
+  .contact h2 {
+    margin: 0;
+    font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .products h2 {
+    font-size: 1.4rem;
+  }
+
+  .featured__lead {
+    color: #5a6681;
+    max-width: 31ch;
+    margin: 0.55rem 0 0.85rem;
+  }
+
+  .evidence {
+    margin: 0;
+  }
+
+  .evidence div {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 0.75rem;
+    padding: 0.45rem 0;
+    border-top: 1px solid #d7dee3;
+    font-size: 0.86rem;
+  }
+
+  .evidence dt {
+    color: #5a6681;
+  }
+
+  .evidence dd {
+    margin: 0;
+  }
+
+  .text-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.65rem;
+  }
+
+  .text-links a,
+  .product a,
+  .product-detail a,
+  .contact a {
+    color: #195b94;
+    text-underline-offset: 0.28em;
+  }
+
+  .featured__image {
+    height: 300px;
+    margin: 0;
+    overflow: hidden;
+    background: #1f4f7a;
+  }
+
+  .featured__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: 0.23fr 0.77fr;
+    border-bottom: 1px solid #d7dee3;
+  }
+
+  .products__intro {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+  }
+
+  .products__intro p {
+    color: #5a6681;
+    max-width: 28ch;
+    margin: 0.55rem 0 0;
+    font-size: 0.9rem;
+  }
+
+  .products__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(80px, 0.8fr) 1.2fr;
+    border-left: 1px solid #d7dee3;
+    height: 180px;
+    overflow: hidden;
+  }
+
+  .product__media {
+    height: 180px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: #ffffff;
+  }
+
+  .product__media img {
+    width: min(72%, 116px);
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 22%;
+  }
+
+  .product__links,
+  .product-detail__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.8rem;
+  }
+
+  .product__copy {
+    padding: 1.15rem;
+    align-self: center;
+  }
+
+  .product h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .product p {
+    margin: 0.45rem 0;
+    color: #5a6681;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .product span {
+    display: block;
+    color: #5a6681;
+    font-size: 0.76rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .product a {
+    font-size: 0.82rem;
+  }
+
+  .qa,
+  .recommendation {
+    display: grid;
+    grid-template-columns: 0.31fr 0.69fr;
+    gap: 2rem;
+    padding-block: 0.95rem;
+    border-bottom: 1px solid #d7dee3;
+  }
+
+  .qa h2,
+  .recommendation h2 {
+    font-size: 1.25rem;
+  }
+
+  .qa p,
+  .recommendation p {
+    margin: 0;
+    color: #5a6681;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .qa > div p,
+  .recommendation > div p {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+  }
+
+  .recommendation blockquote {
+    margin: 0;
+  }
+
+  .recommendation blockquote p {
+    color: #0b193e;
+  }
+
+  .recommendation footer,
+  .colleague-notes footer {
+    color: #5a6681;
+    font-size: 0.8rem;
+    margin-top: 0.55rem;
+  }
+
+  .detail,
+  .product-details,
+  .experience,
+  .skills,
+  .colleague-notes,
+  .contact {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    border-bottom: 1px solid #d7dee3;
+  }
+
+  .section-intro {
+    display: grid;
+    grid-template-columns: 0.31fr minmax(0, 0.69fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-intro > p {
+    margin: 0;
+    max-width: 68ch;
+    color: #5a6681;
+    font-size: 1.05rem;
+  }
+
+  .ownership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    margin-left: 31%;
+  }
+
+  .ownership-grid h3,
+  .education h3,
+  .skills-grid h3 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+  }
+
+  .ownership-grid ul,
+  .skills-grid ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .ownership-grid li,
+  .skills-grid li {
+    margin-bottom: 0.65rem;
+    color: #5a6681;
+  }
+
+  .screenshot-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+
+  .screenshot-strip img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #d7dee3;
+  }
+
+  .product-detail {
+    margin-left: 31%;
+    padding-block: 2rem;
+    border-top: 1px solid #d7dee3;
+  }
+
+  .product-detail h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.5rem;
+  }
+
+  .product-detail p {
+    color: #5a6681;
+    max-width: 68ch;
+  }
+
+  .experience-list {
+    list-style: none;
+    margin: 0 0 4rem 31%;
+    padding: 0;
+  }
+
+  .experience-list li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1.5rem;
+    padding: 1.35rem 0;
+    border-top: 1px solid #d7dee3;
+  }
+
+  .experience-list time {
+    color: #5a6681;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .experience-list h3,
+  .experience-list p {
+    margin: 0;
+  }
+
+  .experience-list .role {
+    font-weight: 700;
+    margin: 0.2rem 0 0.35rem;
+  }
+
+  .experience-list p:last-child {
+    color: #5a6681;
+    max-width: 65ch;
+  }
+
+  .education {
+    margin-left: 31%;
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1.5rem;
+  }
+
+  .education ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .education li {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) 1fr;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid #d7dee3;
+  }
+
+  .education span {
+    color: #5a6681;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 31%;
+  }
+
+  .skills-grid > div {
+    padding: 1.25rem 1.5rem 1.25rem 0;
+    border-top: 1px solid #d7dee3;
+  }
+
+  .skills-grid > div + div {
+    padding-left: 1.5rem;
+    border-left: 1px solid #d7dee3;
+  }
+
+  .skills-grid li {
+    font-size: 0.9rem;
+  }
+
+  .colleague-notes > div {
+    margin-left: 31%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 7vw, 7rem);
+  }
+
+  .colleague-notes blockquote {
+    margin: 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid #d7dee3;
+  }
+
+  .colleague-notes blockquote p {
+    margin: 0;
+    color: #263651;
+    font-size: 1.05rem;
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: 0.31fr minmax(0, 0.69fr);
+    gap: 2rem;
+  }
+
+  .contact > div > p {
+    color: #5a6681;
+    max-width: 35ch;
+  }
+
+  .contact__links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+  }
+
+  .contact__links a {
+    padding: 1rem 0;
+    border-top: 1px solid #d7dee3;
+    text-decoration: none;
+  }
+
+  .contact__links a:nth-child(even) {
+    padding-left: 1.5rem;
+    border-left: 1px solid #d7dee3;
+  }
+
+  .contact__links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+  }
+
+  .footer {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: #5a6681;
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 1050px) {
+    .frame { width: min(92%, 920px); }
+    .products { grid-template-columns: 1fr; }
+    .products__intro { border-bottom: 1px solid #d7dee3; }
+    .product:first-child { border-left: 0; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 760px) {
+    .site-header__inner { align-items: flex-start; padding-block: 0.9rem; }
+    .site-header nav { gap: 0.75rem 1rem; flex-wrap: wrap; justify-content: flex-end; }
+    .site-header nav a:nth-child(2) { display: none; }
+    .intro { grid-template-columns: 1fr; }
+    .intro__portrait { width: 150px; height: 170px; margin: 0 0 1.5rem; justify-self: start; }
+    .featured { grid-template-columns: 1fr; }
+    .featured__summary { padding-right: 0; }
+    .featured__image { height: 160px; }
+    .featured__image img { object-fit: contain; }
+    .products__list { grid-template-columns: 1fr; }
+    .product { height: auto; min-height: 200px; border-left: 0; border-top: 1px solid #d7dee3; }
+    .product__media { height: 200px; }
+    .qa,
+    .recommendation,
+    .section-intro,
+    .contact { grid-template-columns: 1fr; gap: 1.25rem; }
+    .ownership-grid,
+    .experience-list,
+    .education,
+    .skills-grid,
+    .product-detail,
+    .colleague-notes > div { margin-left: 0; }
+    .ownership-grid,
+    .colleague-notes > div { grid-template-columns: 1fr; }
+    .screenshot-strip { grid-template-columns: repeat(3, 1fr); }
+    .education { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skills-grid > div + div { padding-left: 0; border-left: 0; }
+  }
+
+  @media (max-width: 480px) {
+    .site-header nav a:nth-child(1) { display: none; }
+    .intro h1 { font-size: 2.15rem; }
+    .experience-list li { grid-template-columns: 1fr; gap: 0.35rem; }
+    .education li { grid-template-columns: 1fr; gap: 0.15rem; }
+    .contact__links { grid-template-columns: 1fr; }
+    .contact__links a:nth-child(even) { padding-left: 0; border-left: 0; }
+    .footer { align-items: flex-start; flex-direction: column; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .intro__portrait img { animation: none; }
+  }
+
+  @media print {
+    .site-header { position: static; }
+    .intro__portrait { display: none; }
+    .screenshot-strip { grid-template-columns: repeat(6, 1fr); }
+  }
+</style>

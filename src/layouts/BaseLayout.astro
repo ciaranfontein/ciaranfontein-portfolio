@@ -16,9 +16,9 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: SITE.name,
-  jobTitle: "Senior React Native Engineer",
+  jobTitle: "React Native and Mobile Product Engineer",
   url: SITE.url,
-  image: new URL("/images/headshot.webp", SITE.url).toString(),
+  image: new URL("/images/plates/headshot.png", SITE.url).toString(),
   email: `mailto:${SITE.email}`,
   address: {
     "@type": "PostalAddress",
@@ -30,7 +30,7 @@ const personJsonLd = {
 ---
 
 <!doctype html>
-<html lang="en" data-theme-init>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,20 +62,6 @@ const personJsonLd = {
     <!-- JSON-LD: Person schema -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify(personJsonLd)} />
 
-    <!-- Inline, blocking theme init: prevents flash of wrong theme.
-         Reads stored preference; if none, defers to prefers-color-scheme via CSS. -->
-    <script is:inline>
-      (function () {
-        try {
-          var stored = localStorage.getItem("theme-preference");
-          if (stored === "dark" || stored === "light") {
-            document.documentElement.dataset.theme = stored;
-          }
-        } catch (e) {
-          /* localStorage unavailable; CSS prefers-color-scheme fallback applies */
-        }
-      })();
-    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
