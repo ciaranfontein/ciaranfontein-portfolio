@@ -41,14 +41,13 @@ async function main() {
   const kirakiranScreenshots = {
     clients: "app-store-01",
     appointment: "app-store-03",
-    history: "app-store-04",
+    availability: "app-store-05",
   };
   for (const [name, source] of Object.entries(kirakiranScreenshots)) {
     const inPath = path.join(SRC_KIRAKIRAN, `${source}.png`);
     const outPath = path.join(OUT_KIRAKIRAN, `${name}.webp`);
     await sharp(inPath)
-      .resize({ height: 1200, withoutEnlargement: true })
-      .webp({ quality: 82 })
+      .webp({ quality: 88 })
       .toFile(outPath);
     console.log("wrote", outPath);
   }
