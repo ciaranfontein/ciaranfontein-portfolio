@@ -8,12 +8,15 @@ import path from "node:path";
 const ROOT = path.resolve(import.meta.dirname, "..");
 const SRC = path.join(ROOT, "assets-original");
 const OUT_GUUSTO = path.join(ROOT, "public", "images", "guusto");
+const SRC_KIRAKIRAN = path.join(SRC, "kirakiran");
+const OUT_KIRAKIRAN = path.join(ROOT, "public", "images", "kirakiran");
 const OUT_IMAGES = path.join(ROOT, "public", "images");
 
 const SCREENSHOT_HEIGHT = 800;
 
 async function main() {
   await mkdir(OUT_GUUSTO, { recursive: true });
+  await mkdir(OUT_KIRAKIRAN, { recursive: true });
   await mkdir(OUT_IMAGES, { recursive: true });
 
   const screenshots = [1, 2, 3, 4, 5, 6, 7];
@@ -34,6 +37,27 @@ async function main() {
     .webp({ quality: 90 })
     .toFile(path.join(OUT_GUUSTO, "app-icon.webp"));
   console.log("wrote app-icon.webp");
+
+  const kirakiranScreenshots = {
+    clients: "app-store-01",
+    appointment: "app-store-03",
+    history: "app-store-04",
+  };
+  for (const [name, source] of Object.entries(kirakiranScreenshots)) {
+    const inPath = path.join(SRC_KIRAKIRAN, `${source}.png`);
+    const outPath = path.join(OUT_KIRAKIRAN, `${name}.webp`);
+    await sharp(inPath)
+      .resize({ height: 1200, withoutEnlargement: true })
+      .webp({ quality: 82 })
+      .toFile(outPath);
+    console.log("wrote", outPath);
+  }
+
+  await sharp(path.join(SRC_KIRAKIRAN, "app-icon.png"))
+    .resize({ width: 512, height: 512 })
+    .webp({ quality: 92 })
+    .toFile(path.join(OUT_KIRAKIRAN, "app-icon.webp"));
+  console.log("wrote KiraKiran app-icon.webp");
 
   // Headshot: web-sized webp for the hero (base "no eyes" image is handled separately
   // via src/assets/CiaranNoEyes.png for the eye-tracking island — this is a fallback/poster

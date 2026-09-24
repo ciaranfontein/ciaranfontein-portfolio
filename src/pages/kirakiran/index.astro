@@ -1,0 +1,251 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const APP_STORE_URL =
+  "https://apps.apple.com/jp/app/kirakiran-%E3%83%8D%E3%82%A4%E3%83%AB%E9%A1%A7%E5%AE%A2%E7%AE%A1%E7%90%86/id6788704136";
+const title = "KiraKiran（キラキラン）｜個人ネイリストのための予約・顧客管理";
+const description =
+  "予約、顧客カルテ、施術履歴、参考デザインと仕上がり写真を、お客様ごとにひとつに。個人ネイリストのためのiPhoneアプリ。";
+const appJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "KiraKiran ネイル顧客管理",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "iOS",
+  description,
+  url: "https://ciaranfontein.com/kirakiran/",
+  downloadUrl: APP_STORE_URL,
+  inLanguage: ["ja", "en"],
+  image: "https://ciaranfontein.com/images/kirakiran/app-icon.webp",
+};
+---
+
+<BaseLayout
+  {title}
+  {description}
+  lang="ja"
+  ogImage="/images/kirakiran/app-icon.webp"
+  ogImageWidth={512}
+  ogImageHeight={512}
+  jsonLd={appJsonLd}
+  skipLabel="本文へ移動"
+  twitterCard="summary"
+>
+  <header class="site-header">
+    <a class="brand" href="/kirakiran/" aria-label="KiraKiran ホーム">
+      <img src="/images/kirakiran/app-icon.webp" width="42" height="42" alt="" />
+      <span>KiraKiran</span>
+    </a>
+    <nav aria-label="ページ内ナビゲーション">
+      <a href="#features">できること</a>
+      <a href="#screens">画面を見る</a>
+      <a class="nav-cta" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">App Store</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker">個人ネイリストのための予約・顧客管理</p>
+        <h1 id="hero-title">予約も、カルテも、写真も。<br /><span>お客様ごとに、ひとつに。</span></h1>
+        <p class="hero-lede">
+          LINE、DM、メモに散らばりがちなサロンワークを、ひとつの見やすい場所へ。
+          KiraKiranは、一人で働くネイリストの毎日に合わせて作られたiPhoneアプリです。
+        </p>
+        <div class="hero-actions">
+          <a class="button button--primary" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
+              <path fill="currentColor" d="M17.05 12.54c-.03-3.11 2.54-4.62 2.66-4.7a5.68 5.68 0 0 0-4.48-2.42c-1.88-.2-3.7 1.13-4.66 1.13-.98 0-2.47-1.11-4.08-1.08a5.9 5.9 0 0 0-4.97 3.03c-2.16 3.74-.55 9.24 1.52 12.26 1.04 1.48 2.25 3.14 3.86 3.08 1.57-.07 2.15-.99 4.04-.99 1.87 0 2.42.99 4.05.95 1.69-.03 2.75-1.49 3.75-2.98a12.23 12.23 0 0 0 1.72-3.5 5.35 5.35 0 0 1-3.46-4.78ZM14 3.42A5.45 5.45 0 0 0 15.24-.5a5.55 5.55 0 0 0-3.59 1.86 5.2 5.2 0 0 0-1.27 3.77A4.58 4.58 0 0 0 14 3.42Z" />
+            </svg>
+            App Storeで見る
+          </a>
+          <a class="button button--quiet" href="#features">できることを見る</a>
+        </div>
+        <ul class="hero-proof" aria-label="KiraKiranの特徴">
+          <li>日本語ファースト</li><li>英語表示にも対応</li><li>iPhone対応</li>
+        </ul>
+      </div>
+
+      <div class="hero-stage" aria-label="KiraKiranのアプリ画面">
+        <div class="orbit orbit--one" aria-hidden="true"></div>
+        <div class="orbit orbit--two" aria-hidden="true"></div>
+        <figure class="phone phone--back">
+          <img src="/images/kirakiran/clients.webp" width="553" height="1200" alt="お客様を名前やふりがなで探せる顧客一覧" />
+        </figure>
+        <figure class="phone phone--front">
+          <img src="/images/kirakiran/appointment.webp" width="553" height="1200" alt="お客様、日時、メニュー、料金、メモをまとめる予約登録画面" />
+        </figure>
+        <div class="hero-note hero-note--top">予約情報をまとめて入力</div>
+        <div class="hero-note hero-note--bottom">ふりがなでも検索</div>
+      </div>
+    </section>
+
+    <section class="signal" aria-label="KiraKiranでまとめて管理できるもの">
+      <p>予約</p><span aria-hidden="true">✦</span><p>顧客カルテ</p><span aria-hidden="true">✦</span>
+      <p>施術履歴</p><span aria-hidden="true">✦</span><p>デザイン写真</p>
+    </section>
+
+    <section class="problem">
+      <div class="section-intro">
+        <p class="kicker">A calmer way to run the day</p>
+        <h2>探す時間を減らして、<br />目の前のお客様に集中。</h2>
+      </div>
+      <div class="problem-copy">
+        <p>「次は何時？」「前回はどの色？」「あの参考画像はどこ？」を、チャットや写真フォルダを行き来せずに確認できます。</p>
+        <p>予約とカルテと写真が同じお客様につながっているから、開いた瞬間に必要な文脈がそろいます。</p>
+      </div>
+    </section>
+
+    <section id="features" class="features" aria-labelledby="features-title">
+      <div class="section-intro section-intro--center">
+        <p class="kicker">Built around real salon work</p>
+        <h2 id="features-title">サロンワークの流れに、<br />そのまま馴染む。</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-copy"><p class="feature-number">01</p><h3>予約を、抜けなくひとつに。</h3><p>お客様、日時、メニュー、料金、メモを同じ予約にまとめて、カレンダーからすぐ確認できます。</p></div>
+          <img src="/images/kirakiran/appointment.webp" width="553" height="1200" alt="KiraKiranの予約登録画面" loading="lazy" />
+        </article>
+        <article class="feature-card">
+          <div class="feature-copy"><p class="feature-number">02</p><h3>お客様のことを、忘れない。</h3><p>名前やふりがなで検索。連絡先、メモ、アレルギーなどの大切な情報をカルテにまとめます。</p></div>
+          <img src="/images/kirakiran/clients.webp" width="553" height="1200" alt="KiraKiranの顧客一覧" loading="lazy" />
+        </article>
+        <article class="feature-card feature-card--photos">
+          <div class="feature-copy"><p class="feature-number">03</p><h3>来店の流れが、ひとつの履歴に。</h3><p>予約内容、施術写真、メモをお客様ごとに保存。次回来店前に、前回の施術をすぐ振り返れます。</p></div>
+          <img src="/images/kirakiran/history.webp" width="553" height="1200" alt="写真とメモが残る顧客カルテの施術履歴" loading="lazy" />
+        </article>
+      </div>
+    </section>
+
+    <section class="workflow" aria-labelledby="workflow-title">
+      <div class="section-intro"><p class="kicker">One continuous record</p><h2 id="workflow-title">予約の日から、<br />次のご来店まで。</h2></div>
+      <ol class="steps">
+        <li><span>01</span><div><h3>予約を入れる</h3><p>日時、メニュー、料金、お客様をひとつの予約に。</p></div></li>
+        <li><span>02</span><div><h3>施術前に確認する</h3><p>カルテと参考デザインを見て、準備をスムーズに。</p></div></li>
+        <li><span>03</span><div><h3>仕上がりを残す</h3><p>写真とメモを履歴に残し、次回の提案につなげる。</p></div></li>
+      </ol>
+    </section>
+
+    <section id="screens" class="screens" aria-labelledby="screens-title">
+      <div class="section-intro section-intro--center">
+        <p class="kicker">The app, as it is</p><h2 id="screens-title">見やすく、迷わず、<br />毎日使える。</h2>
+        <p class="section-lede">実際のKiraKiran画面です。日本語を中心に、必要な情報を必要な順番で表示します。</p>
+      </div>
+      <div class="screen-gallery">
+        <figure><img src="/images/kirakiran/clients.webp" width="553" height="1200" alt="顧客一覧画面" loading="lazy" /><figcaption>顧客一覧</figcaption></figure>
+        <figure><img src="/images/kirakiran/appointment.webp" width="553" height="1200" alt="予約登録画面" loading="lazy" /><figcaption>予約登録</figcaption></figure>
+        <figure><img src="/images/kirakiran/history.webp" width="553" height="1200" alt="写真付きの顧客カルテと施術履歴" loading="lazy" /><figcaption>顧客カルテ・施術履歴</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="cta-title">
+      <img src="/images/kirakiran/app-icon.webp" width="120" height="120" alt="KiraKiranアプリアイコン" />
+      <p class="kicker">KiraKiran for iPhone</p><h2 id="cta-title">サロンワークを、<br />もう少し軽やかに。</h2>
+      <p>予約・カルテ・写真を、お客様ごとにひとつの場所へ。</p>
+      <a class="button button--primary" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">App Storeで見る</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="/kirakiran/">KiraKiran</a>
+    <div><a href="/privacy/kirakiran/">プライバシーポリシー</a><a href="/">開発者について</a></div>
+    <p>© {new Date().getFullYear()} KiraKiran</p>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(html) { scroll-padding-top: 5rem; }
+  :global(body) {
+    --kk-ink: #241b20; --kk-muted: #6e6269; --kk-pink: #db6f8e; --kk-pink-strong: #a8335a;
+    --kk-pink-soft: #f8e5eb; --kk-cream: #fffaf6; --kk-paper: #fffefd; --kk-line: #eadde2;
+    background: var(--kk-cream); color: var(--kk-ink);
+  }
+  .site-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.75rem; padding: .65rem clamp(1rem,4vw,4.5rem); background: color-mix(in srgb,var(--kk-cream) 92%,transparent); border-bottom: 1px solid color-mix(in srgb,var(--kk-line) 80%,transparent); backdrop-filter: blur(16px); }
+  .brand { display: inline-flex; align-items: center; gap: .7rem; color: var(--kk-ink); font-size: 1.05rem; font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
+  .brand img { border-radius: .65rem; box-shadow: 0 7px 18px rgb(105 55 72 / 12%); }
+  nav { display: flex; align-items: center; gap: clamp(.75rem,2.2vw,2rem); }
+  nav a { color: var(--kk-muted); font-size: .84rem; font-weight: 700; text-decoration: none; }
+  nav a:hover, nav a:focus-visible { color: var(--kk-pink-strong); }
+  .nav-cta { padding: .62rem 1rem; color: white; background: var(--kk-ink); border-radius: 999px; }
+  nav .nav-cta:hover, nav .nav-cta:focus-visible { color: white; background: var(--kk-pink-strong); }
+  .hero { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(20rem,.95fr); align-items: center; gap: clamp(3rem,8vw,8rem); min-height: calc(100svh - 4.75rem); max-width: 88rem; margin: 0 auto; padding: clamp(4rem,9vw,8rem) clamp(1.25rem,6vw,6rem); overflow: hidden; }
+  .kicker { margin: 0 0 1rem; color: var(--kk-pink-strong); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  h1, h2, h3, p { text-wrap: pretty; }
+  h1 { max-width: 13ch; margin: 0; font-size: clamp(2.75rem,5.6vw,6rem); font-weight: 850; line-height: 1.03; letter-spacing: -.065em; }
+  h1 span { color: var(--kk-pink-strong); }
+  .hero-lede { max-width: 38rem; margin: 2rem 0 0; color: var(--kk-muted); font-size: clamp(1rem,1.4vw,1.2rem); line-height: 1.85; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+  .button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 3.25rem; padding: .75rem 1.3rem; border: 1px solid transparent; border-radius: .9rem; font-weight: 800; text-decoration: none; transition: transform 160ms ease,background 160ms ease,border-color 160ms ease; }
+  .button:hover, .button:focus-visible { transform: translateY(-2px); }
+  .button--primary { color: white; background: var(--kk-ink); box-shadow: 0 12px 30px rgb(55 32 43 / 18%); }
+  .button--primary:hover, .button--primary:focus-visible { color: white; background: var(--kk-pink-strong); }
+  .button--quiet { color: var(--kk-ink); background: var(--kk-paper); border-color: var(--kk-line); }
+  .button--quiet:hover, .button--quiet:focus-visible { color: var(--kk-pink-strong); border-color: var(--kk-pink); }
+  .hero-proof { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; padding: 0; margin: 1.5rem 0 0; color: var(--kk-muted); font-size: .78rem; font-weight: 700; list-style: none; }
+  .hero-proof li::before { content: "✓"; margin-right: .4rem; color: var(--kk-pink-strong); }
+  .hero-stage { position: relative; min-height: 40rem; isolation: isolate; }
+  .orbit { position: absolute; z-index: -1; border-radius: 50%; }
+  .orbit--one { inset: 7% -8% 12% 8%; background: var(--kk-pink-soft); }
+  .orbit--two { width: 9rem; height: 9rem; right: -1rem; top: 4rem; border: 1px solid var(--kk-pink); }
+  .phone { position: absolute; overflow: hidden; width: min(16rem,47%); margin: 0; background: white; border: 8px solid #241f22; border-radius: 2.2rem; box-shadow: 0 32px 70px rgb(80 43 57 / 25%); }
+  .phone img { width: 100%; height: auto; }
+  .phone--back { left: 3%; top: 12%; transform: rotate(-7deg); }
+  .phone--front { right: 4%; top: 3%; transform: rotate(6deg); }
+  .hero-note { position: absolute; z-index: 3; padding: .7rem .9rem; color: var(--kk-ink); background: white; border: 1px solid var(--kk-line); border-radius: .8rem; box-shadow: 0 12px 30px rgb(87 48 64 / 14%); font-size: .78rem; font-weight: 800; }
+  .hero-note--top { top: 3%; left: 1%; } .hero-note--bottom { right: 0; bottom: 7%; }
+  .signal { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .75rem 1.4rem; padding: 1.4rem 1rem; color: white; background: var(--kk-ink); }
+  .signal p { margin: 0; font-size: clamp(.9rem,1.5vw,1.1rem); font-weight: 800; } .signal span { color: var(--kk-pink); }
+  .problem, .workflow { display: grid; grid-template-columns: minmax(0,1fr) minmax(18rem,.8fr); gap: clamp(3rem,9vw,9rem); max-width: 76rem; margin: 0 auto; padding: clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,4rem); }
+  .section-intro h2 { margin: 0; color: var(--kk-ink); font-size: clamp(2.2rem,4.7vw,4.6rem); font-weight: 850; line-height: 1.08; letter-spacing: -.055em; }
+  .section-intro--center { max-width: 54rem; margin: 0 auto 4rem; text-align: center; }
+  .problem-copy { align-self: end; border-top: 1px solid var(--kk-line); }
+  .problem-copy p { margin: 0; padding: 1.3rem 0; color: var(--kk-muted); font-size: 1.05rem; line-height: 1.9; border-bottom: 1px solid var(--kk-line); }
+  .features { padding: clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,4rem); background: var(--kk-paper); }
+  .feature-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; max-width: 76rem; margin: 0 auto; }
+  .feature-card { position: relative; min-height: 37rem; overflow: hidden; background: var(--kk-cream); border: 1px solid var(--kk-line); border-radius: 1.5rem; }
+  .feature-card--photos { grid-column: 1 / -1; min-height: 40rem; background: var(--kk-ink); }
+  .feature-copy { position: relative; z-index: 2; max-width: 28rem; padding: clamp(1.5rem,4vw,3rem); }
+  .feature-number { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; margin: 0 0 1.5rem; color: white; background: var(--kk-pink-strong); border-radius: 50%; font-size: .72rem; font-weight: 800; }
+  .feature-copy h3 { margin: 0; font-size: clamp(1.55rem,2.4vw,2.4rem); letter-spacing: -.04em; }
+  .feature-copy > p:last-child { color: var(--kk-muted); line-height: 1.8; }
+  .feature-card > img { position: absolute; width: min(17rem,57%); height: auto; right: 8%; bottom: -14rem; border: 7px solid #242023; border-radius: 2rem; box-shadow: 0 24px 55px rgb(73 37 51 / 20%); }
+  .feature-card--photos .feature-copy { color: white; } .feature-card--photos .feature-copy > p:last-child { color: #d7c9cf; }
+  .feature-card--photos > img { width: min(23rem,40%); right: 8%; bottom: -24rem; border-color: #0b090a; }
+  .steps { padding: 0; margin: 0; list-style: none; border-top: 1px solid var(--kk-line); }
+  .steps li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid var(--kk-line); }
+  .steps span { color: var(--kk-pink-strong); font-size: .75rem; font-weight: 900; }
+  .steps h3, .steps p { margin: 0; } .steps h3 { font-size: 1.1rem; } .steps p { margin-top: .35rem; color: var(--kk-muted); }
+  .screens { padding: clamp(5rem,10vw,9rem) 0; background: var(--kk-pink-soft); overflow: hidden; }
+  .section-lede { max-width: 38rem; margin: 1.5rem auto 0; color: var(--kk-muted); line-height: 1.8; }
+  .screen-gallery { display: grid; grid-template-columns: repeat(3,minmax(14rem,19rem)); justify-content: center; gap: clamp(1rem,3vw,2.5rem); width: max-content; max-width: none; margin: 0 auto; padding: 1rem 2rem; }
+  .screen-gallery figure { margin: 0; } .screen-gallery img { height: auto; overflow: hidden; border: 7px solid var(--kk-ink); border-radius: 2rem; box-shadow: 0 24px 50px rgb(78 40 55 / 18%); }
+  .screen-gallery figure:nth-child(2) { transform: translateY(2.5rem); }
+  .screen-gallery figcaption { margin-top: 1rem; color: var(--kk-muted); font-size: .8rem; font-weight: 800; text-align: center; }
+  .final-cta { display: flex; flex-direction: column; align-items: center; padding: clamp(6rem,12vw,10rem) 1.25rem; text-align: center; }
+  .final-cta img { margin-bottom: 2rem; border-radius: 1.7rem; box-shadow: 0 18px 40px rgb(96 48 66 / 18%); }
+  .final-cta h2 { margin: 0; font-size: clamp(2.5rem,6vw,5.6rem); font-weight: 850; line-height: 1.05; letter-spacing: -.06em; }
+  .final-cta > p:not(.kicker) { margin: 1.5rem 0 2rem; color: var(--kk-muted); }
+  footer { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 2rem; padding: 2.5rem clamp(1.25rem,5vw,4rem); color: #d8cbd0; background: var(--kk-ink); font-size: .78rem; }
+  footer a { color: white; text-decoration: none; } footer div { display: flex; gap: 1.2rem; } footer p { margin: 0; } .footer-brand { font-size: 1rem; font-weight: 850; }
+  @media (max-width: 860px) {
+    nav > a:not(.nav-cta) { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 4rem; } .hero-copy { max-width: 44rem; }
+    .hero-stage { width: min(100%,34rem); min-height: 36rem; margin: 0 auto; }
+    .problem, .workflow { grid-template-columns: 1fr; gap: 3rem; }
+    .feature-grid { grid-template-columns: 1fr; } .feature-card--photos { grid-column: auto; }
+    .feature-card--photos > img { width: min(18rem,56%); right: 8%; bottom: -19rem; }
+  }
+  @media (max-width: 640px) {
+    .site-header { min-height: 4.25rem; } .brand img { width: 36px; height: 36px; } .nav-cta { padding: .55rem .8rem; }
+    h1 { font-size: clamp(2.7rem,13vw,4.2rem); } .hero { padding-inline: 1rem; } .hero-stage { min-height: 29rem; }
+    .phone { width: 48%; border-width: 5px; border-radius: 1.5rem; } .hero-note { font-size: .68rem; }
+    .signal { gap: .55rem .75rem; } .signal span { display: none; } .signal p::after { content: " ·"; color: var(--kk-pink); } .signal p:last-child::after { content: ""; }
+    .feature-card { min-height: 34rem; border-radius: 1.1rem; }
+    .feature-card > img, .feature-card--photos > img { width: 58%; right: 7%; bottom: -12rem; border-width: 5px; border-radius: 1.5rem; }
+    .feature-card--photos > img { bottom: -18rem; }
+    .screen-gallery { grid-template-columns: repeat(3,14rem); justify-content: start; width: 100%; padding-inline: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .screen-gallery figure { scroll-snap-align: center; } .screen-gallery figure:nth-child(2) { transform: none; }
+    footer { grid-template-columns: 1fr; gap: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .button:hover, .button:focus-visible { transform: none; } }
+</style>
