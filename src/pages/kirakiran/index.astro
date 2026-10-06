@@ -3,19 +3,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE } from "../../site.config";
 
 // KiraKiran is in a closed TestFlight beta with salons (off sale on the App Store), so
-// the calls to action invite technicians to join the beta by email (2026-10-06).
-const BETA_SUBJECT = "KiraKiranベータ版に参加したい";
-const BETA_BODY = [
-  "KiraKiranのベータ版に参加を希望します。",
-  "",
-  "サロン名：",
-  "お名前：",
-  "サロンの種類（ネイル・まつげ など）：",
-  "お使いのiPhone：",
-  "",
-].join("
-");
-const BETA_URL = `mailto:${SITE.email}?subject=${encodeURIComponent(BETA_SUBJECT)}&body=${encodeURIComponent(BETA_BODY)}`;
+// the calls to action point to the on-page beta sign-up form (#beta).
+// TODO(owner-approved prod release): switch to https://zvdinfnnfcnlhuiiigkq.supabase.co/functions/v1/beta-signup
+const BETA_SIGNUP_ENDPOINT = "https://tusulniayynekirfcmpv.supabase.co/functions/v1/beta-signup";
+const BETA_URL = "#beta";
+const BETA_FALLBACK_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent("KiraKiranベータ版に参加したい")}`;
 const title = "KiraKiran（キラキラン）｜個人ネイリストのための予約・顧客管理";
 const description =
   "予約、顧客カルテ、施術履歴、参考デザインと仕上がり写真を、お客様ごとにひとつに。個人ネイリストのためのiPhoneアプリ。";
@@ -66,14 +58,10 @@ const appJsonLd = {
         </p>
         <div class="hero-actions">
           <a class="button button--primary" href={BETA_URL}>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
-              <path fill="currentColor" d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13Zm2.2.3 6.8 5.4 6.8-5.4H5.2Zm13.8 1.9-6.38 5.07a1 1 0 0 1-1.24 0L5 7.7v10.8c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5V7.7Z" />
-            </svg>
             ベータ版に参加する
           </a>
           <a class="button button--quiet" href="#features">できることを見る</a>
         </div>
-        <p class="hero-beta-note">現在、サロン様と一緒に先行テスト中です。参加をご希望の方は、ボタンからメールでお気軽にご連絡ください。</p>
         <ul class="hero-proof" aria-label="KiraKiranの特徴">
           <li>日本語ファースト</li><li>英語表示にも対応</li><li>iPhone対応</li>
         </ul>
@@ -151,6 +139,79 @@ const appJsonLd = {
       </div>
     </section>
 
+    <section id="beta" class="beta" aria-labelledby="beta-title">
+      <div class="beta-inner">
+        <div class="beta-intro">
+          <p class="kicker">Beta</p>
+          <h2 id="beta-title">ベータ版に参加する</h2>
+          <p>現在、個人サロンの皆さまと先行テスト中です。iPhoneで使えるテスト版にご招待します。</p>
+        </div>
+        <div class="beta-panel">
+          <form id="beta-form" class="beta-form" novalidate data-beta-form>
+            <div class="field">
+              <label for="beta-salon">サロン名 <span class="req">必須</span></label>
+              <input id="beta-salon" name="salon_name" type="text" maxlength="100" autocomplete="organization" required aria-describedby="beta-salon-error" />
+              <p class="field-error" id="beta-salon-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-name">お名前 <span class="req">必須</span></label>
+              <input id="beta-name" name="contact_name" type="text" maxlength="100" autocomplete="name" required aria-describedby="beta-name-error" />
+              <p class="field-error" id="beta-name-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-email">メールアドレス <span class="req">必須</span></label>
+              <input id="beta-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" required aria-describedby="beta-email-error" />
+              <p class="field-error" id="beta-email-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-type">サロンの種類 <span class="req">必須</span></label>
+              <select id="beta-type" name="salon_type" required aria-describedby="beta-type-error">
+                <option value="">選択してください</option>
+                <option value="nail">ネイル</option>
+                <option value="eyelash">まつげ</option>
+                <option value="hair">ヘア</option>
+                <option value="esthetic">エステ</option>
+                <option value="other">その他</option>
+              </select>
+              <p class="field-error" id="beta-type-error" hidden></p>
+            </div>
+            <fieldset class="field" aria-describedby="beta-iphone-error">
+              <legend>iPhoneをお使いですか <span class="req">必須</span></legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="has_iphone" value="yes" required /> はい</label>
+                <label class="choice"><input type="radio" name="has_iphone" value="no" /> いいえ</label>
+              </div>
+              <p class="field-error" id="beta-iphone-error" hidden></p>
+            </fieldset>
+            <div class="field">
+              <label for="beta-heard">KiraKiranを知ったきっかけ <span class="opt">任意</span></label>
+              <input id="beta-heard" name="heard_from" type="text" maxlength="200" aria-describedby="beta-heard-error" />
+              <p class="field-error" id="beta-heard-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-message">ひとことメッセージ <span class="opt">任意</span></label>
+              <textarea id="beta-message" name="message" rows="4" maxlength="1000" aria-describedby="beta-message-error"></textarea>
+              <p class="field-error" id="beta-message-error" hidden></p>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="beta-website">Website</label>
+              <input id="beta-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <p class="beta-privacy">入力いただいた情報は、ベータ版のご案内のみに使用します。<a href="/privacy/kirakiran/">プライバシーポリシー</a></p>
+            <div class="form-error" id="beta-form-error" tabindex="-1" hidden>
+              <p data-beta-error-text></p>
+              <p>送信できない場合は<a href={BETA_FALLBACK_MAILTO}>メールでご連絡ください</a>。</p>
+            </div>
+            <button class="button button--primary beta-submit" type="submit" data-beta-submit>送信する</button>
+          </form>
+          <div class="beta-success" tabindex="-1" hidden data-beta-success>
+            <p class="beta-success-title">お申し込みありがとうございます。数日以内にご連絡します。</p>
+          </div>
+          <p class="sr-only" role="status" aria-live="polite" data-beta-status></p>
+        </div>
+      </div>
+    </section>
+
     <section class="final-cta" aria-labelledby="cta-title">
       <img src="/images/kirakiran/app-icon.webp" width="120" height="120" alt="KiraKiranアプリアイコン" />
       <p class="kicker">KiraKiran for iPhone</p><h2 id="cta-title">サロンワークを、<br />もう少し軽やかに。</h2>
@@ -165,6 +226,154 @@ const appJsonLd = {
     <p>© {new Date().getFullYear()} KiraKiran</p>
   </footer>
 </BaseLayout>
+
+<script is:inline define:vars={{ BETA_SIGNUP_ENDPOINT }}>
+  (function () {
+    var loadedAt = Date.now();
+    var form = document.querySelector("[data-beta-form]");
+    if (!form) return;
+    var submit = form.querySelector("[data-beta-submit]");
+    var success = document.querySelector("[data-beta-success]");
+    var status = document.querySelector("[data-beta-status]");
+    var formError = document.getElementById("beta-form-error");
+    var formErrorText = formError.querySelector("[data-beta-error-text]");
+
+    var fields = {
+      salon_name: { el: form.elements.salon_name, err: "beta-salon-error" },
+      contact_name: { el: form.elements.contact_name, err: "beta-name-error" },
+      email: { el: form.elements.email, err: "beta-email-error" },
+      salon_type: { el: form.elements.salon_type, err: "beta-type-error" },
+      has_iphone: { el: form.querySelector('input[name="has_iphone"]'), err: "beta-iphone-error" },
+      heard_from: { el: form.elements.heard_from, err: "beta-heard-error" },
+      message: { el: form.elements.message, err: "beta-message-error" }
+    };
+    var order = ["salon_name", "contact_name", "email", "salon_type", "has_iphone", "heard_from", "message"];
+
+    function setError(name, text) {
+      var f = fields[name];
+      var node = document.getElementById(f.err);
+      node.textContent = text || "";
+      node.hidden = !text;
+      if (name === "has_iphone") {
+        form.querySelectorAll('input[name="has_iphone"]').forEach(function (r) {
+          if (text) r.setAttribute("aria-invalid", "true"); else r.removeAttribute("aria-invalid");
+        });
+      } else if (text) {
+        f.el.setAttribute("aria-invalid", "true");
+      } else {
+        f.el.removeAttribute("aria-invalid");
+      }
+    }
+
+    function read() {
+      var iphone = form.querySelector('input[name="has_iphone"]:checked');
+      return {
+        salon_name: form.elements.salon_name.value.trim(),
+        contact_name: form.elements.contact_name.value.trim(),
+        email: form.elements.email.value.trim(),
+        salon_type: form.elements.salon_type.value,
+        has_iphone: iphone ? iphone.value === "yes" : null,
+        heard_from: form.elements.heard_from.value.trim(),
+        message: form.elements.message.value.trim()
+      };
+    }
+
+    function validate(v) {
+      var e = {};
+      if (!v.salon_name) e.salon_name = "サロン名を入力してください。";
+      else if (v.salon_name.length > 100) e.salon_name = "サロン名は100文字以内で入力してください。";
+      if (!v.contact_name) e.contact_name = "お名前を入力してください。";
+      else if (v.contact_name.length > 100) e.contact_name = "お名前は100文字以内で入力してください。";
+      if (!v.email) e.email = "メールアドレスを入力してください。";
+      else if (v.email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) e.email = "メールアドレスの形式をご確認ください。";
+      if (!v.salon_type) e.salon_type = "サロンの種類を選択してください。";
+      if (v.has_iphone === null) e.has_iphone = "「はい」か「いいえ」を選択してください。";
+      if (v.heard_from.length > 200) e.heard_from = "200文字以内で入力してください。";
+      if (v.message.length > 1000) e.message = "1000文字以内で入力してください。";
+      return e;
+    }
+
+    function showFormError(text) {
+      formErrorText.textContent = text;
+      formError.hidden = false;
+      formError.focus();
+    }
+
+    function setSending(sending) {
+      submit.disabled = sending;
+      submit.textContent = sending ? "送信中…" : "送信する";
+      form.setAttribute("aria-busy", sending ? "true" : "false");
+    }
+
+    form.addEventListener("input", function (ev) {
+      var name = ev.target && ev.target.name;
+      if (name && fields[name]) setError(name, "");
+    });
+
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (submit.disabled) return;
+      formError.hidden = true;
+      var values = read();
+      var errors = validate(values);
+      order.forEach(function (name) { setError(name, errors[name]); });
+      var firstBad = order.filter(function (name) { return errors[name]; })[0];
+      if (firstBad) {
+        status.textContent = "入力内容をご確認ください。";
+        fields[firstBad].el.focus();
+        return;
+      }
+      status.textContent = "送信中です。";
+      setSending(true);
+      var payload = {
+        salon_name: values.salon_name,
+        contact_name: values.contact_name,
+        email: values.email,
+        salon_type: values.salon_type,
+        has_iphone: values.has_iphone,
+        heard_from: values.heard_from || null,
+        message: values.message || null,
+        website: form.elements.website.value,
+        elapsed_ms: Date.now() - loadedAt,
+        locale: "ja"
+      };
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, 15000);
+      fetch(BETA_SIGNUP_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) { return { status: res.status, data: data }; });
+      }).then(function (r) {
+        clearTimeout(timer);
+        if (r.status === 200 && r.data && r.data.success === true) {
+          form.hidden = true;
+          success.hidden = false;
+          status.textContent = "お申し込みを受け付けました。";
+          success.focus();
+          return;
+        }
+        setSending(false);
+        var msg = r.status === 429
+          ? "送信回数が上限に達しました。しばらくしてからもう一度お試しください。"
+          : r.status === 400
+            ? "入力内容をご確認のうえ、もう一度お試しください。"
+            : "送信できませんでした。時間をおいてもう一度お試しください。";
+        status.textContent = msg;
+        showFormError(msg);
+      }).catch(function () {
+        clearTimeout(timer);
+        setSending(false);
+        var msg = "送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。";
+        status.textContent = msg;
+        showFormError(msg);
+      });
+    });
+  })();
+</script>
+
 
 <style>
   :global(html) { scroll-padding-top: 5rem; }
@@ -238,9 +447,39 @@ const appJsonLd = {
   .final-cta img { margin-bottom: 2rem; border-radius: 1.7rem; box-shadow: 0 18px 40px rgb(96 48 66 / 18%); }
   .final-cta h2 { margin: 0; font-size: clamp(2.5rem,6vw,5.6rem); font-weight: 850; line-height: 1.05; letter-spacing: -.06em; }
   .final-cta > p:not(.kicker) { margin: 1.5rem 0 2rem; color: var(--kk-muted); }
+  .beta { padding: clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,4rem); background: var(--kk-paper); border-top: 1px solid var(--kk-line); }
+  .beta-inner { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(2rem,6vw,5rem); max-width: 72rem; margin: 0 auto; align-items: start; }
+  .beta-intro h2 { margin: 0; font-size: clamp(2.2rem,4.7vw,4rem); font-weight: 850; line-height: 1.1; letter-spacing: -.05em; }
+  .beta-intro > p:not(.kicker) { margin: 1.5rem 0 0; color: var(--kk-muted); line-height: 1.9; }
+  .beta-panel { padding: clamp(1.25rem,3vw,2rem); background: var(--kk-cream); border: 1px solid var(--kk-line); border-radius: 1.4rem; box-shadow: 0 18px 40px rgb(96 48 66 / 8%); }
+  .beta-form { display: grid; gap: 1.15rem; }
+  .field { min-width: 0; padding: 0; margin: 0; border: 0; }
+  .field label, .field legend { display: block; padding: 0; margin-bottom: .4rem; color: var(--kk-ink); font-size: .88rem; font-weight: 800; }
+  .req, .opt { margin-left: .35rem; font-size: .68rem; font-weight: 800; }
+  .req { color: var(--kk-pink-strong); } .opt { color: var(--kk-muted); }
+  .field input[type="text"], .field input[type="email"], .field select, .field textarea { width: 100%; min-height: 3rem; padding: .7rem .9rem; color: var(--kk-ink); background: white; border: 1px solid var(--kk-line); border-radius: .8rem; font: inherit; font-size: 1rem; }
+  .field textarea { resize: vertical; }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible, .choice:has(input:focus-visible) { outline: 3px solid color-mix(in srgb,var(--kk-pink) 55%,transparent); outline-offset: 2px; border-color: var(--kk-pink-strong); }
+  .field [aria-invalid="true"] { border-color: #b3261e; }
+  .choices { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .field .choice { display: inline-flex; margin: 0; align-items: center; gap: .5rem; min-height: 3rem; padding: .5rem 1.1rem; background: white; border: 1px solid var(--kk-line); border-radius: .8rem; font-weight: 700; cursor: pointer; }
+  .choice input { width: 1.1rem; height: 1.1rem; accent-color: var(--kk-pink-strong); }
+  .field-error { margin: .4rem 0 0; color: #b3261e; font-size: .84rem; font-weight: 700; }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .beta-privacy { margin: 0; color: var(--kk-muted); font-size: .8rem; line-height: 1.7; }
+  .beta-privacy a, .form-error a { color: var(--kk-pink-strong); font-weight: 700; }
+  .form-error { padding: .9rem 1rem; color: #7a1b16; background: #fdecea; border: 1px solid #f1b8b3; border-radius: .8rem; font-size: .9rem; line-height: 1.7; }
+  .form-error p { margin: 0; }
+  .beta-submit { width: 100%; cursor: pointer; font: inherit; font-weight: 800; }
+  .beta-submit:disabled { opacity: .65; cursor: progress; transform: none; }
+  .beta-success { padding: 1.5rem .5rem; text-align: center; }
+  .beta-success:focus { outline: none; }
+  .beta-success-title { margin: 0; font-size: clamp(1.15rem,2.5vw,1.45rem); font-weight: 850; line-height: 1.7; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   footer { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 2rem; padding: 2.5rem clamp(1.25rem,5vw,4rem); color: #d8cbd0; background: var(--kk-ink); font-size: .78rem; }
   footer a { color: white; text-decoration: none; } footer div { display: flex; gap: 1.2rem; } footer p { margin: 0; } .footer-brand { font-size: 1rem; font-weight: 850; }
   @media (max-width: 860px) {
+    .beta-inner { grid-template-columns: 1fr; }
     nav > a:not(.nav-cta) { display: none; }
     .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 4rem; } .hero-copy { max-width: 44rem; }
     .hero-stage { width: min(100%,34rem); min-height: 36rem; margin: 0 auto; }
