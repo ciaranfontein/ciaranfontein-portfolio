@@ -79,6 +79,7 @@ const pageJsonLd = jsonLd ?? personJsonLd;
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(pageJsonLd)} />
 
+    <slot name="head" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">{skipLabel}</a>
