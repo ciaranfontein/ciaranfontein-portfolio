@@ -8,7 +8,9 @@ const independentProducts = [
     detail: "Japanese-first React Native and Expo app with calendars, client history, reference photos, Supabase row-level security, and a staging-locked Maestro QA harness.",
     image: "/images/kirakiran/app-icon.png",
     imageAlt: "KiraKiran app icon",
-    links: [{ href: "https://apps.apple.com/jp/app/id6788704136", label: "App Store" }],
+    // KiraKiran is TestFlight-only (off sale), so its App Store page 404s; link the
+    // product website instead (2026-10-06).
+    links: [{ href: "/kirakiran/", label: "Product website" }],
   },
   {
     name: "Meigaza",
@@ -153,7 +155,7 @@ const year = new Date().getFullYear();
       <div class="products__list">
         {independentProducts.map((product) => (
           <article class="product">
-            <a class="product__media" href={product.links[0].href} target="_blank" rel="noopener noreferrer">
+            <a class="product__media" href={product.links[0].href} {...(product.links[0].href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
               <img src={product.image} alt={product.imageAlt} loading="lazy" />
             </a>
             <div class="product__copy">
@@ -162,7 +164,7 @@ const year = new Date().getFullYear();
               <span>iOS · React Native · Expo</span>
               <div class="product__links">
                 {product.links.map((link) => (
-                  <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                  <a href={link.href} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{link.label}</a>
                 ))}
               </div>
             </div>
@@ -241,7 +243,7 @@ const year = new Date().getFullYear();
             <p>{product.detail}</p>
             <div class="product-detail__links">
               {product.links.map((link) => (
-                <a href={link.href} target="_blank" rel="noopener noreferrer">Open {link.label.toLowerCase()}</a>
+                <a href={link.href} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>Open {link.label.toLowerCase()}</a>
               ))}
             </div>
           </div>
