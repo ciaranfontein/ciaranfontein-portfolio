@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../site.config";
 
-const APP_STORE_URL =
-  "https://apps.apple.com/jp/app/kirakiran-%E3%83%8D%E3%82%A4%E3%83%AB%E9%A1%A7%E5%AE%A2%E7%AE%A1%E7%90%86/id6788704136";
+// KiraKiran is in a closed TestFlight beta with salons (off sale on the App Store), so
+// the calls to action point to the on-page beta sign-up form (#beta).
+const BETA_SIGNUP_ENDPOINT = "https://zvdinfnnfcnlhuiiigkq.supabase.co/functions/v1/beta-signup";
+const BETA_URL = "#beta";
+const BETA_FALLBACK_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent("KiraKiranベータ版に参加したい")}`;
 const title = "KiraKiran（キラキラン）｜個人ネイリストのための予約・顧客管理";
 const description =
   "予約、顧客カルテ、施術履歴、参考デザインと仕上がり写真を、お客様ごとにひとつに。個人ネイリストのためのiPhoneアプリ。";
@@ -14,7 +18,6 @@ const appJsonLd = {
   operatingSystem: "iOS",
   description,
   url: "https://ciaranfontein.com/kirakiran/",
-  downloadUrl: APP_STORE_URL,
   inLanguage: ["ja", "en"],
   image: "https://ciaranfontein.com/images/kirakiran/app-icon.webp",
 };
@@ -31,6 +34,11 @@ const appJsonLd = {
   skipLabel="本文へ移動"
   twitterCard="summary"
 >
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" />
+  </Fragment>
   <header class="site-header">
     <a class="brand" href="/kirakiran/" aria-label="KiraKiran ホーム">
       <img src="/images/kirakiran/app-icon.webp" width="42" height="42" alt="" />
@@ -39,7 +47,7 @@ const appJsonLd = {
     <nav aria-label="ページ内ナビゲーション">
       <a href="#features">できること</a>
       <a href="#screens">画面を見る</a>
-      <a class="nav-cta" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">App Store</a>
+      <a class="nav-cta" href={BETA_URL}>ベータ版に参加</a>
     </nav>
   </header>
 
@@ -53,11 +61,8 @@ const appJsonLd = {
           KiraKiranは、一人で働くネイリストの毎日に合わせて作られたiPhoneアプリです。
         </p>
         <div class="hero-actions">
-          <a class="button button--primary" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
-              <path fill="currentColor" d="M17.05 12.54c-.03-3.11 2.54-4.62 2.66-4.7a5.68 5.68 0 0 0-4.48-2.42c-1.88-.2-3.7 1.13-4.66 1.13-.98 0-2.47-1.11-4.08-1.08a5.9 5.9 0 0 0-4.97 3.03c-2.16 3.74-.55 9.24 1.52 12.26 1.04 1.48 2.25 3.14 3.86 3.08 1.57-.07 2.15-.99 4.04-.99 1.87 0 2.42.99 4.05.95 1.69-.03 2.75-1.49 3.75-2.98a12.23 12.23 0 0 0 1.72-3.5 5.35 5.35 0 0 1-3.46-4.78ZM14 3.42A5.45 5.45 0 0 0 15.24-.5a5.55 5.55 0 0 0-3.59 1.86 5.2 5.2 0 0 0-1.27 3.77A4.58 4.58 0 0 0 14 3.42Z" />
-            </svg>
-            App Storeで見る
+          <a class="button button--primary" href={BETA_URL}>
+            ベータ版に参加する
           </a>
           <a class="button button--quiet" href="#features">できることを見る</a>
         </div>
@@ -70,10 +75,10 @@ const appJsonLd = {
         <div class="orbit orbit--one" aria-hidden="true"></div>
         <div class="orbit orbit--two" aria-hidden="true"></div>
         <figure class="phone phone--back">
-          <img src="/images/kirakiran/clients.webp" width="1320" height="2868" alt="お客様を名前やふりがなで探せる顧客一覧" />
+          <img src="/images/kirakiran/clients.webp" width="1206" height="2622" alt="お客様を名前やふりがなで探せる顧客一覧" />
         </figure>
         <figure class="phone phone--front">
-          <img src="/images/kirakiran/appointment.webp" width="1320" height="2868" alt="お客様、日時、メニュー、料金、メモをまとめる予約登録画面" />
+          <img src="/images/kirakiran/appointment.webp" width="1206" height="2622" alt="お客様、日時、メニュー、料金をまとめた予約詳細画面" />
         </figure>
         <div class="hero-note hero-note--top">予約情報をまとめて入力</div>
         <div class="hero-note hero-note--bottom">ふりがなでも検索</div>
@@ -104,15 +109,15 @@ const appJsonLd = {
       <div class="feature-grid">
         <article class="feature-card">
           <div class="feature-copy"><p class="feature-number">01</p><h3>予約を、抜けなくひとつに。</h3><p>お客様、日時、メニュー、料金、メモを同じ予約にまとめて、カレンダーからすぐ確認できます。</p></div>
-          <img src="/images/kirakiran/appointment.webp" width="1320" height="2868" alt="KiraKiranの予約登録画面" loading="lazy" />
+          <img src="/images/kirakiran/appointment.webp" width="1206" height="2622" alt="KiraKiranの予約詳細画面" loading="lazy" />
         </article>
         <article class="feature-card">
           <div class="feature-copy"><p class="feature-number">02</p><h3>お客様のことを、忘れない。</h3><p>名前やふりがなで検索。連絡先、メモ、アレルギーなどの大切な情報をカルテにまとめます。</p></div>
-          <img src="/images/kirakiran/clients.webp" width="1320" height="2868" alt="KiraKiranの顧客一覧" loading="lazy" />
+          <img src="/images/kirakiran/clients.webp" width="1206" height="2622" alt="KiraKiranの顧客一覧" loading="lazy" />
         </article>
         <article class="feature-card feature-card--photos">
-          <div class="feature-copy"><p class="feature-number">03</p><h3>空き時間を、ひと目で確認。</h3><p>一週間の受付時間をまとめて設定。予約を受けられる時間と休みの日を、同じ画面で確認できます。</p></div>
-          <img src="/images/kirakiran/availability.webp" width="1320" height="2868" alt="一週間の受付可能時間を設定するスケジュール管理画面" loading="lazy" />
+          <div class="feature-copy"><p class="feature-number">03</p><h3>空き時間から、そのまま予約。</h3><p>サロン専用の予約ページで、お客様が空いている時間を選んで予約できます。受付時間と休みの日は自動で反映されます。</p></div>
+          <img src="/images/kirakiran/availability.webp" width="1206" height="2622" alt="お客様が空き時間を選ぶ予約ページ" loading="lazy" />
         </article>
       </div>
     </section>
@@ -132,9 +137,82 @@ const appJsonLd = {
         <p class="section-lede">実際のKiraKiran画面です。日本語を中心に、必要な情報を必要な順番で表示します。</p>
       </div>
       <div class="screen-gallery">
-        <figure><img src="/images/kirakiran/clients.webp" width="1320" height="2868" alt="顧客一覧画面" loading="lazy" /><figcaption>顧客一覧</figcaption></figure>
-        <figure><img src="/images/kirakiran/appointment.webp" width="1320" height="2868" alt="予約登録画面" loading="lazy" /><figcaption>予約登録</figcaption></figure>
-        <figure><img src="/images/kirakiran/availability.webp" width="1320" height="2868" alt="一週間の受付可能時間を設定するスケジュール管理画面" loading="lazy" /><figcaption>スケジュール管理</figcaption></figure>
+        <figure><img src="/images/kirakiran/clients.webp" width="1206" height="2622" alt="顧客一覧画面" loading="lazy" /><figcaption>顧客一覧</figcaption></figure>
+        <figure><img src="/images/kirakiran/appointment.webp" width="1206" height="2622" alt="予約詳細画面" loading="lazy" /><figcaption>予約詳細</figcaption></figure>
+        <figure><img src="/images/kirakiran/availability.webp" width="1206" height="2622" alt="お客様が空き時間を選ぶ予約ページ" loading="lazy" /><figcaption>オンライン予約</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="beta" class="beta" aria-labelledby="beta-title">
+      <div class="beta-inner">
+        <div class="beta-intro">
+          <p class="kicker">Beta</p>
+          <h2 id="beta-title">ベータ版に参加する</h2>
+          <p>現在、個人サロンの皆さまと先行テスト中です。iPhoneで使えるテスト版にご招待します。</p>
+        </div>
+        <div class="beta-panel">
+          <form id="beta-form" class="beta-form" novalidate data-beta-form>
+            <div class="field">
+              <label for="beta-salon">サロン名 <span class="req">必須</span></label>
+              <input id="beta-salon" name="salon_name" type="text" maxlength="100" autocomplete="organization" required aria-describedby="beta-salon-error" />
+              <p class="field-error" id="beta-salon-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-name">お名前 <span class="req">必須</span></label>
+              <input id="beta-name" name="contact_name" type="text" maxlength="100" autocomplete="name" required aria-describedby="beta-name-error" />
+              <p class="field-error" id="beta-name-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-email">メールアドレス <span class="req">必須</span></label>
+              <input id="beta-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" required aria-describedby="beta-email-error" />
+              <p class="field-error" id="beta-email-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-type">サロンの種類 <span class="req">必須</span></label>
+              <select id="beta-type" name="salon_type" required aria-describedby="beta-type-error">
+                <option value="">選択してください</option>
+                <option value="nail">ネイル</option>
+                <option value="eyelash">まつげ</option>
+                <option value="hair">ヘア</option>
+                <option value="esthetic">エステ</option>
+                <option value="other">その他</option>
+              </select>
+              <p class="field-error" id="beta-type-error" hidden></p>
+            </div>
+            <fieldset class="field" aria-describedby="beta-iphone-error">
+              <legend>iPhoneをお使いですか <span class="req">必須</span></legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="has_iphone" value="yes" required /> はい</label>
+                <label class="choice"><input type="radio" name="has_iphone" value="no" /> いいえ</label>
+              </div>
+              <p class="field-error" id="beta-iphone-error" hidden></p>
+            </fieldset>
+            <div class="field">
+              <label for="beta-heard">KiraKiranを知ったきっかけ <span class="opt">任意</span></label>
+              <input id="beta-heard" name="heard_from" type="text" maxlength="200" aria-describedby="beta-heard-error" />
+              <p class="field-error" id="beta-heard-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="beta-message">ひとことメッセージ <span class="opt">任意</span></label>
+              <textarea id="beta-message" name="message" rows="4" maxlength="1000" aria-describedby="beta-message-error"></textarea>
+              <p class="field-error" id="beta-message-error" hidden></p>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="beta-website">Website</label>
+              <input id="beta-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <p class="beta-privacy">入力いただいた情報は、ベータ版のご案内のみに使用します。<a href="/privacy/kirakiran/">プライバシーポリシー</a></p>
+            <div class="form-error" id="beta-form-error" tabindex="-1" hidden>
+              <p data-beta-error-text></p>
+              <p>送信できない場合は<a href={BETA_FALLBACK_MAILTO}>メールでご連絡ください</a>。</p>
+            </div>
+            <button class="button button--primary beta-submit" type="submit" data-beta-submit>送信する</button>
+          </form>
+          <div class="beta-success" tabindex="-1" hidden data-beta-success>
+            <p class="beta-success-title">お申し込みありがとうございます。数日以内にご連絡します。</p>
+          </div>
+          <p class="sr-only" role="status" aria-live="polite" data-beta-status></p>
+        </div>
       </div>
     </section>
 
@@ -142,7 +220,7 @@ const appJsonLd = {
       <img src="/images/kirakiran/app-icon.webp" width="120" height="120" alt="KiraKiranアプリアイコン" />
       <p class="kicker">KiraKiran for iPhone</p><h2 id="cta-title">サロンワークを、<br />もう少し軽やかに。</h2>
       <p>予約・カルテ・写真を、お客様ごとにひとつの場所へ。</p>
-      <a class="button button--primary" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">App Storeで見る</a>
+      <a class="button button--primary" href={BETA_URL}>ベータ版に参加する</a>
     </section>
   </main>
 
@@ -153,99 +231,350 @@ const appJsonLd = {
   </footer>
 </BaseLayout>
 
+<script is:inline define:vars={{ BETA_SIGNUP_ENDPOINT }}>
+  (function () {
+    var loadedAt = Date.now();
+    var form = document.querySelector("[data-beta-form]");
+    if (!form) return;
+    var submit = form.querySelector("[data-beta-submit]");
+    var success = document.querySelector("[data-beta-success]");
+    var status = document.querySelector("[data-beta-status]");
+    var formError = document.getElementById("beta-form-error");
+    var formErrorText = formError.querySelector("[data-beta-error-text]");
+
+    var fields = {
+      salon_name: { el: form.elements.salon_name, err: "beta-salon-error" },
+      contact_name: { el: form.elements.contact_name, err: "beta-name-error" },
+      email: { el: form.elements.email, err: "beta-email-error" },
+      salon_type: { el: form.elements.salon_type, err: "beta-type-error" },
+      has_iphone: { el: form.querySelector('input[name="has_iphone"]'), err: "beta-iphone-error" },
+      heard_from: { el: form.elements.heard_from, err: "beta-heard-error" },
+      message: { el: form.elements.message, err: "beta-message-error" }
+    };
+    var order = ["salon_name", "contact_name", "email", "salon_type", "has_iphone", "heard_from", "message"];
+
+    function setError(name, text) {
+      var f = fields[name];
+      var node = document.getElementById(f.err);
+      node.textContent = text || "";
+      node.hidden = !text;
+      if (name === "has_iphone") {
+        form.querySelectorAll('input[name="has_iphone"]').forEach(function (r) {
+          if (text) r.setAttribute("aria-invalid", "true"); else r.removeAttribute("aria-invalid");
+        });
+      } else if (text) {
+        f.el.setAttribute("aria-invalid", "true");
+      } else {
+        f.el.removeAttribute("aria-invalid");
+      }
+    }
+
+    function read() {
+      var iphone = form.querySelector('input[name="has_iphone"]:checked');
+      return {
+        salon_name: form.elements.salon_name.value.trim(),
+        contact_name: form.elements.contact_name.value.trim(),
+        email: form.elements.email.value.trim(),
+        salon_type: form.elements.salon_type.value,
+        has_iphone: iphone ? iphone.value === "yes" : null,
+        heard_from: form.elements.heard_from.value.trim(),
+        message: form.elements.message.value.trim()
+      };
+    }
+
+    function validate(v) {
+      var e = {};
+      if (!v.salon_name) e.salon_name = "サロン名を入力してください。";
+      else if (v.salon_name.length > 100) e.salon_name = "サロン名は100文字以内で入力してください。";
+      if (!v.contact_name) e.contact_name = "お名前を入力してください。";
+      else if (v.contact_name.length > 100) e.contact_name = "お名前は100文字以内で入力してください。";
+      if (!v.email) e.email = "メールアドレスを入力してください。";
+      else if (v.email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) e.email = "メールアドレスの形式をご確認ください。";
+      if (!v.salon_type) e.salon_type = "サロンの種類を選択してください。";
+      if (v.has_iphone === null) e.has_iphone = "「はい」か「いいえ」を選択してください。";
+      if (v.heard_from.length > 200) e.heard_from = "200文字以内で入力してください。";
+      if (v.message.length > 1000) e.message = "1000文字以内で入力してください。";
+      return e;
+    }
+
+    function showFormError(text) {
+      formErrorText.textContent = text;
+      formError.hidden = false;
+      formError.focus();
+    }
+
+    function setSending(sending) {
+      submit.disabled = sending;
+      submit.textContent = sending ? "送信中…" : "送信する";
+      form.setAttribute("aria-busy", sending ? "true" : "false");
+    }
+
+    form.addEventListener("input", function (ev) {
+      var name = ev.target && ev.target.name;
+      if (name && fields[name]) setError(name, "");
+    });
+
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (submit.disabled) return;
+      formError.hidden = true;
+      var values = read();
+      var errors = validate(values);
+      order.forEach(function (name) { setError(name, errors[name]); });
+      var firstBad = order.filter(function (name) { return errors[name]; })[0];
+      if (firstBad) {
+        status.textContent = "入力内容をご確認ください。";
+        fields[firstBad].el.focus();
+        return;
+      }
+      status.textContent = "送信中です。";
+      setSending(true);
+      var payload = {
+        salon_name: values.salon_name,
+        contact_name: values.contact_name,
+        email: values.email,
+        salon_type: values.salon_type,
+        has_iphone: values.has_iphone,
+        heard_from: values.heard_from || null,
+        message: values.message || null,
+        website: form.elements.website.value,
+        elapsed_ms: Date.now() - loadedAt,
+        locale: "ja"
+      };
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, 15000);
+      fetch(BETA_SIGNUP_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) { return { status: res.status, data: data }; });
+      }).then(function (r) {
+        clearTimeout(timer);
+        if (r.status === 200 && r.data && r.data.success === true) {
+          form.hidden = true;
+          success.hidden = false;
+          status.textContent = "お申し込みを受け付けました。";
+          success.focus();
+          return;
+        }
+        setSending(false);
+        var msg = r.status === 429
+          ? "送信回数が上限に達しました。しばらくしてからもう一度お試しください。"
+          : r.status === 400
+            ? "入力内容をご確認のうえ、もう一度お試しください。"
+            : "送信できませんでした。時間をおいてもう一度お試しください。";
+        status.textContent = msg;
+        showFormError(msg);
+      }).catch(function () {
+        clearTimeout(timer);
+        setSending(false);
+        var msg = "送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。";
+        status.textContent = msg;
+        showFormError(msg);
+      });
+    });
+  })();
+</script>
+
+
 <style>
+  /* Tokens come from KiraKiran src/features/theme/palette.json (light + dark); radii, spacing,
+     type scale and motion from src/design-system/tokens.ts. Scoped to this page's body. */
   :global(html) { scroll-padding-top: 5rem; }
   :global(body) {
-    --kk-ink: #241b20; --kk-muted: #6e6269; --kk-pink: #db6f8e; --kk-pink-strong: #a8335a;
-    --kk-pink-soft: #f8e5eb; --kk-cream: #fffaf6; --kk-paper: #fffefd; --kk-line: #eadde2;
-    background: var(--kk-cream); color: var(--kk-ink);
+    --kk-font-display: "Manrope", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    --kk-font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    --kk-bg: #ffffff; --kk-surface: #fbf8f4; --kk-surface-muted: #f3efeb; --kk-surface-accent: #e9e3dd;
+    --kk-text: #47392f; --kk-text-muted: #796657; --kk-border: #d7c9bb; --kk-control: #8b7767;
+    --kk-primary: #745746; --kk-accent-text: #745746; --kk-on-primary: #fff9f1;
+    --kk-band: #745746; --kk-on-band: #fff9f1; --kk-star: #e0bca1; --kk-mark: #a37c69;
+    --kk-coffee: #47392f; --kk-on-coffee: #fff9f1; --kk-coffee-muted: #e0d3c7;
+    --kk-danger: #a33630; --kk-device: #47392f; --kk-shadow: rgb(37 33 29 / 22%);
+    --kk-radius-lacquer: 5px; --kk-radius-device: 28px;
+    --kk-ease: cubic-bezier(.2, 0, 0, 1); --kk-t-press: 120ms; --kk-t-std: 180ms; --kk-t-layout: 300ms;
+    color-scheme: light dark;
+    font-family: var(--kk-font-body); font-size: 17px; line-height: 1.8;
+    background: var(--kk-bg); color: var(--kk-text);
   }
-  .site-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.75rem; padding: .65rem clamp(1rem,4vw,4.5rem); background: color-mix(in srgb,var(--kk-cream) 92%,transparent); border-bottom: 1px solid color-mix(in srgb,var(--kk-line) 80%,transparent); backdrop-filter: blur(16px); }
-  .brand { display: inline-flex; align-items: center; gap: .7rem; color: var(--kk-ink); font-size: 1.05rem; font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
-  .brand img { border-radius: .65rem; box-shadow: 0 7px 18px rgb(105 55 72 / 12%); }
-  nav { display: flex; align-items: center; gap: clamp(.75rem,2.2vw,2rem); }
-  nav a { color: var(--kk-muted); font-size: .84rem; font-weight: 700; text-decoration: none; }
-  nav a:hover, nav a:focus-visible { color: var(--kk-pink-strong); }
-  .nav-cta { padding: .62rem 1rem; color: white; background: var(--kk-ink); border-radius: 999px; }
-  nav .nav-cta:hover, nav .nav-cta:focus-visible { color: white; background: var(--kk-pink-strong); }
-  .hero { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(20rem,.95fr); align-items: center; gap: clamp(3rem,8vw,8rem); min-height: calc(100svh - 4.75rem); max-width: 88rem; margin: 0 auto; padding: clamp(4rem,9vw,8rem) clamp(1.25rem,6vw,6rem); overflow: hidden; }
-  .kicker { margin: 0 0 1rem; color: var(--kk-pink-strong); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  @media (prefers-color-scheme: dark) {
+    :global(html:not([data-theme="light"]) body) {
+      --kk-bg: #25211d; --kk-surface: #302a25; --kk-surface-muted: #39312a; --kk-surface-accent: #433a33;
+      --kk-text: #f5eadf; --kk-text-muted: #c8b6a6; --kk-border: #5b4b3e; --kk-control: #a08c7b;
+      --kk-primary: #745746; --kk-accent-text: #e0bca1; --kk-on-primary: #fff9f1;
+      --kk-band: #302a25; --kk-on-band: #f5eadf; --kk-mark: #e0bca1;
+      --kk-coffee: #664f40; --kk-on-coffee: #fff9f1; --kk-coffee-muted: #e6d8cb;
+      --kk-danger: #f0a59c; --kk-device: #0f0d0b; --kk-shadow: rgb(0 0 0 / 32%);
+    }
+  }
+  :global(html[data-theme="dark"] body) {
+    --kk-bg: #25211d; --kk-surface: #302a25; --kk-surface-muted: #39312a; --kk-surface-accent: #433a33;
+    --kk-text: #f5eadf; --kk-text-muted: #c8b6a6; --kk-border: #5b4b3e; --kk-control: #a08c7b;
+    --kk-primary: #745746; --kk-accent-text: #e0bca1; --kk-on-primary: #fff9f1;
+    --kk-band: #302a25; --kk-on-band: #f5eadf; --kk-mark: #e0bca1;
+    --kk-coffee: #664f40; --kk-on-coffee: #fff9f1; --kk-coffee-muted: #e6d8cb;
+    --kk-danger: #f0a59c; --kk-device: #0f0d0b; --kk-shadow: rgb(0 0 0 / 32%);
+    color-scheme: dark;
+  }
+  :global(html[data-theme="light"] body) { color-scheme: light; }
+
+  a { color: inherit; }
+  :global(body) :is(a, button, input, select, textarea):focus-visible { outline: 2px solid var(--kk-accent-text); outline-offset: 3px; }
   h1, h2, h3, p { text-wrap: pretty; }
-  h1 { max-width: 13ch; margin: 0; font-size: clamp(2.75rem,5.6vw,6rem); font-weight: 850; line-height: 1.03; letter-spacing: -.065em; }
-  h1 span { color: var(--kk-pink-strong); }
-  .hero-lede { max-width: 38rem; margin: 2rem 0 0; color: var(--kk-muted); font-size: clamp(1rem,1.4vw,1.2rem); line-height: 1.85; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
-  .button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 3.25rem; padding: .75rem 1.3rem; border: 1px solid transparent; border-radius: .9rem; font-weight: 800; text-decoration: none; transition: transform 160ms ease,background 160ms ease,border-color 160ms ease; }
-  .button:hover, .button:focus-visible { transform: translateY(-2px); }
-  .button--primary { color: white; background: var(--kk-ink); box-shadow: 0 12px 30px rgb(55 32 43 / 18%); }
-  .button--primary:hover, .button--primary:focus-visible { color: white; background: var(--kk-pink-strong); }
-  .button--quiet { color: var(--kk-ink); background: var(--kk-paper); border-color: var(--kk-line); }
-  .button--quiet:hover, .button--quiet:focus-visible { color: var(--kk-pink-strong); border-color: var(--kk-pink); }
-  .hero-proof { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; padding: 0; margin: 1.5rem 0 0; color: var(--kk-muted); font-size: .78rem; font-weight: 700; list-style: none; }
-  .hero-proof li::before { content: "✓"; margin-right: .4rem; color: var(--kk-pink-strong); }
+  h1, h2, h3 { font-family: var(--kk-font-body); font-weight: 500; letter-spacing: 0; word-break: auto-phrase; text-wrap: balance; }
+
+  .site-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; padding: .5rem clamp(1rem,4vw,4.5rem); background: color-mix(in srgb,var(--kk-bg) 94%,transparent); border-bottom: 1px solid var(--kk-border); backdrop-filter: blur(12px); }
+  .brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--kk-text); font-family: var(--kk-font-display); font-size: 1.25rem; font-weight: 600; text-decoration: none; }
+  .brand img { border-radius: 10px; }
+  nav { display: flex; align-items: center; gap: clamp(.75rem,2.2vw,2rem); }
+  nav a { color: var(--kk-text-muted); font-size: .9rem; font-weight: 500; text-decoration: none; }
+  nav a:hover { color: var(--kk-text); }
+  /* DotAction: filled dot + label with one hairline underline */
+  nav .nav-cta { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: 0; color: var(--kk-text); background: linear-gradient(var(--kk-accent-text),var(--kk-accent-text)) left calc(50% + 12px) / 100% 1px no-repeat; }
+  .nav-cta::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--kk-accent-text); }
+  nav .nav-cta:hover { color: var(--kk-text); opacity: .6; }
+
+  .hero { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(20rem,.95fr); align-items: center; gap: clamp(3rem,8vw,8rem); min-height: calc(100svh - 4.5rem); max-width: 88rem; margin: 0 auto; padding: clamp(3rem,8vw,7rem) clamp(1.25rem,6vw,6rem); overflow: hidden; }
+  .kicker { margin: 0 0 1rem; color: var(--kk-accent-text); font-family: var(--kk-font-display); font-size: .8125rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; line-height: 1.5; }
+  h1 { max-width: 15em; margin: 0; font-size: clamp(1.9rem,5.2vw,3.625rem); font-weight: 400; line-height: 1.3; }
+  h1 span { color: var(--kk-accent-text); }
+  .hero-lede { max-width: 38rem; margin: 1.75rem 0 0; color: var(--kk-text-muted); font-size: clamp(1rem,1.4vw,1.0625rem); line-height: 1.9; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; margin-top: 2rem; }
+
+  .button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 52px; padding: .75rem 1.5rem; border: 1px solid transparent; border-radius: var(--kk-radius-lacquer); font: inherit; font-size: 1.0625rem; font-weight: 500; line-height: 1.4; text-decoration: none; cursor: pointer; transition: background-color var(--kk-t-std) var(--kk-ease), opacity var(--kk-t-press) var(--kk-ease), border-color var(--kk-t-std) var(--kk-ease); }
+  .button--primary { color: var(--kk-on-primary); background-color: var(--kk-primary); border-color: var(--kk-primary);
+    background-image: linear-gradient(180deg, rgb(255 255 255 / 22%), rgb(255 255 255 / 6%) 45%, rgb(0 0 0 / 4%) 46%, rgb(0 0 0 / 8%));
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 30%), inset 0 -2px 0 var(--kk-shadow); }
+  .button--primary:hover { background-color: color-mix(in srgb,var(--kk-primary) 88%,black); }
+  .button--primary:active { opacity: .85; }
+  .button--quiet { color: var(--kk-accent-text); background: var(--kk-surface); border-color: var(--kk-accent-text); }
+  .button--quiet:hover, .button--quiet:active { background: var(--kk-surface-accent); }
+  .hero-proof { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; padding: 0; margin: 1.5rem 0 0; color: var(--kk-text-muted); font-size: .8125rem; list-style: none; line-height: 1.6; }
+  .hero-proof li::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 .5rem .1rem 0; border-radius: 50%; background: var(--kk-accent-text); }
+
   .hero-stage { position: relative; min-height: 40rem; isolation: isolate; }
   .orbit { position: absolute; z-index: -1; border-radius: 50%; }
-  .orbit--one { inset: 7% -8% 12% 8%; background: var(--kk-pink-soft); }
-  .orbit--two { width: 9rem; height: 9rem; right: -1rem; top: 4rem; border: 1px solid var(--kk-pink); }
-  .phone { position: absolute; overflow: hidden; width: min(16rem,47%); margin: 0; background: white; border: 8px solid #241f22; border-radius: 2.2rem; box-shadow: 0 32px 70px rgb(80 43 57 / 25%); }
-  .phone img { width: 100%; height: auto; }
+  .orbit--one { inset: 7% -8% 12% 8%; background: var(--kk-surface-accent); }
+  .orbit--two { width: 9rem; height: 9rem; right: -1rem; top: 4rem; border: 1px solid var(--kk-mark); }
+  .phone { position: absolute; overflow: hidden; width: min(16rem,47%); margin: 0; background: var(--kk-surface); border: 8px solid var(--kk-device); border-radius: var(--kk-radius-device); box-shadow: 0 28px 60px var(--kk-shadow); }
+  .phone img { display: block; width: 100%; height: auto; }
   .phone--back { left: 3%; top: 12%; transform: rotate(-7deg); }
   .phone--front { right: 4%; top: 3%; transform: rotate(6deg); }
-  .hero-note { position: absolute; z-index: 3; padding: .7rem .9rem; color: var(--kk-ink); background: white; border: 1px solid var(--kk-line); border-radius: .8rem; box-shadow: 0 12px 30px rgb(87 48 64 / 14%); font-size: .78rem; font-weight: 800; }
+  .hero-note { position: absolute; z-index: 3; padding: .6rem .9rem; color: var(--kk-text); background: var(--kk-surface); border: 1px solid var(--kk-border); border-radius: var(--kk-radius-lacquer); font-size: .8125rem; font-weight: 500; line-height: 1.5; }
   .hero-note--top { top: 3%; left: 1%; } .hero-note--bottom { right: 0; bottom: 7%; }
-  .signal { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .75rem 1.4rem; padding: 1.4rem 1rem; color: white; background: var(--kk-ink); }
-  .signal p { margin: 0; font-size: clamp(.9rem,1.5vw,1.1rem); font-weight: 800; } .signal span { color: var(--kk-pink); }
-  .problem, .workflow { display: grid; grid-template-columns: minmax(0,1fr) minmax(18rem,.8fr); gap: clamp(3rem,9vw,9rem); max-width: 76rem; margin: 0 auto; padding: clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,4rem); }
-  .section-intro h2 { margin: 0; color: var(--kk-ink); font-size: clamp(2.2rem,4.7vw,4.6rem); font-weight: 850; line-height: 1.08; letter-spacing: -.055em; }
-  .section-intro--center { max-width: 54rem; margin: 0 auto 4rem; text-align: center; }
-  .problem-copy { align-self: end; border-top: 1px solid var(--kk-line); }
-  .problem-copy p { margin: 0; padding: 1.3rem 0; color: var(--kk-muted); font-size: 1.05rem; line-height: 1.9; border-bottom: 1px solid var(--kk-line); }
-  .features { padding: clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,4rem); background: var(--kk-paper); }
+
+  .signal { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .5rem 1.5rem; padding: 1.25rem 1rem; color: var(--kk-on-band); background: var(--kk-band); }
+  .signal p { margin: 0; font-size: clamp(.95rem,1.5vw,1.0625rem); font-weight: 500; } .signal span { color: var(--kk-star); }
+
+  .problem, .workflow { display: grid; grid-template-columns: minmax(0,1fr) minmax(18rem,.8fr); gap: clamp(2.5rem,8vw,8rem); max-width: 76rem; margin: 0 auto; padding: clamp(4rem,9vw,8rem) clamp(1.25rem,5vw,4rem); }
+  .section-intro h2 { margin: 0; color: var(--kk-text); font-size: clamp(1.625rem,3.6vw,2.125rem); font-weight: 400; line-height: 1.45; }
+  .section-intro--center { max-width: 54rem; margin: 0 auto 3.5rem; text-align: center; }
+  .problem-copy { align-self: end; border-top: 1px solid var(--kk-border); }
+  .problem-copy p { margin: 0; padding: 1.25rem 0; color: var(--kk-text-muted); font-size: 1.0625rem; line-height: 1.9; border-bottom: 1px solid var(--kk-border); }
+
+  .features { padding: clamp(4rem,9vw,8rem) clamp(1.25rem,5vw,4rem); background: var(--kk-surface-muted); }
   .feature-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; max-width: 76rem; margin: 0 auto; }
-  .feature-card { position: relative; min-height: 37rem; overflow: hidden; background: var(--kk-cream); border: 1px solid var(--kk-line); border-radius: 1.5rem; }
-  .feature-card--photos { grid-column: 1 / -1; min-height: 40rem; background: var(--kk-ink); }
-  .feature-copy { position: relative; z-index: 2; max-width: 28rem; padding: clamp(1.5rem,4vw,3rem); }
-  .feature-number { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; margin: 0 0 1.5rem; color: white; background: var(--kk-pink-strong); border-radius: 50%; font-size: .72rem; font-weight: 800; }
-  .feature-copy h3 { margin: 0; font-size: clamp(1.55rem,2.4vw,2.4rem); letter-spacing: -.04em; }
-  .feature-copy > p:last-child { color: var(--kk-muted); line-height: 1.8; }
-  .feature-card > img { position: absolute; width: min(17rem,57%); height: auto; right: 8%; bottom: -14rem; border: 7px solid #242023; border-radius: 2rem; box-shadow: 0 24px 55px rgb(73 37 51 / 20%); }
-  .feature-card--photos .feature-copy { color: white; } .feature-card--photos .feature-copy > p:last-child { color: #d7c9cf; }
-  .feature-card--photos > img { width: min(23rem,40%); right: 8%; bottom: -24rem; border-color: #0b090a; }
-  .steps { padding: 0; margin: 0; list-style: none; border-top: 1px solid var(--kk-line); }
-  .steps li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid var(--kk-line); }
-  .steps span { color: var(--kk-pink-strong); font-size: .75rem; font-weight: 900; }
-  .steps h3, .steps p { margin: 0; } .steps h3 { font-size: 1.1rem; } .steps p { margin-top: .35rem; color: var(--kk-muted); }
-  .screens { padding: clamp(5rem,10vw,9rem) 0; background: var(--kk-pink-soft); overflow: hidden; }
-  .section-lede { max-width: 38rem; margin: 1.5rem auto 0; color: var(--kk-muted); line-height: 1.8; }
+  .feature-card { position: relative; min-height: 37rem; overflow: hidden; background: var(--kk-surface); border: 1px solid var(--kk-border); border-radius: var(--kk-radius-lacquer); }
+  .feature-card--photos { grid-column: 1 / -1; min-height: 40rem; background: var(--kk-coffee); border-color: var(--kk-coffee); }
+  .feature-copy { position: relative; z-index: 2; max-width: 28rem; padding: clamp(1.5rem,4vw,2.5rem); }
+  .feature-number { display: block; margin: 0 0 1.25rem; padding-bottom: .5rem; width: 2.5rem; color: var(--kk-accent-text); border-bottom: 1px solid var(--kk-accent-text); font-family: var(--kk-font-display); font-size: .8125rem; font-weight: 600; line-height: 1.4; }
+  .feature-copy h3 { margin: 0; font-size: clamp(1.25rem,2.2vw,1.5rem); line-height: 1.5; }
+  .feature-copy > p:last-child { color: var(--kk-text-muted); line-height: 1.85; }
+  .feature-card > img { position: absolute; width: min(17rem,57%); height: auto; right: 8%; bottom: -14rem; border: 7px solid var(--kk-device); border-radius: var(--kk-radius-device); box-shadow: 0 24px 50px var(--kk-shadow); }
+  .feature-card--photos .feature-copy, .feature-card--photos .feature-copy h3 { color: var(--kk-on-coffee); }
+  .feature-card--photos .feature-copy > p:last-child { color: var(--kk-coffee-muted); }
+  .feature-card--photos .feature-number { color: var(--kk-on-coffee); border-color: var(--kk-star); }
+  .feature-card--photos > img { width: min(23rem,40%); right: 8%; bottom: -24rem; border-color: #25211d; }
+
+  .steps { padding: 0; margin: 0; list-style: none; border-top: 1px solid var(--kk-border); }
+  .steps li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--kk-border); }
+  .steps span { color: var(--kk-accent-text); font-family: var(--kk-font-display); font-size: .8125rem; font-weight: 600; padding-top: .35rem; }
+  .steps h3, .steps p { margin: 0; } .steps h3 { font-size: 1.25rem; line-height: 1.5; } .steps p { margin-top: .25rem; color: var(--kk-text-muted); }
+
+  .screens { padding: clamp(4rem,9vw,8rem) 0; background: var(--kk-surface-accent); overflow: hidden; }
+  .section-lede { max-width: 38rem; margin: 1.5rem auto 0; color: var(--kk-text); line-height: 1.85; }
   .screen-gallery { display: grid; grid-template-columns: repeat(3,minmax(14rem,19rem)); justify-content: center; gap: clamp(1rem,3vw,2.5rem); width: max-content; max-width: none; margin: 0 auto; padding: 1rem 2rem; }
-  .screen-gallery figure { margin: 0; } .screen-gallery img { height: auto; overflow: hidden; border: 7px solid var(--kk-ink); border-radius: 2rem; box-shadow: 0 24px 50px rgb(78 40 55 / 18%); }
+  .screen-gallery figure { margin: 0; } .screen-gallery img { height: auto; overflow: hidden; border: 7px solid var(--kk-device); border-radius: var(--kk-radius-device); box-shadow: 0 24px 50px var(--kk-shadow); }
   .screen-gallery figure:nth-child(2) { transform: translateY(2.5rem); }
-  .screen-gallery figcaption { margin-top: 1rem; color: var(--kk-muted); font-size: .8rem; font-weight: 800; text-align: center; }
-  .final-cta { display: flex; flex-direction: column; align-items: center; padding: clamp(6rem,12vw,10rem) 1.25rem; text-align: center; }
-  .final-cta img { margin-bottom: 2rem; border-radius: 1.7rem; box-shadow: 0 18px 40px rgb(96 48 66 / 18%); }
-  .final-cta h2 { margin: 0; font-size: clamp(2.5rem,6vw,5.6rem); font-weight: 850; line-height: 1.05; letter-spacing: -.06em; }
-  .final-cta > p:not(.kicker) { margin: 1.5rem 0 2rem; color: var(--kk-muted); }
-  footer { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 2rem; padding: 2.5rem clamp(1.25rem,5vw,4rem); color: #d8cbd0; background: var(--kk-ink); font-size: .78rem; }
-  footer a { color: white; text-decoration: none; } footer div { display: flex; gap: 1.2rem; } footer p { margin: 0; } .footer-brand { font-size: 1rem; font-weight: 850; }
+  .screen-gallery figcaption { margin-top: 1rem; color: var(--kk-text); font-size: .8125rem; text-align: center; line-height: 1.5; }
+  .screens .section-intro--center { padding-inline: 1.25rem; }
+
+  .final-cta { display: flex; flex-direction: column; align-items: center; padding: clamp(5rem,11vw,9rem) 1.25rem; text-align: center; }
+  .final-cta img { margin-bottom: 2rem; border-radius: 26px; }
+  .final-cta h2 { margin: 0; font-size: clamp(1.75rem,4.6vw,2.125rem); font-weight: 400; line-height: 1.5; }
+  .final-cta > p:not(.kicker) { margin: 1.25rem 0 2rem; color: var(--kk-text-muted); }
+
+  .beta { padding: clamp(4rem,9vw,8rem) clamp(1.25rem,5vw,4rem); background: var(--kk-surface-muted); border-top: 1px solid var(--kk-border); }
+  .beta-inner { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(2rem,6vw,5rem); max-width: 72rem; margin: 0 auto; align-items: start; }
+  .beta-intro h2 { margin: 0; font-size: clamp(1.625rem,3.6vw,2.125rem); font-weight: 400; line-height: 1.45; }
+  .beta-intro > p:not(.kicker) { margin: 1.25rem 0 0; color: var(--kk-text-muted); line-height: 1.9; }
+  .beta-panel { padding: clamp(1.25rem,3vw,2rem); background: var(--kk-surface); border: 1px solid var(--kk-border); border-radius: var(--kk-radius-lacquer); }
+  .beta-form { display: grid; gap: 1.25rem; }
+  .field { min-width: 0; padding: 0; margin: 0; border: 0; }
+  .field label, .field legend { display: block; padding: 0; margin-bottom: .25rem; color: var(--kk-text-muted); font-size: .8125rem; font-weight: 500; line-height: 1.6; }
+  .req, .opt { margin-left: .4rem; font-size: .75rem; font-weight: 500; }
+  .req { color: var(--kk-accent-text); } .opt { color: var(--kk-text-muted); }
+  /* UnderlineField: transparent, hairline control-border underline */
+  .field input[type="text"], .field input[type="email"], .field select, .field textarea { width: 100%; min-height: 48px; padding: .6rem 0; color: var(--kk-text); background: transparent; border: 0; border-bottom: 1px solid var(--kk-control); border-radius: 0; font: inherit; font-size: 1.0625rem; line-height: 1.6; transition: border-color var(--kk-t-std) var(--kk-ease); }
+  .field textarea { resize: vertical; min-height: 6.5rem; background: var(--kk-surface-muted); padding: .6rem .75rem; border: 1px solid var(--kk-control); border-radius: var(--kk-radius-lacquer); }
+  .field select { padding-right: .25rem; }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--kk-accent-text); box-shadow: 0 1px 0 var(--kk-accent-text); }
+  .field textarea:focus-visible { box-shadow: 0 0 0 1px var(--kk-accent-text); }
+  .field [aria-invalid="true"] { border-color: var(--kk-danger); box-shadow: 0 1px 0 var(--kk-danger); }
+  .field textarea[aria-invalid="true"] { box-shadow: 0 0 0 1px var(--kk-danger); }
+  /* ChoiceGroup: dot + label, selected dot fills and a hairline underline draws */
+  .choices { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+  .field label.choice { position: relative; display: inline-flex; align-items: center; gap: .5rem; margin: 0; padding: 13px 0; min-width: 5.25rem; color: var(--kk-text); font-size: .9375rem; font-weight: 400; cursor: pointer; background: linear-gradient(var(--kk-accent-text),var(--kk-accent-text)) left bottom / 0 1px no-repeat; background-origin: content-box; background-clip: content-box; transition: background-size var(--kk-t-layout) var(--kk-ease) 60ms; }
+  .choice::before { content: ""; flex: none; box-sizing: border-box; width: 10px; height: 10px; border: 1px solid var(--kk-accent-text); border-radius: 50%; background: transparent; transition: background-color var(--kk-t-std) var(--kk-ease); }
+  .choice:has(input:checked) { background-size: 100% 1px; }
+  .choice:has(input:checked)::before { background: var(--kk-accent-text); }
+  .choice:has(input:focus-visible) { outline: 2px solid var(--kk-accent-text); outline-offset: 2px; }
+  .choice:has(input[aria-invalid="true"])::before { border-color: var(--kk-danger); }
+  .choice input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+  .field-error { margin: .4rem 0 0; color: var(--kk-danger); font-size: .8125rem; font-weight: 500; line-height: 1.6; }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .beta-privacy { margin: 0; color: var(--kk-text-muted); font-size: .8125rem; line-height: 1.7; }
+  .beta-privacy a, .form-error a { color: var(--kk-accent-text); font-weight: 500; }
+  .form-error { padding: .9rem 1rem; color: var(--kk-text); background: var(--kk-surface-muted); border: 1px solid var(--kk-danger); border-left-width: 4px; border-radius: var(--kk-radius-lacquer); font-size: .9375rem; line-height: 1.7; }
+  .form-error:focus { outline: none; }
+  .form-error p { margin: 0; }
+  .form-error [data-beta-error-text] { color: var(--kk-danger); font-weight: 500; }
+  .beta-submit { width: 100%; }
+  .beta-submit:disabled { opacity: .45; cursor: progress; }
+  .beta-success { padding: 1.5rem .5rem; text-align: center; border-top: 1px solid var(--kk-accent-text); border-bottom: 1px solid var(--kk-accent-text); }
+  .beta-success:focus { outline: none; }
+  .beta-success-title { margin: 0; font-size: clamp(1.0625rem,2.5vw,1.25rem); font-weight: 500; line-height: 1.8; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  footer { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 2rem; padding: 2.5rem clamp(1.25rem,5vw,4rem); color: var(--kk-on-band); background: var(--kk-band); font-size: .8125rem; line-height: 1.6; }
+  footer a { color: var(--kk-on-band); text-decoration: none; padding-block: .75rem; background: linear-gradient(currentColor,currentColor) left calc(100% - .6rem) / 100% 1px no-repeat; }
+  footer a:hover { opacity: .7; } footer div { display: flex; gap: 1.5rem; } footer p { margin: 0; }
+  footer .footer-brand { font-family: var(--kk-font-display); font-size: 1.25rem; font-weight: 600; background: none; }
+
   @media (max-width: 860px) {
+    .beta-inner { grid-template-columns: 1fr; }
     nav > a:not(.nav-cta) { display: none; }
-    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 4rem; } .hero-copy { max-width: 44rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 3rem; } .hero-copy { max-width: 44rem; }
     .hero-stage { width: min(100%,34rem); min-height: 36rem; margin: 0 auto; }
-    .problem, .workflow { grid-template-columns: 1fr; gap: 3rem; }
+    .problem, .workflow { grid-template-columns: 1fr; gap: 2.5rem; }
     .feature-grid { grid-template-columns: 1fr; } .feature-card--photos { grid-column: auto; }
     .feature-card--photos > img { width: min(18rem,56%); right: 8%; bottom: -19rem; }
   }
   @media (max-width: 640px) {
-    .site-header { min-height: 4.25rem; } .brand img { width: 36px; height: 36px; } .nav-cta { padding: .55rem .8rem; }
-    h1 { max-width: 100%; font-size: clamp(2.5rem,11.5vw,3.6rem); letter-spacing: -.05em; } .hero { padding-inline: 1rem; } .hero-copy { min-width: 0; } .hero-stage { min-height: 29rem; }
-    .phone { width: 48%; border-width: 5px; border-radius: 1.5rem; } .hero-note { font-size: .68rem; }
-    .signal { gap: .55rem .75rem; } .signal span { display: none; } .signal p::after { content: " ·"; color: var(--kk-pink); } .signal p:last-child::after { content: ""; }
-    .feature-card { min-height: 34rem; border-radius: 1.1rem; }
-    .feature-card > img, .feature-card--photos > img { width: 58%; right: 7%; bottom: -12rem; border-width: 5px; border-radius: 1.5rem; }
+    :global(body) { font-size: 16px; }
+    .site-header { min-height: 4rem; } .brand img { width: 36px; height: 36px; }
+    h1 { max-width: 100%; } .hero { padding-inline: 1rem; } .hero-copy { min-width: 0; } .hero-stage { min-height: 29rem; }
+    .phone { width: 48%; border-width: 5px; border-radius: 20px; } .hero-note { font-size: .75rem; }
+    .signal { gap: .4rem .75rem; } .signal span { display: none; } .signal p::after { content: " ·"; color: var(--kk-star); } .signal p:last-child::after { content: ""; }
+    .feature-card { min-height: 34rem; }
+    .feature-card > img, .feature-card--photos > img { width: 58%; right: 7%; bottom: -12rem; border-width: 5px; border-radius: 20px; }
     .feature-card--photos > img { bottom: -18rem; }
     .screen-gallery { grid-template-columns: repeat(3,14rem); justify-content: start; width: 100%; padding-inline: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .screen-gallery figure { scroll-snap-align: center; } .screen-gallery figure:nth-child(2) { transform: none; }
-    footer { grid-template-columns: 1fr; gap: 1rem; }
+    footer { grid-template-columns: 1fr; gap: .5rem; }
   }
-  @media (prefers-reduced-motion: reduce) { .button:hover, .button:focus-visible { transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .button, .field input, .field select, .field textarea, .field label.choice, .choice::before { transition: none; }
+  }
 </style>
