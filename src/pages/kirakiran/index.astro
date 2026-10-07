@@ -73,7 +73,7 @@ const appJsonLd = {
         </ul>
       </div>
 
-      <div class="hero-stage" aria-label="KiraKiranのアプリ画面" data-tilt data-loop>
+      <div class="hero-stage" aria-label="KiraKiranのアプリ画面" data-loop>
         <div class="orbit orbit--one" aria-hidden="true"></div>
         <div class="orbit orbit--two" aria-hidden="true"></div>
         <div class="sparks" aria-hidden="true">
@@ -274,29 +274,32 @@ const appJsonLd = {
     });
     document.querySelectorAll("[data-loop]").forEach(function (el) { loops.observe(el); });
 
-    // The hero phones lean toward the pointer and the lacquer glint follows it.
-    var stage = document.querySelector("[data-tilt]");
-    if (stage && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-      var frame = 0;
-      stage.addEventListener("pointermove", function (ev) {
-        if (frame) return;
-        frame = requestAnimationFrame(function () {
-          frame = 0;
-          var r = stage.getBoundingClientRect();
-          var x = (ev.clientX - r.left) / r.width - 0.5;
-          var y = (ev.clientY - r.top) / r.height - 0.5;
-          stage.style.setProperty("--tx", (x * 10).toFixed(2) + "deg");
-          stage.style.setProperty("--ty", (y * -8).toFixed(2) + "deg");
-          stage.style.setProperty("--gx", Math.round((x + 0.5) * 100) + "%");
-          stage.classList.add("is-tilting");
-        });
-      });
-      stage.addEventListener("pointerleave", function () {
-        stage.classList.remove("is-tilting");
-        stage.style.setProperty("--tx", "0deg");
-        stage.style.setProperty("--ty", "0deg");
-      });
+    // Ribbon: driven by a speed that eases toward zero while hovered or off screen and
+    // back to cruising speed otherwise, so it glides to a stop instead of freezing.
+    var track = document.querySelector(".signal-track");
+    if (track) {
+      var band = track.closest(".signal");
+      var set = track.querySelector(".signal-set");
+      var CYCLE_SECONDS = 42;
+      var x = 0, speed = 0, last = 0, hovering = false;
+      track.classList.add("is-driven");
+      band.addEventListener("pointerenter", function () { hovering = true; });
+      band.addEventListener("pointerleave", function () { hovering = false; });
+      var step = function (t) {
+        var dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
+        last = t;
+        var width = set.getBoundingClientRect().width;
+        var cruise = width / CYCLE_SECONDS;
+        var target = hovering || band.classList.contains("is-paused") ? 0 : cruise;
+        speed += (target - speed) * Math.min(1, dt * 4);
+        x -= speed * dt;
+        if (x <= -width) x += width;
+        track.style.transform = "translate3d(" + x.toFixed(2) + "px,0,0)";
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
     }
+
   })();
 </script>
 
@@ -722,18 +725,10 @@ const appJsonLd = {
   :global(.kk-motion) .signal-set li:is(:hover, :active)::after { rotate: 45deg; scale: 1.25; }
   :global(.kk-motion) .is-paused :is(.spark use, .orbit--two, .signal-track) { animation-play-state: paused; }
 
-  /* Pointer tilt: phones lean toward the cursor and the glint follows it. */
-  .hero-stage { perspective: 1400px; }
-  :global(.kk-motion) .phone { transition: transform 700ms var(--kk-out); }
-  :global(.kk-motion) .phone--back { transform: rotate(-7deg) rotateY(var(--tx, 0deg)) rotateX(var(--ty, 0deg)); }
-  :global(.kk-motion) .phone--front { transform: rotate(6deg) rotateY(var(--tx, 0deg)) rotateX(var(--ty, 0deg)); }
-  :global(.kk-motion) .is-tilting .phone { transition-duration: 180ms; }
-  :global(.kk-motion) .is-tilting .phone::after { opacity: .75; background-position: calc(100% - var(--gx, 50%)) 0; transition: background-position 180ms linear, opacity 300ms var(--kk-out); }
-
   /* Ribbon: the second set appears only when it can move. */
   :global(.kk-motion) .signal-track { justify-content: flex-start; margin: 0; animation: kk-marquee 42s linear infinite; }
   :global(.kk-motion) .signal-set + .signal-set { display: flex; }
-  :global(.kk-motion) .signal:hover .signal-track { animation-play-state: paused; }
+  :global(.kk-motion) .signal-track.is-driven { animation: none; will-change: transform; }
 
   /* Section introductions and panels settle in quietly; the evidence below them moves. */
   :global(.kk-motion) :is(.section-intro, .problem-copy, .beta-panel)[data-reveal] { transition: opacity 800ms var(--kk-out), translate 800ms var(--kk-out); }
