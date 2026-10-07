@@ -552,19 +552,19 @@ const appJsonLd = {
 
   .features { padding: clamp(4rem,9vw,8rem) clamp(1.25rem,5vw,4rem); background: var(--kk-surface-muted); }
   .feature-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; max-width: 76rem; margin: 0 auto; }
-  .feature-card { position: relative; min-height: 37rem; overflow: hidden; background: var(--kk-surface); border: 1px solid var(--kk-border); border-radius: var(--kk-radius-lacquer); }
-  .feature-card--photos { grid-column: 1 / -1; min-height: 40rem; background: var(--kk-coffee); border-color: var(--kk-coffee); }
+  .feature-card { position: relative; display: flex; flex-direction: column; min-height: 37rem; overflow: hidden; background: var(--kk-surface); border: 1px solid var(--kk-border); border-radius: var(--kk-radius-lacquer); }
+  .feature-card--photos { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0,28rem) minmax(0,1fr); gap: 2rem; min-height: 40rem; background: var(--kk-coffee); border-color: var(--kk-coffee); }
   .feature-copy { position: relative; z-index: 2; max-width: 28rem; padding: clamp(1.5rem,4vw,2.5rem); }
   .feature-number { display: block; margin: 0 0 1.25rem; padding-bottom: .5rem; width: 2.5rem; color: var(--kk-accent-text); border-bottom: 1px solid var(--kk-accent-text); font-family: var(--kk-font-display); font-size: .8125rem; font-weight: 600; line-height: 1.4; }
   .feature-copy h3 { margin: 0; font-size: clamp(1.25rem,2.2vw,1.5rem); line-height: 1.5; }
   .feature-copy > p:last-child { color: var(--kk-text-muted); line-height: 1.85; }
-  .feature-card > .device { position: absolute; width: min(17rem,57%); right: 8%; bottom: -14rem; border: 7px solid var(--kk-device); border-radius: var(--kk-radius-device); box-shadow: 0 24px 50px var(--kk-shadow); }
+  .feature-card > .device { position: relative; flex: none; align-self: flex-end; width: min(17rem,57%); margin: auto 8% -14rem 0; border: 7px solid var(--kk-device); border-radius: var(--kk-radius-device); box-shadow: 0 24px 50px var(--kk-shadow); }
   .device { display: block; overflow: hidden; isolation: isolate; }
   .device img { display: block; width: 100%; height: auto; }
   .feature-card--photos .feature-copy, .feature-card--photos .feature-copy h3 { color: var(--kk-on-coffee); }
   .feature-card--photos .feature-copy > p:last-child { color: var(--kk-coffee-muted); }
   .feature-card--photos .feature-number { color: var(--kk-on-coffee); border-color: var(--kk-star); }
-  .feature-card--photos > .device { width: min(23rem,40%); right: 8%; bottom: -24rem; border-color: #25211d; }
+  .feature-card--photos > .device { align-self: end; justify-self: end; width: min(23rem,70%); margin: 2.5rem 8% -24rem 0; border-color: #25211d; }
 
   .steps { padding: 0; margin: 0; list-style: none; border-top: 1px solid var(--kk-border); }
   .steps li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--kk-border); }
@@ -639,7 +639,7 @@ const appJsonLd = {
     .hero-stage { width: min(100%,34rem); min-height: 36rem; margin: 0 auto; }
     .problem, .workflow { grid-template-columns: 1fr; gap: 2.5rem; }
     .feature-grid { grid-template-columns: 1fr; } .feature-card--photos { grid-column: auto; }
-    .feature-card--photos > .device { width: min(18rem,56%); right: 8%; bottom: -19rem; }
+    .feature-card--photos { display: flex; gap: 0; } .feature-card--photos > .device { align-self: flex-end; width: min(18rem,56%); margin: auto 8% -19rem 0; }
   }
   @media (max-width: 640px) {
     :global(body) { font-size: 16px; }
@@ -648,8 +648,8 @@ const appJsonLd = {
     .phone { width: 48%; border-width: 5px; border-radius: 20px; } .hero-note { font-size: .75rem; }
     .signal-set li { gap: 1rem; padding-right: 1rem; }
     .feature-card { min-height: 34rem; }
-    .feature-card > .device, .feature-card--photos > .device { width: 58%; right: 7%; bottom: -12rem; border-width: 5px; border-radius: 20px; }
-    .feature-card--photos > .device { bottom: -18rem; }
+    .feature-card > .device, .feature-card--photos > .device { width: 58%; margin: auto 7% -12rem 0; border-width: 5px; border-radius: 20px; }
+    .feature-card--photos > .device { margin-bottom: -18rem; }
     .screen-gallery { grid-template-columns: repeat(3,14rem); justify-content: start; width: 100%; padding-inline: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .screen-gallery figure { scroll-snap-align: center; } .screen-gallery figure:nth-child(2) { transform: none; }
     footer { grid-template-columns: 1fr; gap: .5rem; }
