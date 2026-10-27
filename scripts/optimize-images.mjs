@@ -52,11 +52,18 @@ async function main() {
     console.log("wrote", outPath);
   }
 
-  await sharp(path.join(SRC_KIRAKIRAN, "app-icon.png"))
-    .resize({ width: 512, height: 512 })
-    .webp({ quality: 92 })
-    .toFile(path.join(OUT_KIRAKIRAN, "app-icon.webp"));
-  console.log("wrote KiraKiran app-icon.webp");
+  // app-icon.jpg is a copy of KiraKiran/assets/kirakiran-logo.jpg, which app.config.ts
+  // sets as the app's `icon`. That file is the only correct mark: a soft brown KK with
+  // NO dots, on cream. assets/icon.png (the older mark, four dots) has twice been
+  // published by mistake — check app.config.ts before replacing this source.
+  for (const [ext, encode] of [
+    ["png", (img) => img.png()],
+    ["webp", (img) => img.webp({ quality: 92 })],
+  ]) {
+    const outPath = path.join(OUT_KIRAKIRAN, `app-icon.${ext}`);
+    await encode(sharp(path.join(SRC_KIRAKIRAN, "app-icon.jpg")).resize({ width: 512, height: 512 })).toFile(outPath);
+    console.log("wrote", outPath);
+  }
 
   // Headshot: web-sized webp for the hero (base "no eyes" image is handled separately
   // via src/assets/CiaranNoEyes.png for the eye-tracking island — this is a fallback/poster
