@@ -1,13 +1,10 @@
 ---
 // Current projects — apps I'm building and shipping on my own time.
 // Facts verified against the live App Store listings: KiraKiran (id6788704136,
-// released July 2026), Fate (id6789725296, July 2026), Meigaza (id6789951612,
-// July 2026) and each project repo. Add future projects as new cards.
+// released July 2026) and the project repo. Meigaza and Fate were removed from
+// the App Store on 2026-11-11. Add future projects as new cards.
 
 const KIRAKIRAN_APP_STORE_URL = "https://apps.apple.com/jp/app/id6788704136";
-const MEIGAZA_APP_STORE_URL = "https://apps.apple.com/jp/app/id6789951612";
-const MEIGAZA_WEB_URL = "https://meigaza.expo.app";
-const FATE_APP_STORE_URL = "https://apps.apple.com/jp/app/id6789725296";
 
 const kirakiranStack = ["React Native", "Expo", "TypeScript", "Supabase"];
 const kirakiranStats = [
@@ -17,21 +14,6 @@ const kirakiranStats = [
   "Free for solo nail techs",
 ];
 
-const meigazaStack = ["React Native", "Expo", "TypeScript", "Supabase"];
-const meigazaStats = [
-  "Live on the App Store · July 2026",
-  "iOS + web from one codebase",
-  "Designed, built, and shipped solo",
-  "Japanese + English",
-];
-
-const fateStack = ["React Native", "Expo", "TypeScript", "Reanimated"];
-const fateStats = [
-  "Live on the App Store · July 2026",
-  "No accounts · Data Not Collected",
-  "2–32 players",
-  "Designed, built, and shipped solo",
-];
 
 const MARUNAIL_URL = "https://marunail.jp";
 
@@ -108,125 +90,6 @@ const marunailStats = [
 
       <ul class="projects__stats">
         {kirakiranStats.map((s) => <li>{s}</li>)}
-      </ul>
-    </article>
-
-    <article class="projects__card">
-      <header class="projects__header">
-        <img
-          class="projects__icon"
-          src="/images/meigaza/app-icon.webp"
-          width="64"
-          height="64"
-          alt="Meigaza app icon"
-          loading="lazy"
-        />
-        <div>
-          <p class="eyebrow">Own product · iOS + web · React Native + Supabase</p>
-          <h3>Meigaza: a shared movie queue for friend groups</h3>
-        </div>
-      </header>
-
-      <ul class="projects__proof-links">
-        <li>
-          <a href={MEIGAZA_APP_STORE_URL} target="_blank" rel="noopener noreferrer"
-            >App Store</a
-          >
-        </li>
-        <li>
-          <a href={MEIGAZA_WEB_URL} target="_blank" rel="noopener noreferrer"
-            >Web app</a
-          >
-        </li>
-        <li>
-          <a href="/privacy/meigaza/">Privacy policy</a>
-        </li>
-      </ul>
-
-      <p class="projects__oneliner">
-        Movie nights with my friends kept stalling on the same question: what
-        do we watch? I built the app that answers it before the night starts.
-      </p>
-
-      <p class="projects__context">
-        Meigaza gives a friend group one shared queue. Anyone on the team adds
-        a movie. Search pulls from TMDB and iTunes, or you type in your own
-        entry. Then everyone scores how much they want to watch it, and the
-        queue ranks itself from those scores, so the next pick is already
-        settled. Watched movies drop into the team's shared history. It's
-        fully localized in Japanese and English.
-      </p>
-
-      <p class="projects__context">
-        Version 1.0 is live on the App Store and as a web app, both from one
-        universal Expo codebase. I designed, built, and shipped it solo:
-        React Native + Expo + TypeScript on the front, Supabase (Postgres
-        with row-level security) behind both surfaces.
-      </p>
-
-      <ul class="projects__stack" aria-label="Tech stack">
-        {meigazaStack.map((s) => <li>{s}</li>)}
-      </ul>
-
-      <ul class="projects__stats">
-        {meigazaStats.map((s) => <li>{s}</li>)}
-      </ul>
-    </article>
-
-    <article class="projects__card">
-      <header class="projects__header">
-        <img
-          class="projects__icon"
-          src="/images/fate/app-icon.webp"
-          width="64"
-          height="64"
-          alt="Fate app icon"
-          loading="lazy"
-        />
-        <div>
-          <p class="eyebrow">Own product · iOS · React Native + Reanimated</p>
-          <h3>Fate: Let Fate Decide, a fair way to pick who goes first</h3>
-        </div>
-      </header>
-
-      <ul class="projects__proof-links">
-        <li>
-          <a href={FATE_APP_STORE_URL} target="_blank" rel="noopener noreferrer"
-            >App Store</a
-          >
-        </li>
-        <li>
-          <a href="/privacy/fate/">Privacy policy</a>
-        </li>
-      </ul>
-
-      <p class="projects__oneliner">
-        Every game night starts with the same argument about who goes first.
-        I built the app that settles it in five seconds, fairly.
-      </p>
-
-      <p class="projects__context">
-        No typing names. Everyone takes a numbered seat on a ring, Fate draws,
-        and a spotlight lands on the winner. The draw is fair: rejection-sampled
-        randomness, with a chi-square test in the suite that checks the odds
-        come out even. Elimination mode runs knockout rounds with undo. Teams
-        mode deals balanced sides. It works for 2 to 32 players, with a
-        reduced-motion path for anyone who'd rather skip the animation.
-      </p>
-
-      <p class="projects__context">
-        Version 1.0 is live on the App Store. There are no accounts and no
-        backend, so the App Store privacy label reads "Data Not Collected."
-        I designed, built, and shipped it solo: React Native + Expo +
-        TypeScript, with Reanimated driving the reveal.
-      </p>
-
-      <ul class="projects__stack" aria-label="Tech stack">
-        {fateStack.map((s) => <li>{s}</li>)}
-      </ul>
-
-      <ul class="projects__stats">
-        {fateStats.map((s) => <li>{s}</li>)}
       </ul>
     </article>
 

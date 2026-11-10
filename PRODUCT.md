@@ -44,7 +44,7 @@ Visitors commonly arrive from LinkedIn, a job application, a recruiter message, 
 ## Evidence on Hand
 
 - Production Guusto application screenshots, app icon, store links, and six years of ownership details.
-- Shipped independent products: KiraKiran, Meigaza, Fate, and the maRuNail website.
+- Shipped products: KiraKiran (featured; Meigaza and Fate were removed from the App Store 2026-11-11) and the maRuNail website.
 - A current headshot.
 - LinkedIn recommendations from Felipe Santos da Rocha, Sarah Tong, and Sreeja Guttula.
 - A current one-page React Native/frontend resume with Maestro and YAML mobile QA experience.

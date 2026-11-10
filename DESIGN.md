@@ -177,7 +177,7 @@ Corners are square throughout. Containers, links, screenshots, portrait frames, 
 - In the independent-product overview, pair each app icon with a short title, one-sentence purpose, concise platform line, and its genuine destinations.
 - Use each independent product's actual iOS App Store icon in the overview and retain its native rounded silhouette. Do not redraw, flatten, or mask it into the site's square geometry.
 - Use square edges and dividers. Do not simulate cards with shadows or rounded containers.
-- Give Meigaza both its App Store and Web app destinations; keep other product destinations aligned with the versions that are genuinely available.
+- Keep product destinations aligned with the versions that are genuinely available.
 - Keep the later Selected products detail section text-only. The overview icons already establish product identity, so repeating screenshots there creates clutter without adding evidence.
 
 ### Portrait

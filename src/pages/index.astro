@@ -1,30 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-// KiraKiran has its own featured section below Guusto, so it is not in this list.
-const independentProducts = [
-  {
-    name: "Meigaza",
-    description: "A shared movie queue that helps friend groups decide what to watch.",
-    detail: "One Expo codebase for iOS and web, with Japanese and English localization, team scoring, TMDB and iTunes search, and Supabase persistence.",
-    image: "/images/meigaza/app-icon.png",
-    imageAlt: "Meigaza application icon",
-    links: [
-      { href: "https://apps.apple.com/jp/app/meigaza/id6789951612", label: "App Store" },
-      { href: "https://meigaza.expo.app/", label: "Web app" },
-    ],
-  },
-  {
-    name: "Fate",
-    description: "A quick, fair way for groups to choose an order, teams, or a winner.",
-    detail: "React Native, Expo, TypeScript, and Reanimated. Supports 2 to 32 players, balanced teams, elimination rounds, undo, and reduced motion.",
-    image: "/images/fate/app-icon.png",
-    imageAlt: "Fate app icon",
-    links: [{ href: "https://apps.apple.com/jp/app/id6789725296", label: "App Store" }],
-  },
-];
-
 const experience = [
+  {
+    period: "2026–now",
+    organization: "KiraKiran",
+    role: "Founder and sole engineer",
+    detail: "Booking, client-records and payments app for solo salons in Japan, live on the App Store and the web. Design, React Native app, Supabase backend, payments, releases and support.",
+  },
   {
     period: "2020–2026",
     organization: "Guusto Gifts Inc.",
@@ -64,20 +47,20 @@ const skills = [
   },
 ];
 
-// KiraKiran is my own product: https://kirakiran.jp is the real product website
-// (the site used to link an in-portfolio copy of it). Facts checked against the
-// live site on 2026-10-26.
+// KiraKiran is my own product: https://kirakiran.jp is the real product website.
+// Facts checked against the live site and the KiraKiran repo on 2026-11-11.
+// Do not add user, customer or revenue numbers until there are real ones.
 const kirakiran = {
-  lead: "Online booking and client records for solo salons in Japan — nail, eyelash, hair, and esthetic.",
+  lead: "Online booking, client records and payments for solo salons in Japan: nail, eyelash, hair and esthetic.",
   evidence: [
-    ["Stage", "Closed beta with salons in Japan"],
-    ["Responsibility", "Everything — design, app, backend, release, and support"],
-    ["Platforms", "iOS and web"],
-    ["Stack", "React Native, Expo, Supabase, Stripe and Square"],
+    ["Stage", "Live on the App Store and the web"],
+    ["Responsibility", "Everything: design, app, backend, payments, release and support"],
+    ["Stack", "React Native, Expo, TypeScript, Supabase"],
+    ["Integrations", "Stripe, Square, Tap to Pay on iPhone, LINE"],
   ],
   links: [
     ["https://kirakiran.jp", "Product website"],
-    ["https://kirakiran.jp/#beta", "Beta sign-up"],
+    ["https://apps.apple.com/jp/app/id6788704136", "App Store"],
   ],
   screens: [
     ["availability", "The booking page a client sees, choosing from the salon's open times"],
@@ -116,13 +99,14 @@ const year = new Date().getFullYear();
 
 <BaseLayout
   title="Ciaran Fontein · React Native and Mobile Product Engineer"
-  description="React Native and mobile product engineer based in Nara, Japan. Six years owning Guusto's production iOS and Android app, plus independently shipped Expo products."
+  description="React Native and mobile product engineer based in Nara, Japan. Six years owning Guusto's production iOS and Android app, plus KiraKiran, my own booking and payments app for salons in Japan."
 >
   <header class="site-header">
     <div class="frame site-header__inner">
       <a class="site-name" href="#top" aria-label="Ciaran Fontein, back to top">Ciaran Fontein</a>
       <nav aria-label="Primary navigation">
         <a href="#work">Work</a>
+        <a href="#kirakiran">KiraKiran</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
         <a href="/resume/ciaran_fontein_cv.pdf">Resume</a>
@@ -178,7 +162,7 @@ const year = new Date().getFullYear();
 
     <section class="featured frame" id="kirakiran" aria-labelledby="kirakiran-title">
       <div class="featured__summary">
-        <p class="eyebrow">My own product</p>
+        <p class="eyebrow">Featured project · My own product</p>
         <h2 id="kirakiran-title">KiraKiran</h2>
         <p class="featured__lead">{kirakiran.lead}</p>
         <dl class="evidence">
@@ -215,36 +199,10 @@ const year = new Date().getFullYear();
       </figure>
     </section>
 
-    <section class="products frame" aria-labelledby="products-title">
-      <header class="products__intro">
-        <h2 id="products-title">Independent products</h2>
-        <p>Smaller products built around problems I know personally, then shipped and maintained.</p>
-      </header>
-      <div class="products__list">
-        {independentProducts.map((product) => (
-          <article class="product">
-            <a class="product__media" href={product.links[0].href} {...(product.links[0].href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
-              <img src={product.image} alt={product.imageAlt} loading="lazy" />
-            </a>
-            <div class="product__copy">
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <span>iOS · React Native · Expo</span>
-              <div class="product__links">
-                {product.links.map((link) => (
-                  <a href={link.href} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{link.label}</a>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
     <section class="qa frame" aria-labelledby="qa-title">
       <div>
         <h2 id="qa-title">Mobile QA with Maestro</h2>
-        <p>Reliable staging coverage for real iOS and Android flows.</p>
+        <p>Reliable staging coverage for KiraKiran's real iOS flows.</p>
       </div>
       <p>
         Built a staging-locked Maestro and YAML black-box harness covering smoke, adversarial, CRUD, restart, public-booking, and Stripe card PaymentSheet flows. Added stable selectors, safety guards, JUnit reports, screenshots, cleanup, and device targeting. Cross-role messaging was designed and instrumented as a coordinated two-device protocol.
@@ -302,25 +260,29 @@ const year = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="product-details frame" aria-labelledby="product-details-title">
+    <section class="detail frame" aria-labelledby="kirakiran-build-title">
       <header class="section-intro">
-        <h2 id="product-details-title">Selected products</h2>
-        <p>Each product began with a problem I wanted to solve.</p>
+        <h2 id="kirakiran-build-title">Building KiraKiran</h2>
+        <p>I started KiraKiran in July 2026 after seeing how a solo nail salon runs on LINE chats, Instagram DMs and memory. I design, build, ship and support all of it myself.</p>
       </header>
-      {independentProducts.map((product) => (
-        <article class="product-detail">
-          <div>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>{product.detail}</p>
-            <div class="product-detail__links">
-              {product.links.map((link) => (
-                <a href={link.href} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>Open {link.label.toLowerCase()}</a>
-              ))}
-            </div>
-          </div>
-        </article>
-      ))}
+      <div class="ownership-grid">
+        <div>
+          <h3>Built and shipped</h3>
+          <ul>
+            <li>One React Native, Expo and TypeScript codebase for the iPhone app and the web version, with Japanese and English.</li>
+            <li>Supabase backend: authentication, database migrations with row-level security, and edge functions.</li>
+            <li>EAS builds, App Store releases and over-the-air updates.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Payments and messaging</h3>
+          <ul>
+            <li>Deposits and prepayment through the salon's own Stripe or Square account, and Tap to Pay on iPhone in the salon.</li>
+            <li>LINE integration, so salons send booking messages from their own LINE official account.</li>
+            <li>Shaped through regular feedback from an independent nail technician using it for day-to-day salon work.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="experience frame" id="experience" aria-labelledby="experience-title">
